@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Betty v5.0 Evaluation Report - 2025-11-05 10:23:29</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        .summary {
+            background-color: #f9f9f9;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .metric-label {
+            color: #666;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .test-case {
+            border: 2px solid #ddd;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+        }
+        .excellent { border-left: 5px solid #28a745; background-color: #f1f9f3; }
+        .good { border-left: 5px solid #17a2b8; background-color: #f1f9fc; }
+        .acceptable { border-left: 5px solid #ffc107; background-color: #fffbf1; }
+        .needs-improvement { border-left: 5px solid #fd7e14; background-color: #fff5f1; }
+        .poor { border-left: 5px solid #dc3545; background-color: #fff1f1; }
+
+        .scores {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .score-box {
+            padding: 12px 16px;
+            border-radius: 6px;
+            text-align: center;
+            min-width: 100px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+        }
+        .score-box strong {
+            display: block;
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .score-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .rating-chart {
+            margin: 20px 0;
+        }
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .rating-label {
+            min-width: 180px;
+            font-weight: 500;
+        }
+        .rating-fill {
+            height: 30px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .breakdown {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .checks {
+            margin: 10px 0;
+        }
+        .check-item {
+            padding: 5px 0;
+            font-size: 0.95em;
+        }
+        .check-passed {
+            color: #28a745;
+        }
+        .check-failed {
+            color: #dc3545;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .comparison {
+            background: linear-gradient(135deg, #f6f9fc 0%, #e9f2f9 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .improvement {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .badge-excellent { background-color: #28a745; color: white; }
+        .badge-good { background-color: #17a2b8; color: white; }
+        .badge-acceptable { background-color: #ffc107; color: #333; }
+        .badge-needs { background-color: #fd7e14; color: white; }
+        .badge-poor { background-color: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Betty v5.0 Evaluation Report</h1>
+            <p>Real-World Usability Focus | Generated: 2025-11-05 10:23:29</p>
+            <p>Test Cases: 50 | Success Rate: 100.0%</p>
+        </div>
+
+        <div class="summary">
+            <h2>📊 Executive Summary</h2>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">0.788</div>
+                    <div class="metric-label">Overall Score</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">0.628</div>
+                    <div class="metric-label">Semantic Correctness</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">0.805</div>
+                    <div class="metric-label">OBT Adherence</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">0.930</div>
+                    <div class="metric-label">Response Completeness</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">0.995</div>
+                    <div class="metric-label">Professional Communication</div>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <h3>🎯 Performance vs v4.3 Baseline</h3>
+                <p style="font-size: 1.2em;">
+                    <strong>v4.3 Baseline:</strong> 0.307 (POOR - 70% failed)<br>
+                    <strong>v5.0 Score:</strong> 0.788
+                    <span class="improvement">+156.6% improvement</span>
+                </p>
+                <p>
+                    <strong>Key Changes:</strong> Reasoning and sources now ADD value •
+                    Realistic length expectations • Transparent scoring •
+                    Human-centered evaluation
+                </p>
+            </div>
+
+            <h3>📈 Rating Distribution</h3>
+            <div class="rating-chart">
+
+                <div class="rating-bar">
+                    <div class="rating-label">
+                        <span class="badge badge-excellent">EXCELLENT</span>
+                    </div>
+                    <div class="rating-fill" style="width: 32.0%;">
+                        16 (32.0%)
+                    </div>
+                </div>
+
+                <div class="rating-bar">
+                    <div class="rating-label">
+                        <span class="badge badge-good">GOOD</span>
+                    </div>
+                    <div class="rating-fill" style="width: 40.0%;">
+                        20 (40.0%)
+                    </div>
+                </div>
+
+                <div class="rating-bar">
+                    <div class="rating-label">
+                        <span class="badge badge-acceptable">ACCEPTABLE</span>
+                    </div>
+                    <div class="rating-fill" style="width: 16.0%;">
+                        8 (16.0%)
+                    </div>
+                </div>
+
+                <div class="rating-bar">
+                    <div class="rating-label">
+                        <span class="badge badge-needs">NEEDS_IMPROVEMENT</span>
+                    </div>
+                    <div class="rating-fill" style="width: 12.0%;">
+                        6 (12.0%)
+                    </div>
+                </div>
+
+                <div class="rating-bar">
+                    <div class="rating-label">
+                        <span class="badge badge-poor">POOR</span>
+                    </div>
+                    <div class="rating-fill" style="width: 5%;">
+                        0 (0.0%)
+                    </div>
+                </div>
+
+            </div>
+
+            <h3>⏱️ Performance Metrics</h3>
+            <p>
+                <strong>Avg Response Time:</strong> 3932ms<br>
+                <strong>Avg Word Count:</strong> 40.9 words<br>
+                <strong>Errors:</strong> 0 (0.0%)
+            </p>
+        </div>
+
+        <h2>🔍 Detailed Test Case Results</h2>
+
+        <div class="test-case excellent">
+            <h3>Test Case #1 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.9375)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Rewrite 'implement ERP system' as an outcome (≤10 words)</p>
+            <p><strong>Expected:</strong> Business processes are integrated enterprise-wide</p>
+            <p><strong>Agent Response:</strong> (5 words)<br>
+            Business processes are integrated enterprise-wide</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2281ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Proper tense (present passive describing achieved state)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Mentions specific technology: erp</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #2 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8775)</h3>
+            <p><strong>Mode:</strong> MODE2</p>
+            <p><strong>Prompt:</strong> Classify 'Decision speed improves measurably' — What or How?</p>
+            <p><strong>Expected:</strong> What</p>
+            <p><strong>Agent Response:</strong> (1 words)<br>
+            What</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.7</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">1900ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #3 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8657)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Provide a ≤10-word outcome for product design quality.</p>
+            <p><strong>Expected:</strong> Design quality meets customer expectations consistently</p>
+            <p><strong>Agent Response:</strong> (7 words)<br>
+            Product designs consistently meet world-class quality standards</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.8204</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2896ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.820 × 0.40 = 0.328 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #4 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8989)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> Prioritize: Digital Twin, Advanced Analytics, Predictive Maintenance for capability impact.</p>
+            <p><strong>Expected:</strong> 1) Advanced Analytics; 2) Digital Twin; 3) Predictive Maintenance</p>
+            <p><strong>Agent Response:</strong> (159 words)<br>
+            **Priority Ranking by Capability Impact:**
+
+1. **Advanced Analytics** (Foundational enabler)
+   - Impact Score: 3 across multiple Data & AI capabilities
+   - Enables: Decision speed, data-driven insights, cross-domain optimization
+   - Current Maturity: Level 2 → Target: Level 4
+
+2. **Digital Twin** (Strategic differentiator)
+   - Impact Score: 3 for operational efficiency and product development
+   - Enables: Real-time optimization, predictive modeling, design validation
+   - Current Maturity: ...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.7472</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">7718ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.747 × 0.40 = 0.299 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ✓ Confidence level stated</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #5 <span class="badge badge-good">GOOD</span> (Score: 0.8255)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> Write acceptance criteria for 'Workforce capabilities enhanced significantly' including owner and measurement.</p>
+            <p><strong>Expected:</strong> Owner: HR/L&D; Measure: competency assessment pass rate; Goal: 90% within 12 months; Evidence: assessment reports</p>
+            <p><strong>Agent Response:</strong> (213 words)<br>
+            ## Acceptance Criteria: Workforce Capabilities Enhanced Significantly
+
+**Outcome Owner:** Chief Human Resources Officer (CHRO)
+
+**Supporting Stakeholders:**
+- Learning & Development Director
+- Operations Leaders
+- Engineering Managers
+- Quality Assurance Director
+
+### Acceptance Criteria
+
+**Capability Development:**
+- Skills gap assessment completed across all product development functions
+- Competency frameworks established for critical technical roles
+- Individual development plans activated f...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5636</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">10313ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.564 × 0.40 = 0.225 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ✓ Confidence level stated</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case acceptable">
+            <h3>Test Case #6 <span class="badge badge-acceptable">ACCEPTABLE</span> (Score: 0.6548)</h3>
+            <p><strong>Mode:</strong> MODE2</p>
+            <p><strong>Prompt:</strong> Is 'Deploy analytics dashboards' an acceptable outcome? If not, reframe.</p>
+            <p><strong>Expected:</strong> No — it's a How. Reframe: Decision speed improves measurably</p>
+            <p><strong>Agent Response:</strong> (9 words)<br>
+            No — How. Reframe: Business insights are easily accessible</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.2932</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2841ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.293 × 0.40 = 0.117 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #7 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.9316)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> State Part Information Management maturity (current and target).</p>
+            <p><strong>Expected:</strong> Part Information Management — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)</p>
+            <p><strong>Agent Response:</strong> (51 words)<br>
+            Part Information Management — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+
+Source: BOM PIM Capability Definitions and Maturities.xlsx
+
+Key context: Current state shows basic part information workflows exist but lack standardization across engineering teams. Target enables data-driven decision making with quantitative controls and predictive analytics for part lifecycle management.</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.829</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">3786ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.829 × 0.40 = 0.332 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ~ Confidence level implicit</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #8 <span class="badge badge-good">GOOD</span> (Score: 0.8484)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Create a metric-free ≤10-word outcome for customer onboarding.</p>
+            <p><strong>Expected:</strong> Customers onboard seamlessly and confidently</p>
+            <p><strong>Agent Response:</strong> (7 words)<br>
+            Customer onboarding experiences consistently exceed satisfaction expectations</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.7773</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2659ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.777 × 0.40 = 0.311 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #9 <span class="badge badge-good">GOOD</span> (Score: 0.7906)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> Top-level RACI for Digital Twin — Accountable and Responsible?</p>
+            <p><strong>Expected:</strong> Accountable: Head of Operations; Responsible: Plant Engineering & Operations</p>
+            <p><strong>Agent Response:</strong> (77 words)<br>
+            **Digital Twin RACI:**
+
+**Accountable:** Chief Technology Officer (CTO) or VP Engineering
+**Responsible:** Digital Twin Program Manager + Data Engineering Team Lead
+
+**Supporting Roles:**
+- **Consulted:** Product Management, Manufacturing Engineering, IT Architecture
+- **Informed:** Business Unit Leaders, Quality Assurance, Supply Chain
+
+**Rationale:** Digital Twin spans engineering data, manufacturing systems, and product lifecycle - requiring executive accountability with dedicated program man...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.4764</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">5888ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.476 × 0.40 = 0.191 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ~ Confidence level implicit</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #10 <span class="badge badge-good">GOOD</span> (Score: 0.7575)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Given target weights Pain 30%, Capabilities 55%, Infra 15% and current Pain29%, Cap13%, Infra21% — which area is underrepresented?</p>
+            <p><strong>Expected:</strong> Capabilities underrepresented (13% vs 55%). Action: prioritize capability projects and reallocate budget.</p>
+            <p><strong>Agent Response:</strong> (9 words)<br>
+            Capabilities
+
+(Current: 13% vs Target: 55% = -42% gap)</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.7062</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.5</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">4947ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.706 × 0.40 = 0.282 | OBT: 0.500 × 0.25 = 0.125 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Contains metrics/numbers</div><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #11 <span class="badge badge-good">GOOD</span> (Score: 0.7907)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Rewrite 'train staff on new process' as an outcome (≤10 words)</p>
+            <p><strong>Expected:</strong> Staff competency in new process is established</p>
+            <p><strong>Agent Response:</strong> (7 words)<br>
+            Staff consistently execute new processes with confidence</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.6329</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">3129ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.633 × 0.40 = 0.253 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case needs-improvement">
+            <h3>Test Case #12 <span class="badge badge-needs">NEEDS_IMPROVEMENT</span> (Score: 0.5824)</h3>
+            <p><strong>Mode:</strong> MODE2</p>
+            <p><strong>Prompt:</strong> Is 'Improve vendor relationships' a What or How?</p>
+            <p><strong>Expected:</strong> How — describes method. Reframe: Vendor delivery reliability increases consistently</p>
+            <p><strong>Agent Response:</strong> (1 words)<br>
+            How</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.2623</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.7</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2130ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.262 × 0.40 = 0.105 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #13 <span class="badge badge-good">GOOD</span> (Score: 0.788)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> Write a KPI (goal + measure) for 'Operations visibility is comprehensive'</p>
+            <p><strong>Expected:</strong> Goal: Real-time asset visibility across plants; Measure: % assets with live telemetry (Target: 95%)</p>
+            <p><strong>Agent Response:</strong> (18 words)<br>
+            **Goal:** Operations visibility is comprehensive
+
+**Measure:** Percentage of operational processes with real-time status visibility across all production facilities</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.67</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.6</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">3337ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.670 × 0.40 = 0.268 | OBT: 1.000 × 0.25 = 0.250 | Complete: 0.600 × 0.20 = 0.120 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ~ Confidence level implicit</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #14 <span class="badge badge-good">GOOD</span> (Score: 0.7941)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Reframe 'deploy a new PLM system' into an outcome.</p>
+            <p><strong>Expected:</strong> Product data is unified and accessible</p>
+            <p><strong>Agent Response:</strong> (9 words)<br>
+            Product lifecycle data is seamlessly accessible across all teams</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.6416</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2892ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.642 × 0.40 = 0.257 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #15 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8775)</h3>
+            <p><strong>Mode:</strong> MODE2</p>
+            <p><strong>Prompt:</strong> Classify: 'Production meets defined run-rate stability' — What or How?</p>
+            <p><strong>Expected:</strong> What</p>
+            <p><strong>Agent Response:</strong> (1 words)<br>
+            What</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.7</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">1898ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #16 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8796)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Produce ≤10-word outcome for supplier quality.</p>
+            <p><strong>Expected:</strong> Supplier parts meet quality standards consistently</p>
+            <p><strong>Agent Response:</strong> (7 words)<br>
+            Supplier quality consistently exceeds world-class performance standards</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.8552</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">3399ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.855 × 0.40 = 0.342 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case acceptable">
+            <h3>Test Case #17 <span class="badge badge-acceptable">ACCEPTABLE</span> (Score: 0.7213)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> Create a short stakeholder alignment note for Analytics Platform launch.</p>
+            <p><strong>Expected:</strong> Sponsor: CIO; Responsible: Data Engineering; Consulted: Business Units; Informed: Execs</p>
+            <p><strong>Agent Response:</strong> (9 words)<br>
+            Analytics platform delivers actionable business insights across all teams.</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5033</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.6</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">3370ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.503 × 0.40 = 0.201 | OBT: 1.000 × 0.25 = 0.250 | Complete: 0.600 × 0.20 = 0.120 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ~ Acceptable structure (readable)</div><div class="check-item check-passed">✓ ~ Confidence level implicit</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case needs-improvement">
+            <h3>Test Case #18 <span class="badge badge-needs">NEEDS_IMPROVEMENT</span> (Score: 0.5618)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Is 'Reduce time-to-market by 20%' a valid outcome statement per OBT?</p>
+            <p><strong>Expected:</strong> No — contains metric. Reframe metric-free: Time-to-market is reduced significantly</p>
+            <p><strong>Agent Response:</strong> (1 words)<br>
+            No</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.2109</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.7</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2829ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.211 × 0.40 = 0.084 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case needs-improvement">
+            <h3>Test Case #19 <span class="badge badge-needs">NEEDS_IMPROVEMENT</span> (Score: 0.6376)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Give an example ≤10-word outcome for culture change.</p>
+            <p><strong>Expected:</strong> Employees are engaged and empowered to improve processes</p>
+            <p><strong>Agent Response:</strong> (6 words)<br>
+            Culture enables continuous strategic innovation enterprise-wide.</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.4064</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.5</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2747ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.406 × 0.40 = 0.163 | OBT: 0.500 × 0.25 = 0.125 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Mentions specific technology: erp</div><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #20 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.897)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> For Change Control: write a ≤10-word outcome about traceability.</p>
+            <p><strong>Expected:</strong> End-to-end traceability is maintained across changes</p>
+            <p><strong>Agent Response:</strong> (8 words)<br>
+            Change traceability is maintained across all product lifecycles</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.7425</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2630ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.742 × 0.40 = 0.297 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Proper tense (present passive describing achieved state)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #21 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8775)</h3>
+            <p><strong>Mode:</strong> MODE2</p>
+            <p><strong>Prompt:</strong> Classify 'All functions contribute effortlessly throughout the change process' — What or How?</p>
+            <p><strong>Expected:</strong> What</p>
+            <p><strong>Agent Response:</strong> (1 words)<br>
+            What</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.7</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2371ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #22 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8969)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Rewrite 'implement automated testing' as an outcome.</p>
+            <p><strong>Expected:</strong> Product quality is validated continuously</p>
+            <p><strong>Agent Response:</strong> (7 words)<br>
+            Product quality is validated automatically and consistently.</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.7423</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">3099ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.742 × 0.40 = 0.297 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Proper tense (present passive describing achieved state)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #23 <span class="badge badge-good">GOOD</span> (Score: 0.8428)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> Create acceptance criteria for 'Design risks are captured and mitigated'</p>
+            <p><strong>Expected:</strong> Owner: Engineering; Measure: % identified risks mitigated before release (Goal: 95%); Evidence: DFMEA and mitigation logs</p>
+            <p><strong>Agent Response:</strong> (204 words)<br>
+            **Acceptance Criteria: Design Risks are Captured and Mitigated**
+
+**Risk Identification**
+- Design risks identified across all product development phases (concept through manufacturing)
+- Risk assessment includes technical, schedule, cost, and quality dimensions
+- Cross-functional teams contribute to risk identification (Engineering, Manufacturing, Quality, Supply Chain)
+- Risk register maintained with complete traceability to design decisions
+
+**Risk Assessment & Prioritization**
+- Quantitative...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.607</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">8675ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.607 × 0.40 = 0.243 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ✓ Confidence level stated</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #24 <span class="badge badge-good">GOOD</span> (Score: 0.8015)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Provide a ≤10-word outcome for partner network value.</p>
+            <p><strong>Expected:</strong> A robust, value-generating partner network exists</p>
+            <p><strong>Agent Response:</strong> (8 words)<br>
+            Partners consistently deliver exceptional value to mutual customers</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.66</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2863ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.660 × 0.40 = 0.264 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #25 <span class="badge badge-good">GOOD</span> (Score: 0.7603)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Is 'Create customer feedback surveys' an outcome? Reframe if needed.</p>
+            <p><strong>Expected:</strong> No — it's a How. Reframe: Customer feedback is captured comprehensively</p>
+            <p><strong>Agent Response:</strong> (9 words)<br>
+            No — How. Reframe: Customer insights are systematically captured</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5569</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2982ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.557 × 0.40 = 0.223 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case needs-improvement">
+            <h3>Test Case #26 <span class="badge badge-needs">NEEDS_IMPROVEMENT</span> (Score: 0.5794)</h3>
+            <p><strong>Mode:</strong> MODE2</p>
+            <p><strong>Prompt:</strong> Classify 'Decision support improves' — What or How?</p>
+            <p><strong>Expected:</strong> What — but needs specificity. Better: Decisions are data-informed consistently</p>
+            <p><strong>Agent Response:</strong> (1 words)<br>
+            What</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.2547</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.7</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2188ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.255 × 0.40 = 0.102 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #27 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.9006)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Provide a ≤10-word outcome for quality management.</p>
+            <p><strong>Expected:</strong> Quality and compliance meet required standards consistently</p>
+            <p><strong>Agent Response:</strong> (8 words)<br>
+            Quality excellence is achieved consistently across all operations</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.7515</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2945ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.751 × 0.40 = 0.301 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Proper tense (present passive describing achieved state)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case acceptable">
+            <h3>Test Case #28 <span class="badge badge-acceptable">ACCEPTABLE</span> (Score: 0.6675)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Write a short risk identification for Blockchain Integration project (low impact).</p>
+            <p><strong>Expected:</strong> Risk: Low business alignment and unclear ROI; Mitigation: validate use-case before investment</p>
+            <p><strong>Agent Response:</strong> (89 words)<br>
+            **Risk Identification: Blockchain Integration Project**
+
+**Technical Risks:**
+- Integration complexity with legacy systems may cause delays
+- Scalability limitations could impact transaction throughput
+- Security vulnerabilities in smart contract implementation
+
+**Business Risks:**
+- Limited stakeholder adoption due to technology unfamiliarity
+- Regulatory compliance gaps in blockchain governance
+- Cost overruns from extended development cycles
+
+**Operational Risks:**
+- Data migration challenges...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.4814</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.5</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">5725ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.481 × 0.40 = 0.193 | OBT: 0.500 × 0.25 = 0.125 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Contains How verbs: implement, train</div><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #29 <span class="badge badge-good">GOOD</span> (Score: 0.7754)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Rewrite 'optimize assembly line throughput' into an outcome.</p>
+            <p><strong>Expected:</strong> Production throughput achieves defined stability</p>
+            <p><strong>Agent Response:</strong> (7 words)<br>
+            Assembly line throughput achieves optimal performance consistently</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5948</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2676ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.595 × 0.40 = 0.238 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #30 <span class="badge badge-good">GOOD</span> (Score: 0.752)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Create a ≤10-word outcome for talent development.</p>
+            <p><strong>Expected:</strong> Workforce capabilities enhance significantly</p>
+            <p><strong>Agent Response:</strong> (8 words)<br>
+            Technical talent capabilities exceed industry leadership standards consistently</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5364</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2497ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.536 × 0.40 = 0.215 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case acceptable">
+            <h3>Test Case #31 <span class="badge badge-acceptable">ACCEPTABLE</span> (Score: 0.7075)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> Provide a short next-step plan (3 bullets) to prioritize Digital Twin next quarter.</p>
+            <p><strong>Expected:</strong> 1. Approve funding and appoint sponsor; 2. Define MVP scope and pilot site; 3. Allocate engineering and IT resources</p>
+            <p><strong>Agent Response:</strong> (139 words)<br>
+            **Digital Twin Next-Step Plan (Next Quarter)**
+
+Current Maturity: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+Source: Data and AI Capability Definitions and Maturities.xlsx
+
+**Priority Actions:**
+
+• **Establish Digital Twin Governance Structure** - Form cross-functional team with Engineering, Manufacturing, and IT to define standards, data ownership, and integration protocols
+
+• **Implement Real-Time Data Integration** - Deploy automated sensor data collection for top 3 product f...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.2686</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">6623ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.269 × 0.40 = 0.107 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ✓ Confidence level stated</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case needs-improvement">
+            <h3>Test Case #32 <span class="badge badge-needs">NEEDS_IMPROVEMENT</span> (Score: 0.5699)</h3>
+            <p><strong>Mode:</strong> MODE2</p>
+            <p><strong>Prompt:</strong> Classify 'Operations easily perform at unsurpassed excellence' — What or How?</p>
+            <p><strong>Expected:</strong> What — but vague and hyperbolic. Better: Operations performance meets world-class standards</p>
+            <p><strong>Agent Response:</strong> (1 words)<br>
+            What</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.2309</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.7</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2250ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.231 × 0.40 = 0.092 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #33 <span class="badge badge-good">GOOD</span> (Score: 0.7693)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Provide a metric-free ≤10-word outcome for product competitiveness.</p>
+            <p><strong>Expected:</strong> Products are the most sought-after in the market</p>
+            <p><strong>Agent Response:</strong> (7 words)<br>
+            Products consistently outperform competitors in market positioning</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5795</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2466ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.579 × 0.40 = 0.232 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case acceptable">
+            <h3>Test Case #34 <span class="badge badge-acceptable">ACCEPTABLE</span> (Score: 0.7458)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Reframe 'migrate master data to new system' as an outcome.</p>
+            <p><strong>Expected:</strong> Master data is accurate and accessible</p>
+            <p><strong>Agent Response:</strong> (8 words)<br>
+            Master data is accessible across integrated enterprise systems</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.6769</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.5</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2299ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.677 × 0.40 = 0.271 | OBT: 0.500 × 0.25 = 0.125 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Mentions specific technology: erp</div><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #35 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8523)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> Write a short acceptance criteria for 'End-to-end traceability is maintained across changes'</p>
+            <p><strong>Expected:</strong> Owner: Change Control Board; Measure: % changes with full traceability (Goal: 100%); Evidence: trace logs and audit reports</p>
+            <p><strong>Agent Response:</strong> (167 words)<br>
+            **Acceptance Criteria: End-to-end traceability is maintained across changes**
+
+**Functional Requirements:**
+- All change requests automatically capture upstream and downstream impact relationships
+- Traceability links remain intact when requirements, designs, or specifications are modified
+- Impact analysis reports generated within 30 seconds showing affected components, documents, and stakeholders
+- Historical change audit trail preserved with complete lineage visibility
+
+**Quality Gates:**
+- 1...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.6308</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">9130ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.631 × 0.40 = 0.252 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ~ Confidence level implicit</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case acceptable">
+            <h3>Test Case #36 <span class="badge badge-acceptable">ACCEPTABLE</span> (Score: 0.6977)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Create a ≤10-word outcome for customer experience.</p>
+            <p><strong>Expected:</strong> Customers delight in an electrifying experience consistently</p>
+            <p><strong>Agent Response:</strong> (7 words)<br>
+            Customers consistently choose Molex as preferred partner</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.4005</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2889ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.400 × 0.40 = 0.160 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #37 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8775)</h3>
+            <p><strong>Mode:</strong> MODE2</p>
+            <p><strong>Prompt:</strong> Classify 'We preempt the market with sought-after products' — What or How?</p>
+            <p><strong>Expected:</strong> What</p>
+            <p><strong>Agent Response:</strong> (1 words)<br>
+            What</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.7</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2286ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case acceptable">
+            <h3>Test Case #38 <span class="badge badge-acceptable">ACCEPTABLE</span> (Score: 0.7208)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Provide a ≤10-word outcome for requirements management.</p>
+            <p><strong>Expected:</strong> Product expectations are met effectively and efficiently</p>
+            <p><strong>Agent Response:</strong> (8 words)<br>
+            Requirements are captured, validated, and traced consistently enterprise-wide</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.4581</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2780ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.458 × 0.40 = 0.183 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Proper tense (present passive describing achieved state)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Mentions specific technology: erp</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #39 <span class="badge badge-good">GOOD</span> (Score: 0.805)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Is 'Increase automation by implementing robots' an outcome? Reframe.</p>
+            <p><strong>Expected:</strong> No — it's a How. Reframe: Production automation increases reliably</p>
+            <p><strong>Agent Response:</strong> (9 words)<br>
+            No — How. Reframe: Manufacturing processes are fully automated</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.6687</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2537ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.669 × 0.40 = 0.267 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #40 <span class="badge badge-good">GOOD</span> (Score: 0.8196)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> Write a short stakeholder RACI for Quality Management System project.</p>
+            <p><strong>Expected:</strong> Accountable: Head of Quality; Responsible: Quality Ops; Consulted: Manufacturing; Informed: Execs</p>
+            <p><strong>Agent Response:</strong> (142 words)<br>
+            **Quality Management System Project - RACI Matrix**
+
+**Key Stakeholders:**
+- **Quality Director:** R/A for system design, compliance strategy
+- **IT Manager:** R for technical implementation, system integration  
+- **Operations Manager:** R for workflow integration, user training
+- **Regulatory Affairs:** C for compliance requirements, audit standards
+- **Plant Managers:** I for rollout timeline, operational impact
+- **Executive Sponsor:** A for budget approval, strategic alignment
+
+**Critical A...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5489</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">8736ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.549 × 0.40 = 0.220 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ~ Confidence level implicit</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #41 <span class="badge badge-good">GOOD</span> (Score: 0.8066)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> What is Change Control Management current and target maturity?</p>
+            <p><strong>Expected:</strong> Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed)</p>
+            <p><strong>Agent Response:</strong> (86 words)<br>
+            **Change Control Management**
+
+Current Maturity: Level 2 (Managed)
+Target Maturity: Level 4 (Quantitatively Managed)
+
+**Current State Context:**
+Basic change control processes exist with defined approval workflows, but lack standardization across product lines. ECO processes are documented but not consistently measured or optimized.
+
+**Target State Context:**
+Quantitative management enables data-driven change decisions with statistical process control, predictive change impact analysis, and auto...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5166</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">5089ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.517 × 0.40 = 0.207 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ~ Confidence level implicit</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #42 <span class="badge badge-good">GOOD</span> (Score: 0.8006)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> State Requirements Management maturity levels.</p>
+            <p><strong>Expected:</strong> Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed)</p>
+            <p><strong>Agent Response:</strong> (87 words)<br>
+            Requirements Management — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+
+**Current State (Level 2):**
+- Basic requirement capture processes exist
+- Some stakeholder involvement in requirements gathering
+- Limited traceability and validation practices
+- Ad-hoc requirement change management
+
+**Target State (Level 4):**
+- Quantitative measurement of requirements quality
+- Data-driven requirement validation processes
+- Statistical process control for requirement changes
+- Pred...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5014</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">6350ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.501 × 0.40 = 0.201 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ~ Confidence level implicit</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #43 <span class="badge badge-good">GOOD</span> (Score: 0.7589)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> What is Design Management & Collaboration maturity status?</p>
+            <p><strong>Expected:</strong> Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed)</p>
+            <p><strong>Agent Response:</strong> (99 words)<br>
+            **Current Maturity: Level 2 (Managed)**
+**Target Maturity: Level 4 (Quantitatively Managed)**
+
+Source: Design Management and Collaboration Capability Definitions and Maturities.xlsx
+
+**Current State Context:**
+Basic design workflows exist but lack standardization across teams. Collaboration tools are implemented but not optimally integrated. Design-to-manufacturing handoff processes show inconsistency.
+
+**Target State Vision:**
+Quantitative management of design processes with data-driven decisio...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.3972</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">6706ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.397 × 0.40 = 0.159 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ✓ Confidence level stated</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #44 <span class="badge badge-good">GOOD</span> (Score: 0.8451)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> State Data & AI capability maturity.</p>
+            <p><strong>Expected:</strong> Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed)</p>
+            <p><strong>Agent Response:</strong> (63 words)<br>
+            Data & AI — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+
+Source: Data and AI Capability Definitions and Maturities.xlsx
+
+Key gaps: Current state has basic data governance and ad-hoc analytics. Target enables predictive insights with quantitative process controls and integrated AI decision support across product development workflows.
+
+Priority focus areas: Data quality automation, predictive analytics platform, and AI-driven design optimization capabilities.</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.6127</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">4678ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.613 × 0.40 = 0.245 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ~ Confidence level implicit</div><div class="check-item check-passed">✓ ✓ No first-person language</div>
+            </div>
+        </div>
+
+        <div class="test-case acceptable">
+            <h3>Test Case #45 <span class="badge badge-acceptable">ACCEPTABLE</span> (Score: 0.7254)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> What are the 8 domains in Betty's knowledge base?</p>
+            <p><strong>Expected:</strong> 1) Change Control, 2) BOM/PIM, 3) Requirements, 4) Design, 5) PD Framework, 6) Data & AI, 7) Global PD, 8) OBT Methodology</p>
+            <p><strong>Agent Response:</strong> (123 words)<br>
+            **8 Domains in Betty's Knowledge Base:**
+
+1. **Change Control Management** - Change governance, ECO workflows, approval processes
+2. **BOM & PIM Management** - Bill of Materials, Part Information Management, master data governance  
+3. **Requirements Management** - Requirement capture, validation, traceability, stakeholder management
+4. **Design Management & Collaboration** - Design workflows, collaboration tools, design-to-manufacturing handoff
+5. **PD Framework Transformation** - Business proc...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.6261</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.5</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">5447ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.626 × 0.40 = 0.250 | OBT: 0.500 × 0.25 = 0.125 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Contains metrics/numbers</div><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #46 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.9097)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> What is the GPS framework destination for Molex?</p>
+            <p><strong>Expected:</strong> Customers always choose Molex first</p>
+            <p><strong>Agent Response:</strong> (5 words)<br>
+            Customers always choose Molex first.</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.9305</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2341ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.931 × 0.40 = 0.372 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case good">
+            <h3>Test Case #47 <span class="badge badge-good">GOOD</span> (Score: 0.8005)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> How many outcomes are in Betty's GPS framework?</p>
+            <p><strong>Expected:</strong> 288 outcomes across 13 clusters</p>
+            <p><strong>Agent Response:</strong> (6 words)<br>
+            288 outcomes across 13 strategic clusters.</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.8137</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.5</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2548ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.814 × 0.40 = 0.325 | OBT: 0.500 × 0.25 = 0.125 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Contains metrics/numbers</div><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #48 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.882)</h3>
+            <p><strong>Mode:</strong> MODE3</p>
+            <p><strong>Prompt:</strong> What is the difference between maturity levels and impact scores?</p>
+            <p><strong>Expected:</strong> Maturity: 1-5 scale (Initial to Optimized); Impact: 0-3 integers (project impact)</p>
+            <p><strong>Agent Response:</strong> (132 words)<br>
+            **Maturity Levels (1-5 Scale)**
+- Measures current capability development stage
+- Scale: 1=Initial, 2=Managed, 3=Defined, 4=Quantitatively Managed, 5=Optimized
+- Source: Capability definition XLSX matrices
+- Purpose: Assesses how well a capability is currently implemented
+- Example: "Requirements Management maturity is Level 2 (Managed)"
+
+**Impact Scores (0-3 Scale)**
+- Measures project benefit potential across strategic areas
+- Scale: 0=No impact, 1=Low, 2=Medium, 3=High impact
+- Source: Projec...</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.7986</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">6975ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.799 × 0.40 = 0.319 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 0.750 × 0.15 = 0.112
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ MODE3: OBT checks not strictly applied</div><div class="check-item check-passed">✓ ✓ Well-structured (sections/formatting)</div><div class="check-item check-passed">✓ ✓ Confidence level stated</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Contains preamble/first-person intro</div>
+            </div>
+        </div>
+
+        <div class="test-case excellent">
+            <h3>Test Case #49 <span class="badge badge-excellent">EXCELLENT</span> (Score: 0.8789)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> Name one AI Agentic Strategy document in Betty's knowledge base.</p>
+            <p><strong>Expected:</strong> AI Agentic Strategy for Data & AI (or BOM/PIM</p>
+            <p><strong>Agent Response:</strong> (8 words)<br>
+            AI Agentic Strategy for BOM & PIM Management.docx</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.8535</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.75</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2521ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.854 × 0.40 = 0.341 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ Metric-free (no numbers/percentages)</div><div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+        <div class="test-case needs-improvement">
+            <h3>Test Case #50 <span class="badge badge-needs">NEEDS_IMPROVEMENT</span> (Score: 0.6376)</h3>
+            <p><strong>Mode:</strong> MODE1</p>
+            <p><strong>Prompt:</strong> What is Betty's current data completeness percentage?</p>
+            <p><strong>Expected:</strong> 95% (Production Ready)</p>
+            <p><strong>Agent Response:</strong> (1 words)<br>
+            95%</p>
+
+            <div class="scores">
+                <div class="score-box">
+                    <strong>Semantic</strong>
+                    <div class="score-value">0.5565</div>
+                </div>
+                <div class="score-box">
+                    <strong>OBT</strong>
+                    <div class="score-value">0.5</div>
+                </div>
+                <div class="score-box">
+                    <strong>Complete</strong>
+                    <div class="score-value">0.7</div>
+                </div>
+                <div class="score-box">
+                    <strong>Communication</strong>
+                    <div class="score-value">1.0</div>
+                </div>
+                <div class="score-box">
+                    <strong>Time</strong>
+                    <div class="score-value">2320ms</div>
+                </div>
+            </div>
+
+            <div class="breakdown">
+                <strong>Score Breakdown:</strong><br>
+                Semantic: 0.557 × 0.40 = 0.223 | OBT: 0.500 × 0.25 = 0.125 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150
+            </div>
+
+            <div class="checks">
+                <strong>✓ Passed Checks:</strong>
+<div class="check-item check-passed">✓ ✓ What not How (no implementation verbs)</div><div class="check-item check-passed">✓ ✓ Solution-agnostic (no specific technology)</div><div class="check-item check-passed">✓ ✓ Direct start (no preamble)</div><div class="check-item check-passed">✓ ✓ Structure appropriate for mode</div><div class="check-item check-passed">✓ ✓ Confidence not needed for this mode</div><div class="check-item check-passed">✓ ✓ No first-person language</div><br><strong>✗ Failed Checks:</strong><div class="check-item check-failed">✗ ✗ Contains metrics/numbers</div><div class="check-item check-failed">✗ ✗ Tense issue (no passive voice detected)</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,505 @@
+# Betty v5.0 Evaluation Rubric - Real-World Usability Focus
+# Strategic Transformation Assistant - Human-Centered Evaluation
+# Created: November 2025
+# Developer: Tony Begum, AI Architect, BoldARC Advisors
+#
+# PHILOSOPHY CHANGE:
+# v4.3: Ultra-concise responses (<15 words) optimized for AI evaluation
+# v5.0: Real-world usability - responses with context, reasoning, and sources
+#
+# KEY INSIGHT: Humans need context to understand and trust AI responses.
+# A 50-word response with reasoning and sources is MORE valuable than a 5-word response.
+
+evaluation:
+  name: "Betty_Real_World_Usability_Assessment"
+  version: "5.0"
+  description: "Human-centered evaluation measuring response quality, reasoning transparency, and real-world applicability"
+
+  # Agent Configuration
+  agent:
+    name: "Betty for Molex"
+    model: "claude-sonnet-4-20250514"
+    system_prompt_version: "5.0"
+    knowledge_base_size: "54 documents"
+    evaluation_focus: "Real-world usability with reasoning transparency"
+
+  # SCORING PHILOSOPHY
+  philosophy:
+    primary_goal: "Responses must be understandable, trustworthy, and actionable for humans"
+
+    context_matters:
+      - "Reasoning explanations ADD value, not detract"
+      - "Source citations BUILD trust and credibility"
+      - "Brief explanations help users understand WHY"
+      - "Length is acceptable if it serves understanding"
+
+    anti_patterns:
+      - "Ultra-brief responses without context confuse users"
+      - "Answers without sources lack credibility"
+      - "No reasoning leaves users uncertain"
+      - "Arbitrary word limits sacrifice quality"
+
+  # CORE EVALUATION DIMENSIONS
+  # All dimensions scored 0.0-1.0 for transparency
+
+  scoring_dimensions:
+
+    # Dimension 1: Semantic Correctness (40% weight)
+    semantic_correctness:
+      weight: 0.40
+      description: "Does the response convey the correct meaning and information?"
+
+      calculation: "cosine_similarity(expected_embedding, response_embedding)"
+
+      interpretation:
+        excellent: "≥0.85 - Nearly identical meaning, all key concepts present"
+        good: "0.70-0.84 - Same core meaning, minor concept differences"
+        fair: "0.55-0.69 - Related concepts, some gaps or additions"
+        poor: "<0.55 - Different meaning or missing critical concepts"
+
+      mode_adjustments:
+        MODE1_outcome_writing:
+          threshold_for_good: 0.70
+          reason: "Multiple valid phrasings exist for outcomes"
+          examples:
+            - "Business processes are integrated ≈ Process integration is achieved"
+            - "Quality meets expectations ≈ Excellence is delivered consistently"
+
+        MODE2_classification:
+          threshold_for_good: 0.95
+          reason: "Classifications must be precise (What vs How)"
+          examples:
+            - "What = What" (exact match required)
+            - "How with reasoning still acceptable if classification correct"
+
+        MODE3_comprehensive:
+          threshold_for_good: 0.65
+          reason: "Comprehensive answers may include additional valuable context"
+          allowance: "Extra reasoning and sources INCREASE value"
+
+      no_exact_match_penalty: true
+      reason: "Paraphrases with same meaning are equally valid"
+
+    # Dimension 2: OBT Principle Adherence (25% weight)
+    obt_adherence:
+      weight: 0.25
+      description: "Does the response follow OBT methodology principles?"
+
+      calculation: "sum(passed_checks) / total_applicable_checks"
+
+      applicable_to:
+        - "MODE1: Outcome rewriting"
+        - "MODE2: What/How classification (outcome portion only)"
+        - "Not strictly applied to MODE3 comprehensive responses"
+
+      checks:
+        metric_free:
+          rule: "Outcome statement contains no numbers, percentages, or quantitative targets"
+          examples:
+            valid: "Quality meets customer expectations"
+            invalid: "Defects reduced by 30%"
+          scoring: "1.0 if pass, 0.0 if fail"
+          applies_to: ["MODE1", "MODE2_outcome_portion"]
+
+        what_not_how:
+          rule: "Describes end state (WHAT) not method/process (HOW)"
+          prohibited_verbs: ["deploy", "implement", "build", "create", "install", "configure", "train"]
+          examples:
+            valid: "Business processes are integrated" (end state)
+            invalid: "Deploy ERP system" (method)
+          scoring: "1.0 if pass, 0.0 if fail"
+          applies_to: ["MODE1", "MODE2"]
+
+        solution_agnostic:
+          rule: "No mention of specific technology, tool, or vendor"
+          prohibited_terms: ["ERP", "SAP", "Salesforce", "specific software names"]
+          examples:
+            valid: "Customer data is unified and accessible"
+            invalid: "Salesforce CRM is implemented successfully"
+          scoring: "1.0 if pass, 0.0 if fail"
+          applies_to: ["MODE1"]
+          note: "MODE3 can mention technologies when analyzing them"
+
+        proper_tense:
+          rule: "Present passive (are/is + past participle) describing achieved state"
+          examples:
+            valid:
+              - "Business processes are integrated" (present passive)
+              - "Quality is achieved" (present passive)
+              - "Systems are unified" (present passive)
+            invalid:
+              - "Customers begin their journey" (present active - sounds like HOW)
+              - "Staff execute processes" (present active - sounds like HOW)
+          scoring: "1.0 if pass, 0.5 if present active but correct meaning, 0.0 if wrong tense"
+          applies_to: ["MODE1"]
+
+      transparency:
+        - "Each check explicitly documented"
+        - "Scoring formula visible: sum(checks) / total_checks"
+        - "MODE3 responses not penalized for length or format"
+
+    # Dimension 3: Response Completeness (20% weight)
+    response_completeness:
+      weight: 0.20
+      description: "Does the response provide sufficient information for the user to understand and act?"
+
+      calculation: "Qualitative assessment based on response type"
+
+      real_world_focus:
+        principle: "Humans need context, reasoning, and sources to trust AI responses"
+
+        completeness_criteria:
+          direct_answer:
+            requirement: "Core answer provided clearly"
+            examples:
+              good: "Part Information Management — Current: Level 2 (Managed), Target: Level 4"
+              poor: "See documentation for details" (no answer)
+            scoring: "0.4 points if present, 0.0 if missing"
+
+          reasoning_when_appropriate:
+            requirement: "Brief explanation of WHY (for complex topics)"
+            when_needed:
+              - "MODE2 with reframe: Explain why it's What/How"
+              - "MODE3 always: Context for answers"
+              - "Prioritization: Rationale for ranking"
+            examples:
+              good: "Digital Twin ranked #1 because it enables both predictive maintenance and analytics"
+              acceptable: "Digital Twin; Predictive Maintenance; Analytics" (bare answer)
+            scoring: "0.3 points if helpful reasoning present, 0.1 if minimal, 0.0 if missing when needed"
+            note: "MODE1 outcome writing does NOT need reasoning - direct answer sufficient"
+
+          source_citations:
+            requirement: "Document sources cited when answer is data-driven"
+            when_needed: ["MODE3 always", "MODE1/2 when requesting specific data points"]
+            examples:
+              good: "**Sources:** BOM PIM Capability Definitions.xlsx, Part Master Data Standards.docx"
+              acceptable: "Based on capability maturity documentation"
+              poor: "No sources for data-driven answer"
+            scoring: "0.3 points if specific sources, 0.15 if general reference, 0.0 if missing when needed"
+
+      mode_expectations:
+        MODE1_outcome_writing:
+          ideal: "Direct outcome statement only (no reasoning needed)"
+          acceptable_length: "5-20 words"
+          completeness_score: "1.0 if outcome clear and valid"
+          example: "Business processes are integrated enterprise-wide" (9 words) = 1.0 score
+
+        MODE2_classification:
+          minimal: "Classification word only ('What' or 'How')"
+          ideal: "Classification + brief reasoning if reframe requested"
+          acceptable_length: "1-25 words depending on reframe requirement"
+          completeness_score:
+            - "1.0 if correct classification + reframe when requested"
+            - "0.7 if correct classification but missing reframe"
+          example: "'Deploy dashboards' is How. Reframe: Decision speed improves measurably" = 1.0 score
+
+        MODE3_comprehensive:
+          minimal: "Core answer with basic context"
+          ideal: "Core answer + reasoning + sources + confidence level"
+          acceptable_length: "50-300 words (context matters more than brevity)"
+          completeness_score:
+            - "1.0 if answer + reasoning + sources"
+            - "0.7 if answer + reasoning, no sources"
+            - "0.5 if answer only, no context"
+          example: "Current: Level 2, Target: Level 4. Level 2 means managed processes... **Sources:** [docs]" = 1.0 score
+
+      length_philosophy:
+        statement: "Length is NOT penalized if it serves understanding"
+        rationale:
+          - "50 words with reasoning > 5 words without context"
+          - "Sources add credibility, not 'verbosity'"
+          - "Humans need to UNDERSTAND, not just receive data"
+
+        only_penalize_when:
+          - "Repetitive content without added value"
+          - "Off-topic tangents unrelated to question"
+          - "Excessive preambles like 'Let me help you understand...'"
+
+    # Dimension 4: Professional Communication (15% weight)
+    professional_communication:
+      weight: 0.15
+      description: "Is the response clear, direct, and professionally formatted?"
+
+      calculation: "sum(communication_checks) / total_checks"
+
+      checks:
+        directness:
+          rule: "Response starts with the answer, not preambles"
+          prohibited_starts:
+            - "I'll help you..."
+            - "Let me explain..."
+            - "Based on the retrieved information, I'll..."
+            - "Sure, let me..."
+          examples:
+            good: "Part Information Management — Current: Level 2..."
+            poor: "I'll help you understand the maturity levels. Let me start by..."
+          scoring: "1.0 if direct, 0.5 if minor preamble, 0.0 if excessive preamble"
+          importance: "Critical - wastes user time"
+
+        structure:
+          rule: "Information organized clearly for human comprehension"
+          good_patterns:
+            - "Bullet points for lists"
+            - "Clear sections for MODE3"
+            - "Bold headers for key information"
+          examples:
+            good: |
+              Current: Level 2 (Managed)
+              Target: Level 4 (Quantitatively Managed)
+
+              **Sources:** BOM PIM Capability Definitions.xlsx
+            poor: "The current is level 2 and target is 4 from BOM PIM file"
+          scoring: "1.0 if well-structured, 0.5 if readable but plain, 0.2 if confusing"
+
+        confidence_appropriate:
+          rule: "Confidence levels stated when appropriate (MODE3)"
+          when_needed: "Data-driven answers or analysis"
+          examples:
+            good: "Confidence Level: HIGH (95%) due to multiple source validation"
+            acceptable: "Based on comprehensive project impact data"
+            unnecessary: "Outcome: 'Quality is achieved'" (no confidence needed)
+          scoring: "1.0 if appropriate confidence, 0.5 if implicit, 0.0 if overconfident without basis"
+
+        no_first_person:
+          rule: "Avoid first-person language in MODE1/2 direct answers"
+          applies_strictly_to: ["MODE1", "MODE2"]
+          relaxed_for: "MODE3 when explaining complex reasoning"
+          rationale: "MODE1/2 are direct answers; MODE3 may need 'The analysis shows...'"
+          scoring: "1.0 if no first person in MODE1/2, 0.7 if minor usage in MODE3, 0.3 if excessive"
+
+  # OVERALL SCORE CALCULATION
+  overall_score:
+    formula: "weighted_sum(dimensions)"
+
+    calculation:
+      semantic_correctness: "score × 0.40"
+      obt_adherence: "score × 0.25"
+      response_completeness: "score × 0.20"
+      professional_communication: "score × 0.15"
+      total: "sum of above (max 1.0)"
+
+    transparency:
+      show_breakdown: true
+      explain_each_dimension: true
+      document_penalties: true
+      no_hidden_metrics: true
+
+    interpretation:
+      excellent: "≥0.85 - Production quality, fully usable"
+      good: "0.75-0.84 - Strong response, minor improvements possible"
+      acceptable: "0.65-0.74 - Adequate for use, some gaps"
+      needs_improvement: "0.50-0.64 - Significant issues, major revisions needed"
+      poor: "<0.50 - Not usable, fundamental problems"
+
+  # PERFORMANCE TARGETS (v5.0)
+  v5_targets:
+    overall_score: 0.75
+    semantic_correctness: 0.80
+    obt_adherence: 0.85
+    response_completeness: 0.80
+    professional_communication: 0.90
+
+    success_rate: 0.95  # 95% of responses ≥0.65 (acceptable)
+
+    response_time:
+      target_ms: 5000
+      acceptable_ms: 10000
+      rationale: "Quality responses with reasoning may take longer - acceptable tradeoff"
+
+  # TEST CATEGORIES
+  test_categories:
+    outcome_rewriting:
+      weight: 0.25
+      description: "Converting activity statements to outcome statements"
+      question_count: 18
+      mode: "MODE1"
+
+      success_criteria:
+        semantic_correctness: "≥0.75 (valid outcome phrasing)"
+        obt_adherence: "≥0.80 (4/5 OBT checks pass)"
+        response_completeness: "≥0.90 (direct outcome provided)"
+
+      acceptable_length: "5-20 words"
+      rationale: "Outcomes should be concise but clear - not artificially constrained"
+
+    classification:
+      weight: 0.20
+      description: "Distinguishing What from How statements"
+      question_count: 9
+      mode: "MODE2"
+
+      success_criteria:
+        semantic_correctness: "≥0.95 (classification must be correct)"
+        response_completeness: "≥0.80 (classification + reframe when requested)"
+
+      acceptable_length:
+        minimal: "1 word (classification only)"
+        with_reframe: "10-25 words (classification + brief reframe)"
+
+    acceptance_criteria:
+      weight: 0.15
+      description: "Defining owner, measure, and evidence for outcomes"
+      question_count: 5
+      mode: "MODE3"
+
+      success_criteria:
+        semantic_correctness: "≥0.70 (core elements present)"
+        response_completeness: "≥0.85 (owner + measure + evidence + reasoning)"
+
+      acceptable_length: "50-200 words"
+      rationale: "Acceptance criteria need structure and detail to be actionable"
+
+    domain_expertise:
+      weight: 0.15
+      description: "Multi-domain knowledge across 8 product development areas"
+      question_count: 6
+      mode: "MODE3"
+
+      success_criteria:
+        semantic_correctness: "≥0.75 (accurate domain knowledge)"
+        response_completeness: "≥0.90 (answer + sources + confidence)"
+
+      acceptable_length: "30-250 words depending on complexity"
+
+    maturity_assessment:
+      weight: 0.10
+      description: "Capability maturity evaluation (1-5 scale)"
+      question_count: 5
+      mode: "MODE3"
+
+      success_criteria:
+        semantic_correctness: "≥0.85 (correct maturity levels)"
+        response_completeness: "≥0.85 (current + target + brief context)"
+
+      acceptable_length: "20-150 words"
+
+    portfolio_analysis:
+      weight: 0.15
+      description: "Project prioritization and impact scoring"
+      question_count: 7
+      mode: "MODE3"
+
+      success_criteria:
+        semantic_correctness: "≥0.70 (reasonable prioritization)"
+        response_completeness: "≥0.90 (ranking + rationale + sources)"
+
+      acceptable_length: "75-300 words"
+      rationale: "Prioritization needs clear reasoning to be trustworthy and actionable"
+
+  # OUTPUT CONFIGURATION
+  output:
+    format: "csv"
+    fields:
+      - "test_id"
+      - "category"
+      - "domain"
+      - "mode"
+      - "prompt"
+      - "expected_response"
+      - "agent_response"
+      - "word_count"
+
+      # Dimension scores (0.0-1.0)
+      - "semantic_correctness"
+      - "obt_adherence"
+      - "response_completeness"
+      - "professional_communication"
+
+      # Overall score
+      - "overall_score"
+      - "rating"
+
+      # Metadata
+      - "execution_time_ms"
+      - "error"
+
+      # Transparency
+      - "score_breakdown"
+      - "dimension_explanations"
+      - "passed_checks"
+      - "failed_checks"
+
+    html_report: true
+    summary_dashboard: true
+
+  # VALIDATION RULES
+  validation:
+
+    no_arbitrary_penalties:
+      - "Length NOT penalized unless truly excessive (>400 words without purpose)"
+      - "Reasoning and sources ADD value, not detract"
+      - "Paraphrases with same meaning scored equally to exact matches"
+
+    transparency_requirements:
+      - "Every score component documented"
+      - "Failed checks explicitly listed"
+      - "Score calculation formula shown"
+      - "No hidden metrics"
+
+    real_world_alignment:
+      - "Evaluated as if response delivered to actual user"
+      - "Would user understand and trust this response?"
+      - "Does response enable user to take action?"
+      - "Is reasoning clear and well-supported?"
+
+  # COMPARISON TO v4.3
+  improvements_from_v4_3:
+    philosophy:
+      - "v4.3: Ultra-brief responses optimized for AI evaluation"
+      - "v5.0: Real-world usability optimized for human understanding"
+
+    length_constraints:
+      - "v4.3: Strict ≤15 words for MODE1 (artificial constraint)"
+      - "v5.0: 5-20 words acceptable if outcome clear (realistic range)"
+
+    reasoning:
+      - "v4.3: Reasoning penalized as 'verbosity'"
+      - "v5.0: Reasoning valued for transparency and trust"
+
+    sources:
+      - "v4.3: Source citations penalized word count"
+      - "v5.0: Source citations increase completeness score"
+
+    scoring:
+      - "v4.3: Hidden metrics, arbitrary penalties, contradictory criteria"
+      - "v5.0: Transparent calculations, explicit checks, aligned criteria"
+
+    expected_improvement:
+      - "Responses with reasoning + sources: v4.3 score ~0.30, v5.0 score ~0.75-0.85"
+      - "Test Case #4 (prioritization with rationale): v4.3 = 0.059, v5.0 ≈ 0.80+"
+      - "Test Case #5 (acceptance criteria structured): v4.3 = 0.072, v5.0 ≈ 0.85+"
+
+# RUBRIC DESIGN PRINCIPLES
+
+principles:
+  human_centered:
+    statement: "AI responses are evaluated as if delivered to real users"
+    implications:
+      - "Context helps humans understand"
+      - "Sources build trust and credibility"
+      - "Reasoning enables verification"
+      - "Structure aids comprehension"
+
+  transparency:
+    statement: "Every score component is documented and explainable"
+    implications:
+      - "No hidden metrics"
+      - "Calculation formulas visible"
+      - "Failed checks explicitly listed"
+      - "Developers can debug scores"
+
+  fairness:
+    statement: "Valid responses scored consistently regardless of phrasing"
+    implications:
+      - "Paraphrases with same meaning = same score"
+      - "Multiple valid approaches accepted"
+      - "No arbitrary penalties"
+      - "Mode-appropriate expectations"
+
+  alignment:
+    statement: "Rubric, system prompt, and scoring logic are consistent"
+    implications:
+      - "Tense requirements match across documents"
+      - "Length expectations realistic and documented"
+      - "OBT principles explicitly defined"
+      - "No contradictory criteria"

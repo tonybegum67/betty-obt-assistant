@@ -1,0 +1,37 @@
+[
+  {
+    "id": "Product Data Management-PP-001",
+    "domain": "Product Data Management",
+    "pain_point": "Legacy systems hinder innovation",
+    "severity": "Medium",
+    "frequency": "Weekly"
+  },
+  {
+    "id": "Product Data Management-PP-002",
+    "domain": "Product Data Management",
+    "pain_point": "Inconsistent standards across teams",
+    "severity": "Medium",
+    "frequency": "Quarterly"
+  },
+  {
+    "id": "Product Data Management-PP-003",
+    "domain": "Product Data Management",
+    "pain_point": "Data silos prevent effective collaboration",
+    "severity": "High",
+    "frequency": "Quarterly"
+  },
+  {
+    "id": "Product Data Management-PP-004",
+    "domain": "Product Data Management",
+    "pain_point": "Data silos prevent effective collaboration",
+    "severity": "High",
+    "frequency": "Daily"
+  },
+  {
+    "id": "Product Data Management-PP-005",
+    "domain": "Product Data Management",
+    "pain_point": "Legacy systems hinder innovation",
+    "severity": "High",
+    "frequency": "Daily"
+  }
+]

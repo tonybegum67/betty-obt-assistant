@@ -1,0 +1,37 @@
+[
+  {
+    "id": "Change Control Management-PP-001",
+    "domain": "Change Control Management",
+    "pain_point": "Stakeholders struggle to access timely information",
+    "severity": "Medium",
+    "frequency": "Weekly"
+  },
+  {
+    "id": "Change Control Management-PP-002",
+    "domain": "Change Control Management",
+    "pain_point": "Legacy systems hinder innovation",
+    "severity": "Medium",
+    "frequency": "Daily"
+  },
+  {
+    "id": "Change Control Management-PP-003",
+    "domain": "Change Control Management",
+    "pain_point": "Stakeholders struggle to access timely information",
+    "severity": "Critical",
+    "frequency": "Daily"
+  },
+  {
+    "id": "Change Control Management-PP-004",
+    "domain": "Change Control Management",
+    "pain_point": "Limited visibility into process status",
+    "severity": "High",
+    "frequency": "Monthly"
+  },
+  {
+    "id": "Change Control Management-PP-005",
+    "domain": "Change Control Management",
+    "pain_point": "Manual processes create delays and errors",
+    "severity": "Low",
+    "frequency": "Monthly"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "Data and AI-PP-001",
+    "domain": "Data and AI",
+    "pain_point": "Stakeholders struggle to access timely information",
+    "severity": "Low",
+    "frequency": "Monthly"
+  },
+  {
+    "id": "Data and AI-PP-002",
+    "domain": "Data and AI",
+    "pain_point": "Legacy systems hinder innovation",
+    "severity": "Medium",
+    "frequency": "Monthly"
+  },
+  {
+    "id": "Data and AI-PP-003",
+    "domain": "Data and AI",
+    "pain_point": "Resource constraints limit capacity",
+    "severity": "Medium",
+    "frequency": "Weekly"
+  },
+  {
+    "id": "Data and AI-PP-004",
+    "domain": "Data and AI",
+    "pain_point": "Delayed feedback loops impact quality",
+    "severity": "Medium",
+    "frequency": "Daily"
+  },
+  {
+    "id": "Data and AI-PP-005",
+    "domain": "Data and AI",
+    "pain_point": "Manual processes create delays and errors",
+    "severity": "Low",
+    "frequency": "Quarterly"
+  }
+]

@@ -1,0 +1,327 @@
+test_id,category,domain,mode,prompt,expected_response,agent_response,word_count,semantic_correctness,obt_adherence,response_completeness,professional_communication,overall_score,rating,execution_time_ms,error,score_breakdown,dimension_explanations,passed_checks,failed_checks
+1,outcome_rewriting,OBT Methodology,MODE1,Rewrite 'implement ERP system' as an outcome (≤10 words),Business processes are integrated enterprise-wide,Business processes are integrated enterprise-wide,5,1.0,0.75,1.0,1.0,0.9375,EXCELLENT,2446,,Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: EXCELLENT (similarity: 1.000) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Proper tense (present passive describing achieved state)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Mentions specific technology: erp""], ""communication"": []}"
+2,classification,OBT Methodology,MODE2,Classify 'Decision speed improves measurably' — What or How?,What,What,1,1.0,0.75,0.7,1.0,0.8775,EXCELLENT,2183,,Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,"Semantic: EXCELLENT (similarity: 1.000) | Complete: Very brief answer; MODE2: Simple classification, reasoning not needed; Sources not required for this mode","{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+3,outcome_rewriting,Global PD,MODE1,Provide a ≤10-word outcome for product design quality.,Design quality meets customer expectations consistently,Product designs consistently meet world-class quality standards.,7,0.7501,0.75,1.0,1.0,0.8375,GOOD,2976,,Semantic: 0.750 × 0.40 = 0.300 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.750) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+4,portfolio_analysis,Global PD,MODE3,"Prioritize: Digital Twin, Advanced Analytics, Predictive Maintenance for capability impact.",1) Advanced Analytics; 2) Digital Twin; 3) Predictive Maintenance,"**Data & AI Capability Impact Prioritization:**
+
+Based on Data and AI Project Impacts (100225).xlsx:
+
+**1. Digital Twin (Priority 1)**
+- Impact Score: 3 (Highest)
+- Current Maturity: Level 2, Target: Level 4
+- Strategic Value: Enables real-time product optimization and predictive insights
+
+**2. Advanced Analytics (Priority 2)**
+- Impact Score: 2-3 (High-Highest)
+- Current Maturity: Level 2, Target: Level 4
+- Strategic Value: Foundation for data-driven decision making across operations
+
+**3. Predictive Maintenance (Priority 3)**
+- Impact Score: 2 (High)
+- Current Maturity: Level 1, Target: Level 3
+- Strategic Value: Operational efficiency and cost reduction
+
+**Rationale:** Digital Twin scores maximum impact (3) and has established foundation (Level 2). Advanced Analytics provides broad organizational benefit. Predictive Maintenance, while valuable, has lowest current maturity requiring more foundational work.
+
+**Recommended Sequence:** Advance Digital Twin to Level 3, strengthen Advanced Analytics foundation, then accelerate Predictive Maintenance capabilities.
+
+Source: Data and AI Capability Definitions and Maturities.xlsx",152,0.7281,1.0,1.0,1.0,0.8912,EXCELLENT,7298,,Semantic: 0.728 × 0.40 = 0.291 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.728) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""\u2713 Confidence level stated"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+5,acceptance_criteria,OBT Methodology,MODE3,Write acceptance criteria for 'Workforce capabilities enhanced significantly' including owner and measurement.,Owner: HR/L&D; Measure: competency assessment pass rate; Goal: 90% within 12 months; Evidence: assessment reports,"**Acceptance Criteria: Workforce Capabilities Enhanced Significantly**
+
+**WHAT (End State)**
+- Employee skill profiles demonstrate measurable advancement across core competencies
+- Performance evaluations show consistent capability improvements year-over-year  
+- Knowledge retention rates exceed industry benchmarks
+- Cross-functional collaboration effectiveness increases substantially
+- Innovation contributions from workforce expand measurably
+
+**HOW (Implementation Methods)**
+- Skills assessment framework implemented enterprise-wide
+- Learning management system deployed with personalized development paths
+- Mentorship programs established across all business units
+- Regular capability gap analysis conducted quarterly
+- Career development planning integrated with business objectives
+
+**Owner (RACI)**
+- **Responsible**: Learning & Development Team, Direct Managers
+- **Accountable**: Chief Human Resources Officer
+- **Consulted**: Business Unit Leaders, Subject Matter Experts
+- **Informed**: Executive Leadership Team, All Employees
+
+**Measurement Framework**
+- Skills assessment scores (baseline vs. current)
+- Training completion rates and effectiveness ratings
+- Internal mobility rates and promotion percentages  
+- Employee engagement scores related to development
+- Time-to-competency for new roles/responsibilities
+- Knowledge transfer success rates during transitions
+
+**Source**: Talent domain capabilities and Culture and Environment cluster outcomes from GPS 2.0 framework",175,0.6237,1.0,1.0,1.0,0.8495,GOOD,9226,,Semantic: 0.624 × 0.40 = 0.249 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.624) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+6,classification,OBT Methodology,MODE2,"Is 'Deploy analytics dashboards' an acceptable outcome? If not, reframe.",No — it's a How. Reframe: Decision speed improves measurably,No — How. Reframe: Business insights are easily accessible,9,0.2932,0.75,1.0,1.0,0.6548,ACCEPTABLE,2634,,Semantic: 0.293 × 0.40 = 0.117 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: POOR (similarity: 0.293) | Complete: Direct answer provided; Reframe with brief reasoning provided; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+7,maturity_assessment,BOM & PIM Management,MODE3,State Part Information Management maturity (current and target).,"Part Information Management — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)","**Part Information Management**
+
+**Current Maturity:** Level 2 (Managed)
+**Target Maturity:** Level 4 (Quantitatively Managed)
+
+**Source:** BOM PIM Capability Definitions and Maturities.xlsx
+
+**Current State Context:** Basic part information workflows exist with some standardization, but limited integration between engineering and manufacturing data systems.
+
+**Target State Context:** Quantitatively managed part information with data-driven decision making, automated validation, and enterprise-wide integration enabling predictive analytics for part lifecycle management.",64,0.85,1.0,1.0,1.0,0.94,EXCELLENT,4125,,Semantic: 0.850 × 0.40 = 0.340 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.850) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+8,outcome_rewriting,OBT Methodology,MODE1,Create a metric-free ≤10-word outcome for customer onboarding.,Customers onboard seamlessly and confidently,Customer onboarding experiences exceed expectations consistently across touchpoints,8,0.7264,0.75,1.0,1.0,0.828,GOOD,2514,,Semantic: 0.726 × 0.40 = 0.291 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.726) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+9,portfolio_analysis,Global PD,MODE3,Top-level RACI for Digital Twin — Accountable and Responsible?,Accountable: Head of Operations; Responsible: Plant Engineering & Operations,"**Digital Twin RACI - Top Level**
+
+**Accountable:** Chief Technology Officer (CTO)
+- Ultimate ownership of Digital Twin strategy and outcomes
+- Budget authority and strategic direction
+- Cross-functional integration accountability
+
+**Responsible:** Digital Twin Program Manager
+- Day-to-day execution and delivery
+- Coordinate between IT, Engineering, Operations
+- Implementation roadmap and milestone tracking
+
+**Supporting Roles:**
+- **Consulted:** VP Engineering, VP Operations, Chief Data Officer
+- **Informed:** Executive Leadership Team, Functional VPs
+
+**Source:** Based on Data and AI Capability Definitions and Maturities.xlsx - Digital Twin capability shows enterprise-level strategic importance requiring C-level accountability with dedicated program management execution.
+
+Current Digital Twin Maturity: Level 2 (Managed)
+Target: Level 4 (Quantitatively Managed)",108,0.4219,1.0,1.0,1.0,0.7688,GOOD,7511,,Semantic: 0.422 × 0.40 = 0.169 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: POOR (similarity: 0.422) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+10,portfolio_analysis,Global PD,MODE1,"Given target weights Pain 30%, Capabilities 55%, Infra 15% and current Pain29%, Cap13%, Infra21% — which area is underrepresented?",Capabilities underrepresented (13% vs 55%). Action: prioritize capability projects and reallocate budget.,Capabilities,1,0.5549,0.75,1.0,1.0,0.7595,GOOD,2502,,Semantic: 0.555 × 0.40 = 0.222 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.555) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+11,outcome_rewriting,OBT Methodology,MODE1,Rewrite 'train staff on new process' as an outcome (≤10 words),Staff competency in new process is established,Staff consistently execute new processes with confidence,7,0.6329,0.75,1.0,1.0,0.7907,GOOD,2311,,Semantic: 0.633 × 0.40 = 0.253 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.633) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+12,classification,OBT Methodology,MODE2,Is 'Improve vendor relationships' a What or How?,How — describes method. Reframe: Vendor delivery reliability increases consistently,How,1,0.2623,0.75,0.7,1.0,0.5824,NEEDS_IMPROVEMENT,1895,,Semantic: 0.262 × 0.40 = 0.105 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,"Semantic: POOR (similarity: 0.262) | Complete: Very brief answer; MODE2: Simple classification, reasoning not needed; Sources not required for this mode","{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+13,acceptance_criteria,OBT Methodology,MODE3,Write a KPI (goal + measure) for 'Operations visibility is comprehensive',Goal: Real-time asset visibility across plants; Measure: % assets with live telemetry (Target: 95%),"**Goal:** Operations visibility is comprehensive
+
+**Measure:** Percentage of operational processes with real-time status monitoring and performance dashboards accessible to stakeholders",20,0.6574,1.0,0.6,1.0,0.7829,GOOD,3279,,Semantic: 0.657 × 0.40 = 0.263 | OBT: 1.000 × 0.25 = 0.250 | Complete: 0.600 × 0.20 = 0.120 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.657) | Complete: Direct answer provided; Minimal context for MODE3; MODE3 missing sources,"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+14,outcome_rewriting,Design Management,MODE1,Reframe 'deploy a new PLM system' into an outcome.,Product data is unified and accessible,Product lifecycle data is seamlessly accessible across all teams.,9,0.6301,0.75,1.0,1.0,0.7895,GOOD,2587,,Semantic: 0.630 × 0.40 = 0.252 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.630) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+15,classification,OBT Methodology,MODE2,Classify: 'Production meets defined run-rate stability' — What or How?,What,What,1,1.0,0.75,0.7,1.0,0.8775,EXCELLENT,2016,,Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,"Semantic: EXCELLENT (similarity: 1.000) | Complete: Very brief answer; MODE2: Simple classification, reasoning not needed; Sources not required for this mode","{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+16,outcome_rewriting,OBT Methodology,MODE1,Produce ≤10-word outcome for supplier quality.,Supplier parts meet quality standards consistently,Supplier quality consistently exceeds industry-leading performance standards.,7,0.7431,0.75,1.0,1.0,0.8348,GOOD,2654,,Semantic: 0.743 × 0.40 = 0.297 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.743) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+17,acceptance_criteria,Change Control,MODE3,Create a short stakeholder alignment note for Analytics Platform launch.,Sponsor: CIO; Responsible: Data Engineering; Consulted: Business Units; Informed: Execs,"**STAKEHOLDER ALIGNMENT: Analytics Platform Launch**
+
+**Primary Stakeholders:**
+- **IT Leadership** (Accountable): Platform deployment, infrastructure readiness
+- **Business Unit Heads** (Responsible): User adoption, training completion
+- **Data Stewards** (Consulted): Data quality validation, governance compliance
+- **End Users** (Informed): Launch timeline, access procedures
+
+**Key Dependencies:**
+- Data migration completion (IT prerequisite)
+- User training sessions (Business prerequisite)
+- Governance framework approval (Data prerequisite)
+
+**Success Criteria:**
+- 80% user activation within 30 days
+- Zero critical data quality issues
+- All business units represented in pilot
+
+**Communication Plan:**
+- Weekly status updates to leadership
+- Department-specific training schedules
+- Post-launch feedback collection
+
+**Risk Mitigation:**
+- Rollback procedures documented
+- Champion network established
+- Help desk resources allocated
+
+Source: Stakeholder management best practices with RACI framework",122,0.6135,1.0,1.0,1.0,0.8454,GOOD,7068,,Semantic: 0.614 × 0.40 = 0.245 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.614) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+18,classification,OBT Methodology,MODE1,Is 'Reduce time-to-market by 20%' a valid outcome statement per OBT?,No — contains metric. Reframe metric-free: Time-to-market is reduced significantly,No,1,0.2109,0.75,0.7,1.0,0.5618,NEEDS_IMPROVEMENT,2507,,Semantic: 0.211 × 0.40 = 0.084 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,Semantic: POOR (similarity: 0.211) | Complete: Very brief answer; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+19,outcome_rewriting,OBT Methodology,MODE1,Give an example ≤10-word outcome for culture change.,Employees are engaged and empowered to improve processes,Culture enables continuous strategic innovation and excellence.,7,0.3962,0.75,1.0,1.0,0.696,ACCEPTABLE,2648,,Semantic: 0.396 × 0.40 = 0.158 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: POOR (similarity: 0.396) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+20,outcome_rewriting,Change Control,MODE1,For Change Control: write a ≤10-word outcome about traceability.,End-to-end traceability is maintained across changes,Change history is completely traceable across all products,8,0.6233,0.75,1.0,1.0,0.7868,GOOD,2217,,Semantic: 0.623 × 0.40 = 0.249 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.623) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+21,classification,Change Control,MODE2,Classify 'All functions contribute effortlessly throughout the change process' — What or How?,What,What,1,1.0,0.75,0.7,1.0,0.8775,EXCELLENT,1911,,Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,"Semantic: EXCELLENT (similarity: 1.000) | Complete: Very brief answer; MODE2: Simple classification, reasoning not needed; Sources not required for this mode","{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+22,outcome_rewriting,OBT Methodology,MODE1,Rewrite 'implement automated testing' as an outcome.,Product quality is validated continuously,Quality assurance is achieved through automated validation,7,0.621,1.0,1.0,1.0,0.8484,GOOD,2498,,Semantic: 0.621 × 0.40 = 0.248 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.621) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)"", ""\u2713 Proper tense (present passive describing achieved state)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+23,acceptance_criteria,Design Management,MODE3,Create acceptance criteria for 'Design risks are captured and mitigated',Owner: Engineering; Measure: % identified risks mitigated before release (Goal: 95%); Evidence: DFMEA and mitigation logs,"**Design Risk Management Acceptance Criteria**
+
+**WHAT Criteria (Outcome Achievement):**
+- All design risks are identified during concept and detailed design phases
+- Risk severity and probability are consistently assessed using standardized criteria
+- Mitigation strategies are defined and implemented for all medium/high-severity risks
+- Risk status is visible to cross-functional stakeholders in real-time
+- Design decisions incorporate risk considerations systematically
+
+**HOW Criteria (Implementation Standards):**
+- Risk assessment templates are standardized across all product lines
+- Design review checkpoints include mandatory risk evaluation gates
+- Risk mitigation plans have defined owners, timelines, and success metrics
+- Integration with existing design management systems maintains single source of truth
+- Automated risk tracking provides alerts for overdue mitigation actions
+
+**Verification Methods:**
+- Design review audits show 100% risk documentation compliance
+- Risk register completeness validated through peer review process
+- Mitigation effectiveness measured through post-launch defect correlation analysis
+- Cross-functional team surveys confirm risk visibility and communication effectiveness
+
+**Sources:** Design Management and Collaboration Capability Definitions and Maturities.xlsx, Design Management Pain Points",168,0.5589,1.0,1.0,1.0,0.8236,GOOD,8964,,Semantic: 0.559 × 0.40 = 0.224 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.559) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""\u2713 Confidence level stated"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+24,outcome_rewriting,OBT Methodology,MODE1,Provide a ≤10-word outcome for partner network value.,"A robust, value-generating partner network exists",Partners consistently deliver exceptional value to mutual customers,8,0.66,0.75,1.0,1.0,0.8015,GOOD,2185,,Semantic: 0.660 × 0.40 = 0.264 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.660) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+25,classification,OBT Methodology,MODE1,Is 'Create customer feedback surveys' an outcome? Reframe if needed.,No — it's a How. Reframe: Customer feedback is captured comprehensively,No — How. Reframe: Customer feedback is captured consistently,9,0.7277,1.0,1.0,1.0,0.8911,EXCELLENT,4246,,Semantic: 0.728 × 0.40 = 0.291 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.728) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)"", ""\u2713 Proper tense (present passive describing achieved state)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+26,classification,OBT Methodology,MODE2,Classify 'Decision support improves' — What or How?,What — but needs specificity. Better: Decisions are data-informed consistently,What,1,0.2547,0.75,0.7,1.0,0.5794,NEEDS_IMPROVEMENT,1962,,Semantic: 0.255 × 0.40 = 0.102 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,"Semantic: POOR (similarity: 0.255) | Complete: Very brief answer; MODE2: Simple classification, reasoning not needed; Sources not required for this mode","{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+27,outcome_rewriting,OBT Methodology,MODE1,Provide a ≤10-word outcome for quality management.,Quality and compliance meet required standards consistently,Quality excellence is achieved consistently across all operations.,8,0.6591,1.0,1.0,1.0,0.8637,EXCELLENT,2486,,Semantic: 0.659 × 0.40 = 0.264 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.659) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)"", ""\u2713 Proper tense (present passive describing achieved state)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+28,portfolio_analysis,Global PD,MODE1,Write a short risk identification for Blockchain Integration project (low impact).,Risk: Low business alignment and unclear ROI; Mitigation: validate use-case before investment,"Blockchain integration faces technical complexity risks, regulatory uncertainty, and potential system integration challenges that could delay implementation timelines.",18,0.4193,0.5,1.0,1.0,0.6427,NEEDS_IMPROVEMENT,2982,,Semantic: 0.419 × 0.40 = 0.168 | OBT: 0.500 × 0.25 = 0.125 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: POOR (similarity: 0.419) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Contains How verbs: implement"", ""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+29,outcome_rewriting,OBT Methodology,MODE1,Rewrite 'optimize assembly line throughput' into an outcome.,Production throughput achieves defined stability,Production throughput exceeds operational targets consistently.,6,0.5906,0.75,1.0,1.0,0.7738,GOOD,2642,,Semantic: 0.591 × 0.40 = 0.236 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.591) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+30,outcome_rewriting,OBT Methodology,MODE1,Create a ≤10-word outcome for talent development.,Workforce capabilities enhance significantly,Talent develops continuously across strategic capabilities and leadership levels,9,0.559,0.75,1.0,1.0,0.7611,GOOD,2886,,Semantic: 0.559 × 0.40 = 0.224 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.559) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+31,portfolio_analysis,Global PD,MODE3,Provide a short next-step plan (3 bullets) to prioritize Digital Twin next quarter.,1. Approve funding and appoint sponsor; 2. Define MVP scope and pilot site; 3. Allocate engineering and IT resources,"**Digital Twin Priority Next Steps - Q1 2025**
+
+Current State: Data & AI Digital Twin capability at Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+
+**Priority Actions:**
+• **Establish Digital Twin data foundation** - Integrate real-time sensor data from top 3 product families for performance tracking and predictive insights
+• **Deploy pilot simulation models** - Create standardized digital twin templates for key manufacturing processes with quantitative validation metrics
+• **Build cross-functional governance** - Form Digital Twin Center of Excellence with engineering, manufacturing, and IT stakeholders for capability scaling
+
+**Strategic Rationale:** Digital Twin scores 3 (highest impact) in Data and AI Project Impacts for operational efficiency. Focus on data integration first enables advanced analytics capabilities in Q2-Q3.
+
+*Source: Data and AI Capability Definitions and Maturities.xlsx, Data and AI Project Impacts (100225).xlsx*",130,0.2549,1.0,1.0,1.0,0.702,ACCEPTABLE,6749,,Semantic: 0.255 × 0.40 = 0.102 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: POOR (similarity: 0.255) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""\u2713 Confidence level stated"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+32,classification,OBT Methodology,MODE2,Classify 'Operations easily perform at unsurpassed excellence' — What or How?,What — but vague and hyperbolic. Better: Operations performance meets world-class standards,What,1,0.2309,0.75,0.7,1.0,0.5699,NEEDS_IMPROVEMENT,3368,,Semantic: 0.231 × 0.40 = 0.092 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,"Semantic: POOR (similarity: 0.231) | Complete: Very brief answer; MODE2: Simple classification, reasoning not needed; Sources not required for this mode","{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+33,outcome_rewriting,OBT Methodology,MODE1,Provide a metric-free ≤10-word outcome for product competitiveness.,Products are the most sought-after in the market,Products consistently outperform competitors across all market segments,8,0.6272,0.75,1.0,1.0,0.7884,GOOD,3545,,Semantic: 0.627 × 0.40 = 0.251 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.627) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+34,outcome_rewriting,BOM & PIM Management,MODE1,Reframe 'migrate master data to new system' as an outcome.,Master data is accurate and accessible,Master data is accessible across all business systems,8,0.7189,0.75,1.0,1.0,0.8251,GOOD,3037,,Semantic: 0.719 × 0.40 = 0.288 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.719) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+35,acceptance_criteria,Change Control,MODE3,Write a short acceptance criteria for 'End-to-end traceability is maintained across changes',Owner: Change Control Board; Measure: % changes with full traceability (Goal: 100%); Evidence: trace logs and audit reports,"**Acceptance Criteria: End-to-end traceability is maintained across changes**
+
+**Functional Requirements:**
+- Change records automatically link to affected requirements, designs, and test cases
+- Bidirectional traceability allows navigation from any artifact to related change requests
+- Impact analysis shows complete downstream effects before change approval
+- Traceability matrix updates in real-time when changes are implemented
+
+**Quality Standards:**
+- 100% of changes maintain complete traceability links
+- Zero orphaned artifacts after change implementation
+- Traceability reports generate within 30 seconds
+- Audit trails capture all traceability modifications with timestamps
+
+**Validation Methods:**
+- Automated traceability verification during change workflow
+- Periodic traceability gap reports identify missing links
+- End-to-end trace testing validates complete change impact visibility
+- Compliance audits confirm regulatory traceability requirements met
+
+**Source:** Requirements Management and Change Control capability frameworks",129,0.6291,1.0,1.0,1.0,0.8516,EXCELLENT,7521,,Semantic: 0.629 × 0.40 = 0.252 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.629) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+36,outcome_rewriting,OBT Methodology,MODE1,Create a ≤10-word outcome for customer experience.,Customers delight in an electrifying experience consistently,Customers consistently choose Molex as preferred partner,7,0.4005,0.75,1.0,1.0,0.6977,ACCEPTABLE,2878,,Semantic: 0.400 × 0.40 = 0.160 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: POOR (similarity: 0.400) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+37,classification,OBT Methodology,MODE2,Classify 'We preempt the market with sought-after products' — What or How?,What,What,1,1.0,0.75,0.7,1.0,0.8775,EXCELLENT,2151,,Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,"Semantic: EXCELLENT (similarity: 1.000) | Complete: Very brief answer; MODE2: Simple classification, reasoning not needed; Sources not required for this mode","{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+38,outcome_rewriting,Requirements Management,MODE1,Provide a ≤10-word outcome for requirements management.,Product expectations are met effectively and efficiently,"Requirements are captured, validated, and traced throughout development.",8,0.3572,1.0,1.0,1.0,0.7429,ACCEPTABLE,2709,,Semantic: 0.357 × 0.40 = 0.143 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: POOR (similarity: 0.357) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)"", ""\u2713 Proper tense (present passive describing achieved state)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+39,classification,OBT Methodology,MODE1,Is 'Increase automation by implementing robots' an outcome? Reframe.,No — it's a How. Reframe: Production automation increases reliably,No — How. Reframe: Manufacturing operations achieve unprecedented efficiency levels,10,0.5901,0.75,1.0,1.0,0.7735,GOOD,4129,,Semantic: 0.590 × 0.40 = 0.236 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.590) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+40,acceptance_criteria,OBT Methodology,MODE3,Write a short stakeholder RACI for Quality Management System project.,Accountable: Head of Quality; Responsible: Quality Ops; Consulted: Manufacturing; Informed: Execs,"**Quality Management System Project - Stakeholder RACI**
+
+**R = Responsible | A = Accountable | C = Consulted | I = Informed**
+
+| Role/Stakeholder | Project Management | System Design | Implementation | Training | Go-Live |
+|------------------|-------------------|---------------|----------------|----------|---------|
+| **Project Manager** | A | C | R | C | R |
+| **Quality Director** | A | A | C | A | A |
+| **IT Systems Team** | C | R | R | C | C |
+| **Operations Manager** | C | C | C | R | C |
+| **Compliance Officer** | I | C | C | R | C |
+| **Department Heads** | I | C | C | R | I |
+| **End Users** | I | C | I | R | I |
+| **Executive Sponsor** | A | I | I | I | A |
+
+**Key Decisions:**
+- **System Selection**: Quality Director (A), IT Systems (R)
+- **Process Changes**: Operations Manager (A), Department Heads (C)
+- **Training Approval**: Quality Director (A), Operations Manager (R)
+- **Go-Live Authorization**: Executive Sponsor (A), Quality Director (R)
+
+Source: Standard RACI framework for quality management system implementations",198,0.544,1.0,1.0,1.0,0.8176,GOOD,9590,,Semantic: 0.544 × 0.40 = 0.218 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.544) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+41,maturity_assessment,Change Control,MODE3,What is Change Control Management current and target maturity?,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"Change Control Management - Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+
+**Current State Analysis:**
+Level 2 indicates basic change control processes exist with some documentation and repeatability, but lack standardization across the organization. Change requests follow defined workflows but may have inconsistent execution.
+
+**Target State Vision:**
+Level 4 represents quantitatively managed change control with metrics-driven decision making, predictable cycle times, and data-based process optimization. Statistical process control enables proactive management of change performance.
+
+**Key Gap Areas:**
+- Standardized change metrics and KPIs across all product lines
+- Automated change impact analysis and risk assessment
+- Quantitative process control for change cycle time optimization
+- Advanced analytics for change pattern prediction and bottleneck identification
+
+Source: Change ControL Capability Definitions and Maturities.xlsx",122,0.5481,1.0,1.0,1.0,0.8192,GOOD,6699,,Semantic: 0.548 × 0.40 = 0.219 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.548) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+42,maturity_assessment,Requirements Management,MODE3,State Requirements Management maturity levels.,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"Current Maturity: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+
+**Level 2 Characteristics:**
+- Basic requirement capture processes exist
+- Some stakeholder involvement in requirements gathering
+- Manual tracking with limited traceability
+- Inconsistent validation practices across projects
+
+**Level 4 Target:**
+- Quantitative requirement metrics and dashboards
+- Automated traceability throughout product lifecycle
+- Data-driven requirement prioritization
+- Systematic validation with measurable criteria
+
+**Key Gap:** Need standardized processes (Level 3) before implementing quantitative controls (Level 4).
+
+Source: Requirements Management Capability Definitions and Maturities.xlsx",83,0.6541,1.0,1.0,1.0,0.8616,EXCELLENT,5349,,Semantic: 0.654 × 0.40 = 0.262 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.654) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+43,maturity_assessment,Design Management,MODE3,What is Design Management & Collaboration maturity status?,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"Design Management & Collaboration — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+
+**Current State Analysis:**
+Basic design workflows and collaboration tools exist but lack standardization across teams. Design handoffs between engineering and manufacturing show inconsistency. Limited metrics for design process performance.
+
+**Target State Vision:**
+Data-driven design processes with quantitative performance management. Standardized collaboration workflows enable seamless cross-functional design execution. Design decisions supported by measurable process controls.
+
+**Key Capability Gaps:**
+- Design process standardization (Level 2→3)
+- Quantitative design metrics (Level 3→4) 
+- Cross-functional workflow automation (Level 3→4)
+
+Source: Design Management and Collaboration Capability Definitions and Maturities.xlsx",98,0.3321,1.0,1.0,1.0,0.7329,ACCEPTABLE,6217,,Semantic: 0.332 × 0.40 = 0.133 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: POOR (similarity: 0.332) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+44,maturity_assessment,Data & AI,MODE3,State Data & AI capability maturity.,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"**Current Maturity: Level 2 (Managed)**
+**Target Maturity: Level 4 (Quantitatively Managed)**
+
+**Key Capabilities Assessment:**
+- Data Governance: Level 2 → Level 4
+- Predictive Analytics: Level 1 → Level 4  
+- Decision Support Systems: Level 2 → Level 4
+- AI Strategy Implementation: Level 1 → Level 3
+
+**Strategic Context:**
+Current state shows basic data management processes with limited analytics capabilities. Target enables data-driven decision making with quantitative performance controls and predictive insights across product development lifecycle.
+
+**Source:** Data and AI Capability Definitions and Maturities.xlsx",85,0.5641,1.0,1.0,1.0,0.8256,GOOD,6813,,Semantic: 0.564 × 0.40 = 0.226 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.564) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""~ Confidence level implicit"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+45,domain_expertise,Global PD,MODE1,What are the 8 domains in Betty's knowledge base?,"1) Change Control, 2) BOM/PIM, 3) Requirements, 4) Design, 5) PD Framework, 6) Data & AI, 7) Global PD, 8) OBT Methodology","1. Change Control Management
+2. BOM & PIM Management  
+3. Requirements Management
+4. Design Management & Collaboration
+5. PD Framework Transformation
+6. Data & AI
+7. Global PD
+8. OBT Methodology",31,0.8024,0.5,1.0,1.0,0.7959,GOOD,3476,,Semantic: 0.802 × 0.40 = 0.321 | OBT: 0.500 × 0.25 = 0.125 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.802) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Contains metrics/numbers"", ""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+46,domain_expertise,OBT Methodology,MODE1,What is the GPS framework destination for Molex?,Customers always choose Molex first,Customers always choose Molex first.,5,0.9305,0.75,1.0,1.0,0.9097,EXCELLENT,2777,,Semantic: 0.931 × 0.40 = 0.372 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: EXCELLENT (similarity: 0.931) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+47,domain_expertise,OBT Methodology,MODE1,How many outcomes are in Betty's GPS framework?,288 outcomes across 13 clusters,558 outcomes across 13 strategic clusters.,6,0.7502,0.5,1.0,1.0,0.7751,GOOD,2464,,Semantic: 0.750 × 0.40 = 0.300 | OBT: 0.500 × 0.25 = 0.125 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.750) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Contains metrics/numbers"", ""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+48,domain_expertise,Global PD,MODE3,What is the difference between maturity levels and impact scores?,Maturity: 1-5 scale (Initial to Optimized); Impact: 0-3 integers (project impact),"**Maturity Levels (1-5 Scale):**
+Current state assessment of organizational capabilities using standardized progression:
+- Level 1: Initial (Ad-hoc, unpredictable)
+- Level 2: Managed (Basic processes established)
+- Level 3: Defined (Standardized, documented)
+- Level 4: Quantitatively Managed (Measured, controlled)
+- Level 5: Optimized (Continuous improvement)
+
+Source: Domain-specific XLSX capability matrices across 5 domains
+
+**Impact Scores (0-3 Scale):**
+Project value assessment measuring strategic contribution:
+- 0: No impact
+- 1: Low impact
+- 2: Medium impact (counts toward portfolio totals)
+- 3: High impact (counts toward portfolio totals)
+
+Source: Project impact XLSX files for portfolio analysis
+
+**Key Distinctions:**
+- Maturity = ""How good are we now?"" (capability assessment)
+- Impact = ""How much value does this project deliver?"" (investment prioritization)
+- Maturity guides capability development roadmaps
+- Impact scores drive project portfolio decisions
+- Never substitute one scale for the other in analysis
+
+**Usage:**
+- Maturity gaps identify transformation priorities
+- Impact scores (2s and 3s) determine project funding allocation
+- Together they align capability development with strategic value delivery",169,0.8097,1.0,1.0,1.0,0.9239,EXCELLENT,8127,,Semantic: 0.810 × 0.40 = 0.324 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.810) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""\u2713 Confidence level stated"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+49,domain_expertise,Data & AI,MODE1,Name one AI Agentic Strategy document in Betty's knowledge base.,AI Agentic Strategy for Data & AI (or BOM/PIM,AI Agentic Strategy for Data & AI.docx,7,0.8463,0.75,1.0,1.0,0.876,EXCELLENT,1948,,Semantic: 0.846 × 0.40 = 0.339 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.846) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+50,portfolio_analysis,Global PD,MODE1,What is Betty's current data completeness percentage?,95% (Production Ready),95%,1,0.5565,0.5,0.7,1.0,0.6376,NEEDS_IMPROVEMENT,2179,,Semantic: 0.557 × 0.40 = 0.223 | OBT: 0.500 × 0.25 = 0.125 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.557) | Complete: Very brief answer; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Contains metrics/numbers"", ""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"

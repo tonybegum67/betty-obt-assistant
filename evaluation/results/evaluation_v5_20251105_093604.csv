@@ -1,0 +1,68 @@
+test_id,category,domain,mode,prompt,expected_response,agent_response,word_count,semantic_correctness,obt_adherence,response_completeness,professional_communication,overall_score,rating,execution_time_ms,error,score_breakdown,dimension_explanations,passed_checks,failed_checks
+1,outcome_rewriting,OBT Methodology,MODE1,Rewrite 'implement ERP system' as an outcome (≤10 words),Business processes are integrated enterprise-wide,Business processes are integrated enterprise-wide,5,1.0,0.75,1.0,1.0,0.9375,EXCELLENT,3125,,Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: EXCELLENT (similarity: 1.000) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Proper tense (present passive describing achieved state)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Mentions specific technology: erp""], ""communication"": []}"
+2,classification,OBT Methodology,MODE2,Classify 'Decision speed improves measurably' — What or How?,What,What,1,1.0,0.75,0.7,1.0,0.8775,EXCELLENT,2693,,Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,"Semantic: EXCELLENT (similarity: 1.000) | Complete: Very brief answer; MODE2: Simple classification, reasoning not needed; Sources not required for this mode","{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+3,outcome_rewriting,Global PD,MODE1,Provide a ≤10-word outcome for product design quality.,Design quality meets customer expectations consistently,Product designs consistently meet world-class quality standards,7,0.8204,0.75,1.0,1.0,0.8657,EXCELLENT,2755,,Semantic: 0.820 × 0.40 = 0.328 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.820) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+4,portfolio_analysis,Global PD,MODE3,"Prioritize: Digital Twin, Advanced Analytics, Predictive Maintenance for capability impact.",1) Advanced Analytics; 2) Digital Twin; 3) Predictive Maintenance,"Based on Data and AI Project Impacts (100225).xlsx:
+
+**PRIORITY RANKING:**
+
+1. **Digital Twin** (Impact Score: 3)
+   - Highest strategic value for real-time product performance optimization
+   - Enables comprehensive simulation and testing capabilities
+
+2. **Advanced Analytics** (Impact Score: 3) 
+   - Tied highest impact, critical for data-driven decision making
+   - Foundation for predictive capabilities across operations
+
+3. **Predictive Maintenance** (Impact Score: 2)
+   - Lower strategic impact but important operational efficiency
+   - Dependent on Digital Twin and Advanced Analytics maturity
+
+**RATIONALE:**
+Digital Twin and Advanced Analytics both score maximum impact (3) but Digital Twin provides broader transformation potential across product development lifecycle. Predictive Maintenance, while valuable, serves more targeted operational needs.
+
+**RECOMMENDED SEQUENCING:**
+Phase 1: Advanced Analytics (foundation)
+Phase 2: Digital Twin (comprehensive capability)  
+Phase 3: Predictive Maintenance (specialized application)
+
+Source: Data and AI Capability Definitions and Maturities.xlsx
+Confidence: HIGH (direct XLSX impact scoring data)",142,0.6921,1.0,1.0,1.0,0.8768,EXCELLENT,7510,,Semantic: 0.692 × 0.40 = 0.277 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.692) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""\u2713 Confidence level stated"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+5,acceptance_criteria,OBT Methodology,MODE3,Write acceptance criteria for 'Workforce capabilities enhanced significantly' including owner and measurement.,Owner: HR/L&D; Measure: competency assessment pass rate; Goal: 90% within 12 months; Evidence: assessment reports,"**Acceptance Criteria: Workforce Capabilities Enhanced Significantly**
+
+**Primary Owner:** Chief Human Resources Officer (CHRO)
+**Supporting Owners:** Domain VPs, Learning & Development Director
+
+**Acceptance Criteria:**
+
+**Skills & Competencies**
+- Technical skill assessments show measurable improvement across priority capability areas
+- Certification completion rates increase for business-critical competencies
+- Cross-functional collaboration skills demonstrate observable enhancement
+- Digital literacy and tool proficiency reach defined proficiency standards
+
+**Performance & Impact**
+- Employee performance ratings reflect capability growth in target areas
+- Time-to-competency for new roles decreases measurably
+- Innovation contributions and process improvements increase
+- Quality metrics show improvement correlation with skill development
+
+**Learning & Development**
+- Individual development plans align with strategic capability requirements
+- Learning engagement metrics exceed baseline participation rates
+- Knowledge retention assessments demonstrate sustained capability gains
+- Mentorship and knowledge transfer programs show active participation
+
+**Measurement Framework:**
+- Quarterly capability assessments using standardized competency matrices
+- Annual 360-degree reviews with capability-focused components
+- Learning analytics tracking skill progression and application
+- Business impact metrics linking capability enhancement to operational outcomes
+
+**Success Indicators:**
+- Capability gap analysis shows reduction in critical skill shortages
+- Employee confidence surveys reflect increased capability perception
+- Manager assessments confirm observable skill application improvements
+- Strategic project delivery improves due to enhanced workforce capabilities
+
+**Source:** Global PD transformation requirements and OBT framework for measurable outcomes",219,0.6127,1.0,1.0,1.0,0.8451,GOOD,11328,,Semantic: 0.613 × 0.40 = 0.245 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.613) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""\u2713 Confidence level stated"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"

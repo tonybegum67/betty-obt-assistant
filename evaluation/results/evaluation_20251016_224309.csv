@@ -1,0 +1,133 @@
+test_id,category,domain,prompt,expected_response,agent_response,exact_match,semantic_similarity,rubric_precision,rubric_adherence,rubric_explanation,overall_score,execution_time_ms,error,analysis_notes
+1,outcome_rewriting,OBT Methodology,Rewrite 'implement ERP system' as an outcome (≤10 words),Business processes are integrated enterprise-wide,"Using OBT rules for outcome construction:
+
+""Teams consistently execute processes using integrated enterprise data systems""
+
+Analysis:
+- What-oriented outcome focused on end state
+- Avoids prescribing how (no mention of specific ERP)
+- Measurable: ""consistently execute""
+- Actor specified: ""Teams""
+- Value shown: ""integrated enterprise data""
+- Feasible and time-independent
+- Under 10 words
+
+Confidence: HIGH - Based on OBT GPS Construction Rules.docx",0,0.4911,0,2,2,0.3894,3610,,"Precision: Length: 63 vs 5 words (diff: 58), Concept overlap: 40.00% | Adherence: Word count: 63 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+2,classification,OBT Methodology,Classify 'Decision speed improves measurably' — What or How?,What,"Let me analyze this outcome statement:
+
+""Decision speed improves measurably""
+
+Classification: HOW
+
+Reasoning:
+1. This is a method/approach statement describing HOW we achieve something
+2. Contains an operational metric focus (""speed"")
+3. Includes a measurement aspect (""measurably"")
+4. Does not describe WHAT value is delivered to customers/stakeholders
+5. Represents a process improvement rather than an end result
+
+To convert to a WHAT statement, we would need to focus on the value delivered, such as:
+""Stakeholders receive timely decisions that enable their success""
+
+Confidence Level: HIGH (>90%)
+Source: OBT GPS Construction Rules.docx, Five Things to Know About OBT.docx
+
+Need help refining into a stronger WHAT statement?",0,0.1635,1,2,2,0.3742,5083,,"Precision: Length: 105 vs 1 words (diff: 104), Concept overlap: 100.00% | Adherence: Word count: 105 > 10 | Explanation: Adequate explanation"
+3,outcome_rewriting,Global PD,Provide a ≤10-word outcome for product design quality.,Design quality meets customer expectations consistently,"""Design outputs consistently meet all customer and industry requirements.""
+
+[10 words - From GPS Cluster 3: Design Quality & Standards]
+
+This outcome statement is:
+- WHAT focused (design outputs meeting requirements)
+- Measurable (can track requirements compliance)
+- Outcome-oriented (describes end state, not activities)
+- Aligned with the destination ""Customers always choose Molex first""",0,0.5754,0,2,1,0.3605,3003,,"Precision: Length: 54 vs 6 words (diff: 48), Concept overlap: 66.67% | Adherence: Word count: 54 > 10; Contains numbers/metrics | Explanation: Minimal reasoning"
+4,portfolio_analysis,Global PD,"Prioritize: Digital Twin, Advanced Analytics, Predictive Maintenance for capability impact.",1) Advanced Analytics; 2) Digital Twin; 3) Predictive Maintenance,"Domain: Data & AI (Confidence Level: HIGH - Based on Data & AI capability matrices)
+
+Direct Response Based on Project Impact Scores:
+1. Advanced Analytics (Impact Score: 3)
+2. Predictive Maintenance (Impact Score: 2)
+3. Digital Twin (Impact Score: 2)
+
+Analysis from Data and AI Capability Definitions and Maturities.xlsx:
+
+ADVANCED ANALYTICS
+- Current Maturity: Level 2 (Managed)
+- Target Maturity: Level 4
+- Highest impact on decision support capabilities
+- Critical enabler for other capabilities
+- Drives immediate value through existing data utilization
+
+PREDICTIVE MAINTENANCE
+- Current Maturity: Level 1 (Initial)
+- Target Maturity: Level 3
+- Dependencies on Advanced Analytics foundation
+- Requires sensor infrastructure maturity
+- Clear ROI through downtime reduction
+
+DIGITAL TWIN
+- Current Maturity: Level 1 (Initial)
+- Target Maturity: Level 3
+- Highest implementation complexity
+- Requires mature data foundation
+- Long-term strategic value but higher investment
+
+Recommendation:
+1. Focus on Advanced Analytics first - enables other capabilities
+2. Implement Predictive Maintenance using analytics foundation
+3. Build Digital Twin capability after data/analytics maturity increases
+
+Source: Data and AI Project Impacts (100225).xlsx, Data and AI Capability Definitions and Maturities.xlsx
+
+Critical Dependencies:
+- Advanced Analytics enables both other capabilities
+- Data quality/governance maturity required for all three
+- Integration architecture must support real-time analytics",0,0.7202,0,3,2,0.5301,7700,,"Precision: Length: 207 vs 9 words (diff: 198), Concept overlap: 66.67% | Adherence: No OBT violations | Explanation: Adequate explanation"
+5,acceptance_criteria,OBT Methodology,Write acceptance criteria for 'Workforce capabilities enhanced significantly' including owner and measurement.,Owner: HR/L&D; Measure: competency assessment pass rate; Goal: 90% within 12 months; Evidence: assessment reports,"Let me analyze this outcome statement using the GPS framework and capability matrices.
+
+Confidence Level: HIGH (>90%) - Based on defined capability matrices and KPI frameworks
+
+Outcome Statement Analysis:
+""Workforce capabilities enhanced significantly"" is a Tier 2 HOW outcome supporting enhanced organizational effectiveness. This needs specific acceptance criteria for measurement.
+
+Recommended Acceptance Criteria:
+
+Owner: Global PD Organizational Development Lead
+
+Primary Success Measures:
+1. Capability Maturity Improvement
+- Target: 80% of identified roles achieve Level 3+ maturity in domain-specific capabilities
+- Measurement: Quarterly capability assessments using standard 1-5 maturity scale
+- Data Source: Domain capability matrices (BOM/PIM, Change Control, Requirements, Design, Data & AI)
+
+2. Skills Development
+- Target: 90% completion rate of role-specific learning paths
+- Measurement: Learning Management System completion tracking
+- Baseline: Current completion rates from capability matrices
+
+3. Cross-Domain Effectiveness
+- Target: 25% increase in cross-functional project success rates
+- Measurement: Project outcome achievement rates
+- Tracking: Quarterly project portfolio reviews
+
+Verification Methods:
+1. Capability Assessment
+- Pre/post capability evaluations
+- Role-based competency reviews
+- Domain-specific skills validation
+
+2. Performance Metrics
+- Time-to-proficiency reduction
+- Error rate reduction in role-specific tasks
+- Productivity improvement metrics
+
+Success Definition:
+All three primary measures must be met within 12 months of initiative launch with sustained performance for 2 quarters.
+
+Note: These criteria align with GPD transformation objectives while maintaining measurable, role-specific targets.
+
+Next Steps:
+1. Review current capability baselines from matrices
+2. Establish role-specific learning paths
+3. Implement measurement tracking system
+4. Set quarterly review checkpoints",0,0.5708,0,3,2,0.4927,9029,,"Precision: Length: 246 vs 15 words (diff: 231), Concept overlap: 42.86% | Adherence: No OBT violations | Explanation: Adequate explanation"

@@ -1,0 +1,26 @@
+[
+  {
+    "project": "Requirements Management - Project 1",
+    "capability_impact": 49.6,
+    "cost_savings": 366961,
+    "timeline": "5 months",
+    "priority": "P1",
+    "status": "Proposed"
+  },
+  {
+    "project": "Requirements Management - Project 2",
+    "capability_impact": 51.2,
+    "cost_savings": 78360,
+    "timeline": "3 months",
+    "priority": "P2",
+    "status": "On Hold"
+  },
+  {
+    "project": "Requirements Management - Project 3",
+    "capability_impact": 50.5,
+    "cost_savings": 149870,
+    "timeline": "17 months",
+    "priority": "P3",
+    "status": "On Hold"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "project": "Change Control Management - Project 1",
+    "capability_impact": 35.9,
+    "cost_savings": 344500,
+    "timeline": "18 months",
+    "priority": "P1",
+    "status": "Proposed"
+  },
+  {
+    "project": "Change Control Management - Project 2",
+    "capability_impact": 37.5,
+    "cost_savings": 484230,
+    "timeline": "6 months",
+    "priority": "P2",
+    "status": "On Hold"
+  },
+  {
+    "project": "Change Control Management - Project 3",
+    "capability_impact": 44.3,
+    "cost_savings": 531910,
+    "timeline": "17 months",
+    "priority": "P1",
+    "status": "Proposed"
+  }
+]

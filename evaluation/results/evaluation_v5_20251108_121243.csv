@@ -1,0 +1,60 @@
+test_id,category,domain,mode,prompt,expected_response,agent_response,word_count,semantic_correctness,obt_adherence,response_completeness,professional_communication,overall_score,rating,execution_time_ms,error,score_breakdown,dimension_explanations,passed_checks,failed_checks
+1,outcome_rewriting,OBT Methodology,MODE1,Rewrite 'implement ERP system' as an outcome (≤10 words),Business processes are integrated enterprise-wide,Business processes are integrated enterprise-wide,5,1.0,0.75,1.0,1.0,0.9375,EXCELLENT,2595,,Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: EXCELLENT (similarity: 1.000) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Proper tense (present passive describing achieved state)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Mentions specific technology: erp""], ""communication"": []}"
+2,classification,OBT Methodology,MODE2,Classify 'Decision speed improves measurably' — What or How?,What,What,1,1.0,0.75,0.7,1.0,0.8775,EXCELLENT,2225,,Semantic: 1.000 × 0.40 = 0.400 | OBT: 0.750 × 0.25 = 0.188 | Complete: 0.700 × 0.20 = 0.140 | Comm: 1.000 × 0.15 = 0.150,"Semantic: EXCELLENT (similarity: 1.000) | Complete: Very brief answer; MODE2: Simple classification, reasoning not needed; Sources not required for this mode","{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+3,outcome_rewriting,Global PD,MODE1,Provide a ≤10-word outcome for product design quality.,Design quality meets customer expectations consistently,Design outputs consistently meet world-class quality standards,7,0.8063,0.75,1.0,1.0,0.86,EXCELLENT,2859,,Semantic: 0.806 × 0.40 = 0.323 | OBT: 0.750 × 0.25 = 0.188 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.806) | Complete: Direct answer provided; MODE1: Reasoning not needed for direct outcomes; Sources not required for this mode,"{""obt"": [""\u2713 Metric-free (no numbers/percentages)"", ""\u2713 What not How (no implementation verbs)"", ""\u2713 Solution-agnostic (no specific technology)""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Structure appropriate for mode"", ""\u2713 Confidence not needed for this mode"", ""\u2713 No first-person language""]}","{""obt"": [""\u2717 Tense issue (no passive voice detected)""], ""communication"": []}"
+4,portfolio_analysis,Global PD,MODE3,"Prioritize: Digital Twin, Advanced Analytics, Predictive Maintenance for capability impact.",1) Advanced Analytics; 2) Digital Twin; 3) Predictive Maintenance,"Based on Data and AI Project Impacts (100225).xlsx:
+
+**Priority Ranking by Impact Score:**
+
+1. **Digital Twin** - Impact Score: 3 (High)
+   - Drives operational efficiency and real-time decision making
+   - Enables predictive capabilities across product lifecycle
+
+2. **Advanced Analytics** - Impact Score: 3 (High) 
+   - Provides foundation for data-driven insights
+   - Supports strategic decision making capabilities
+
+3. **Predictive Maintenance** - Impact Score: 2 (Medium)
+   - Improves operational reliability
+   - Lower strategic impact than twin/analytics capabilities
+
+**Recommendation:** Prioritize Digital Twin first for maximum operational transformation, followed by Advanced Analytics to establish analytical foundation, then Predictive Maintenance for operational optimization.
+
+Source: Data and AI Capability Definitions and Maturities.xlsx, Data and AI Project Impacts (100225).xlsx",112,0.6741,1.0,1.0,1.0,0.8696,EXCELLENT,6016,,Semantic: 0.674 × 0.40 = 0.270 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: GOOD (similarity: 0.674) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""\u2713 Confidence level stated"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"
+5,acceptance_criteria,OBT Methodology,MODE3,Write acceptance criteria for 'Workforce capabilities enhanced significantly' including owner and measurement.,Owner: HR/L&D; Measure: competency assessment pass rate; Goal: 90% within 12 months; Evidence: assessment reports,"## Acceptance Criteria: Workforce capabilities enhanced significantly
+
+**Owner:** Chief Human Resources Officer (CHRO)
+
+**Acceptance Criteria:**
+
+1. **Skills Assessment Baseline**
+   - Current workforce skills mapped against strategic capability requirements
+   - Skills gaps identified and quantified by role and department
+   - Individual development plans created for 100% of employees
+
+2. **Training Program Execution**
+   - Multi-modal learning programs deployed (digital, classroom, mentoring)
+   - Training completion rates exceed 90% for critical skill areas
+   - Knowledge retention validated through post-training assessments
+
+3. **Performance Enhancement Validation**
+   - Employee productivity metrics show measurable improvement
+   - Quality indicators demonstrate reduced error rates
+   - Time-to-competency decreased for new role transitions
+
+4. **Capability Maturity Progression**
+   - Workforce capability maturity advances from current state to target levels
+   - Cross-functional collaboration effectiveness improved
+   - Innovation contributions increased through enhanced capabilities
+
+**Measurement Framework:**
+- Skills assessment scores (pre/post training)
+- Training completion and retention rates
+- Performance metrics by role/department
+- Capability maturity index progression
+- Employee engagement and confidence surveys
+- Internal mobility and promotion rates
+
+**Success Threshold:** Demonstrated capability improvement across 80% of workforce with sustained performance gains over 6-month period.
+
+Source: Talent management frameworks and Culture and Environment capability standards",190,0.6388,1.0,1.0,1.0,0.8555,EXCELLENT,9517,,Semantic: 0.639 × 0.40 = 0.256 | OBT: 1.000 × 0.25 = 0.250 | Complete: 1.000 × 0.20 = 0.200 | Comm: 1.000 × 0.15 = 0.150,Semantic: FAIR (similarity: 0.639) | Complete: Direct answer provided; Comprehensive response with context; Sources cited (builds credibility),"{""obt"": [""MODE3: OBT checks not strictly applied""], ""communication"": [""\u2713 Direct start (no preamble)"", ""\u2713 Well-structured (sections/formatting)"", ""\u2713 Confidence level stated"", ""\u2713 No first-person language""]}","{""obt"": [], ""communication"": []}"

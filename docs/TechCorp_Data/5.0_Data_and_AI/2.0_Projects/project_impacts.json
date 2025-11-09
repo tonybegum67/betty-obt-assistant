@@ -1,0 +1,26 @@
+[
+  {
+    "project": "Data and AI - Project 1",
+    "capability_impact": 16.7,
+    "cost_savings": 90312,
+    "timeline": "7 months",
+    "priority": "P2",
+    "status": "Proposed"
+  },
+  {
+    "project": "Data and AI - Project 2",
+    "capability_impact": 35.1,
+    "cost_savings": 245616,
+    "timeline": "18 months",
+    "priority": "P2",
+    "status": "Proposed"
+  },
+  {
+    "project": "Data and AI - Project 3",
+    "capability_impact": 55.3,
+    "cost_savings": 229123,
+    "timeline": "10 months",
+    "priority": "P3",
+    "status": "Planning"
+  }
+]

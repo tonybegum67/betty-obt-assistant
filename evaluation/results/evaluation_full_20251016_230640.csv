@@ -1,0 +1,1083 @@
+test_id,category,domain,prompt,expected_response,agent_response,exact_match,semantic_similarity,rubric_precision,rubric_adherence,rubric_explanation,overall_score,execution_time_ms,error,analysis_notes
+1,outcome_rewriting,OBT Methodology,Rewrite 'implement ERP system' as an outcome (≤10 words),Business processes are integrated enterprise-wide,"Let me apply OBT principles to rewrite this system-focused statement as an outcome.
+
+OUTCOME: ""Product data flows seamlessly between engineering and manufacturing systems""
+
+Analysis:
+- WHAT: Seamless product data flow
+- HOW: Connecting engineering and manufacturing data systems
+- Value-focused rather than system-specific
+- Measurable through data transfer metrics
+- Solution-agnostic (doesn't prescribe ERP)
+
+Source: ""OBT and GPS Construction Rules.docx"" - Converting system statements to outcomes
+
+Confidence: HIGH (Based on core OBT principles and documented rules)",0,0.4168,0,2,2,0.3709,4025,,"Precision: Length: 76 vs 5 words (diff: 71), Concept overlap: 0.00% | Adherence: Word count: 76 > 10 | Explanation: Adequate explanation"
+2,classification,OBT Methodology,Classify 'Decision speed improves measurably' — What or How?,What,"DIRECT RESPONSE: 
+""Decision speed improves measurably"" is a HOW.
+
+REASONING:
+1. Contains an action verb (""improves"")
+2. Specifies a measurement aspect (""measurably"")
+3. Describes the method/process of achieving something rather than an end state
+4. Focuses on operational execution (speed of process) vs. strategic outcome
+
+SOURCE: OBT GPS Construction Rules.docx 
+- Rule: HOWs typically contain action verbs and describe methods
+- Confidence Level: HIGH (>90%) - Clear pattern match to construction rules
+
+CONVERSION TIP:
+To make this a WHAT, restructure to describe the desired end state:
+""Decisions are made at the optimal speed""
+- Removes action verb
+- States desired condition
+- Focuses on outcome vs. process",0,0.0918,0,2,2,0.2896,5247,,"Precision: Length: 107 vs 1 words (diff: 106), Concept overlap: 0.00% | Adherence: Word count: 107 > 10 | Explanation: Adequate explanation"
+3,outcome_rewriting,Global PD,Provide a ≤10-word outcome for product design quality.,Design quality meets customer expectations consistently,"""Engineers consistently deliver defect-free designs meeting customer requirements""
+
+[Confidence: HIGH - Aligned with BOM/PIM and Design Management capability matrices]",0,0.6618,1,2,1,0.4488,1517,,"Precision: Length: 19 vs 6 words (diff: 13), Concept overlap: 50.00% | Adherence: Word count: 19 > 10 | Explanation: Minimal reasoning"
+4,portfolio_analysis,Global PD,"Prioritize: Digital Twin, Advanced Analytics, Predictive Maintenance for capability impact.",1) Advanced Analytics; 2) Digital Twin; 3) Predictive Maintenance,"Let me analyze these capabilities using Data & AI domain matrices and project impact data.
+
+CONFIDENCE: HIGH (Direct XLSX data available)
+
+Analysis from ""Data and AI Capability Definitions and Maturities.xlsx"":
+
+1. ADVANCED ANALYTICS
+Priority Rank: #1
+- Current Maturity: Level 2 (Managed)
+- Target Maturity: Level 4
+- Impact Score: 3 (Highest)
+- Direct business value through:
+  * Real-time decision support
+  * Cross-functional data insights
+  * Immediate operational improvements
+
+2. PREDICTIVE MAINTENANCE
+Priority Rank: #2
+- Current Maturity: Level 2
+- Target Maturity: Level 4
+- Impact Score: 2
+- Value drivers:
+  * Equipment uptime optimization
+  * Maintenance cost reduction
+  * Quality improvement
+
+3. DIGITAL TWIN
+Priority Rank: #3
+- Current Maturity: Level 1 (Initial)
+- Target Maturity: Level 3
+- Impact Score: 2
+- Longer-term strategic value:
+  * Virtual product validation
+  * Design optimization
+  * Process simulation
+
+Rationale:
+1. Advanced Analytics ranks highest due to:
+- Highest impact score (3)
+- Broadest application across functions
+- Foundation for other capabilities
+- Lower implementation complexity
+
+2. Predictive Maintenance second because:
+- Clear ROI metrics
+- Existing data infrastructure
+- Immediate operational benefits
+- Moderate implementation effort
+
+3. Digital Twin third due to:
+- Higher implementation complexity
+- Infrastructure dependencies
+- Longer time to value
+- Need for capability maturity first
+
+Next Steps:
+1. Focus on Advanced Analytics fundamentals
+2. Build predictive models for maintenance
+3. Develop Digital Twin roadmap in parallel
+
+Source: Data and AI Capability Definitions and Maturities.xlsx, Data and AI Project Impacts (100225).xlsx",0,0.659,0,3,3,0.5647,8563,,"Precision: Length: 245 vs 9 words (diff: 236), Concept overlap: 44.44% | Adherence: No OBT violations | Explanation: Clear justification with evidence"
+5,acceptance_criteria,OBT Methodology,Write acceptance criteria for 'Workforce capabilities enhanced significantly' including owner and measurement.,Owner: HR/L&D; Measure: competency assessment pass rate; Goal: 90% within 12 months; Evidence: assessment reports,"Let me provide acceptance criteria for this strategic outcome using our GPS and capability frameworks.
+
+Source Confidence: HIGH (Based on GPD KPI frameworks and OBT documentation)
+
+Outcome Analysis:
+""Workforce capabilities enhanced significantly"" is a WHAT statement (desired end state)
+Strategic Cluster: People/Cultural
+Primary Owner: Global PD Training & Development Lead
+
+Acceptance Criteria:
+
+1. Capability Development
+- 90% of PD staff complete required role-specific training modules
+- All critical roles achieve minimum competency Level 3 (Defined) on capability maturity scale
+- Training completion tracked in Learning Management System
+Measure: Monthly training compliance reports
+Owner: Training Program Manager
+
+2. Performance Assessment
+- Quarterly skills assessments completed for all PD staff
+- Capability gaps identified and documented in Individual Development Plans
+- Year-over-year improvement in role-specific competency scores
+Measure: Quarterly competency assessment scores
+Owner: Department Managers
+
+3. Knowledge Transfer
+- Documented knowledge sharing sessions held monthly per department
+- Creation of reusable learning assets increases 25% annually
+- Subject Matter Expert (SME) network established and maintained
+Measure: Knowledge repository metrics, SME engagement rates
+Owner: Knowledge Management Lead
+
+4. Innovation & Application
+- 50% of staff contribute to process improvement initiatives
+- Innovation proposals increase 20% year-over-year
+- Successful application of new skills documented in project outcomes
+Measure: Innovation metrics dashboard
+Owner: Continuous Improvement Lead 
+
+Critical Success Factors:
+- Training aligned with strategic capability needs
+- Regular assessment and feedback cycles
+- Clear competency frameworks by role
+- Active leadership support and engagement
+- Resources allocated for continuous learning
+
+KPI Framework:
+Primary: Capability Maturity Index (1-5 scale)
+Secondary: 
+- Training completion rates
+- Competency assessment scores
+- Knowledge contribution metrics
+- Innovation participation rates
+
+Verification Method:
+Quarterly review against defined metrics with standardized reporting to Global PD leadership
+
+Next Steps:
+1. Validate criteria with key stakeholders
+2. Establish baseline measurements
+3. Configure tracking mechanisms
+4. Define detailed assessment rubrics
+5. Launch initial capability assessment",0,0.572,0,3,2,0.493,11563,,"Precision: Length: 310 vs 15 words (diff: 295), Concept overlap: 42.86% | Adherence: No OBT violations | Explanation: Adequate explanation"
+6,classification,OBT Methodology,"Is 'Deploy analytics dashboards' an acceptable outcome? If not, reframe.",No — it's a How. Reframe: Decision speed improves measurably,"ANALYSIS MODE
+
+This is not an acceptable outcome statement based on OBT principles. Let me analyze and reframe:
+
+ISSUES WITH CURRENT STATEMENT:
+- Solution-focused (""deploy dashboards"") rather than outcome-focused
+- Describes a ""how"" rather than a ""what""
+- Missing business value or benefit
+- Tool-specific rather than capability-focused
+
+REFRAMED OUTCOME STATEMENTS:
+Better: ""Business decisions are made with confidence using real-time data""
+Source: ""The Future of Confident Decision-Making at Molex"" story
+
+This reframe:
+- Focuses on the business benefit (confident decisions)
+- Technology-agnostic
+- States the ""what"" not the ""how""
+- Aligns with Data & AI capability cluster outcomes
+
+VALIDATION:
+- Maps to Level 4 maturity in Data & AI Capabilities matrix
+- Supports multiple KPIs from Data/AI KPI framework
+- Enables value measurement across decision quality metrics
+
+COACHING TIP:
+When writing outcomes, always ask:
+- What value will be achieved?
+- Who benefits?
+- Is it solution-agnostic?
+- Does it describe the ""what"" not the ""how""?",0,0.202,0,2,2,0.3172,6114,,"Precision: Length: 156 vs 10 words (diff: 146), Concept overlap: 30.00% | Adherence: Word count: 156 > 10 | Explanation: Adequate explanation"
+7,maturity_assessment,BOM & PIM Management,State Part Information Management maturity (current and target).,"Part Information Management — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)","BOM/PIM Domain Analysis
+Current: Level 2 (Managed)
+Target: Level 4 (Quantitatively Managed)
+Source: BOM PIM Capability Definitions and Maturities.xlsx
+
+Key Context:
+- Current state shows basic part information workflows exist but lack standardization
+- Target state enables data-driven decision making with quantitative controls
+- Part of larger BOM/PIM transformation initiative
+- Aligns with ""Sarah's Journey"" narrative for future state vision
+
+Confidence Level: HIGH (>90%) - Based on direct XLSX capability matrix data",0,0.6417,1,3,2,0.5771,3740,,"Precision: Length: 72 vs 13 words (diff: 59), Concept overlap: 75.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+8,outcome_rewriting,OBT Methodology,Create a metric-free ≤10-word outcome for customer onboarding.,Customers onboard seamlessly and confidently,"Using OBT outcome construction rules...
+
+WHAT/HOW Analysis:
+- WHAT: Customer success in onboarding
+- HOW: Through a clear, guided process
+
+Proposed Outcome (8 words):
+""Customers confidently complete onboarding without requiring additional support""
+
+Quality Check:
+✓ No metrics/numbers
+✓ Active voice
+✓ Clear value focus
+✓ Customer-centric
+✓ Under 10 words
+✓ Testable/observable
+✓ Forward-looking
+
+Supporting OBT Source: OBT and GPS Construction Rules.docx 
+Confidence Level: HIGH based on clear OBT guidelines",0,0.5891,0,2,2,0.4139,3827,,"Precision: Length: 70 vs 5 words (diff: 65), Concept overlap: 40.00% | Adherence: Word count: 70 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+9,portfolio_analysis,Global PD,Top-level RACI for Digital Twin — Accountable and Responsible?,Accountable: Head of Operations; Responsible: Plant Engineering & Operations,"Let me address Digital Twin RACI at the strategic level based on the capability matrices and organizational data.
+
+Confidence Level: HIGH (>90%) - Based on Design Management and Data & AI capability matrices
+
+RACI FOR DIGITAL TWIN INITIATIVE:
+
+ACCOUNTABLE (Final Authority)
+- Chief Digital Officer (CDO)
+Primary ownership for digital transformation strategy and digital twin architecture
+
+RESPONSIBLE (Execution)
+- Digital Engineering Lead
+- Enterprise Architecture Team
+- Product Development Systems Team
+
+Key Context:
+- This aligns with maturity level targets in Data & AI capabilities matrix
+- Supports Design Management collaboration requirements
+- Maps to data governance frameworks in capability definitions
+
+Note: This represents enterprise-level RACI. Detailed RACI matrices would be needed for specific digital twin implementations across product lines or manufacturing sites.
+
+Would you like the Consulted and Informed stakeholders as well, or additional detail about these primary roles?",0,0.3446,0,3,2,0.4362,5564,,"Precision: Length: 140 vs 9 words (diff: 131), Concept overlap: 22.22% | Adherence: No OBT violations | Explanation: Adequate explanation"
+10,portfolio_analysis,Global PD,"Given target weights Pain 30%, Capabilities 55%, Infra 15% and current Pain29%, Cap13%, Infra21% — which area is underrepresented?",Capabilities underrepresented (13% vs 55%). Action: prioritize capability projects and reallocate budget.,"Capabilities at 13% is significantly underrepresented compared to its 55% target weight, falling 42 percentage points below target. This is the most severe gap.
+
+Current vs Target analysis:
+- Pain: 29% vs 30% (-1%, roughly on target)
+- Capabilities: 13% vs 55% (-42%, severe underrepresentation)
+- Infrastructure: 21% vs 15% (+6%, slightly over target)
+
+Primary focus should be increasing capability-focused initiatives to move from 13% toward the 55% target while maintaining pain point coverage and slightly reducing infrastructure emphasis.
+
+Confidence: HIGH (based on direct numerical comparison using standard portfolio weighting metrics)",0,0.7691,0,3,1,0.4923,3900,,"Precision: Length: 91 vs 12 words (diff: 79), Concept overlap: 33.33% | Adherence: No OBT violations | Explanation: Minimal reasoning"
+11,outcome_rewriting,OBT Methodology,Rewrite 'train staff on new process' as an outcome (≤10 words),Staff competency in new process is established,"""Staff consistently execute processes correctly without requiring supervision""
+
+[Confidence: HIGH - Using OBT transformation rules from Five Things to Know About OBT.docx]
+
+Rationale:
+- Removed activity (""train"") in favor of end result
+- Focused on observable behavior (""execute processes correctly"")
+- Added quality measure (""consistently"")
+- Included independence indicator (""without requiring supervision"")
+- Under 10 words
+- Measurable through process adherence metrics",0,0.5636,0,2,2,0.4076,3309,,"Precision: Length: 62 vs 7 words (diff: 55), Concept overlap: 28.57% | Adherence: Word count: 62 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+12,classification,OBT Methodology,Is 'Improve vendor relationships' a What or How?,How — describes method. Reframe: Vendor delivery reliability increases consistently,"Let me analyze this statement using OBT principles:
+
+""Improve vendor relationships"" is a HOW statement because:
+1. It describes an action/method (""improve"")
+2. It does not specify the measurable business outcome or value
+3. It focuses on the process rather than the end result
+
+To convert this to a WHAT statement, we should focus on the desired business outcome. Examples:
+- ""Vendor capabilities fully meet business requirements""
+- ""Vendor performance consistently achieves target metrics""
+- ""Vendors deliver reliable quality at target costs""
+
+OBT Tip: WHAT statements should:
+- Focus on end state/result
+- Be measurable
+- Avoid action verbs
+- Describe business value
+
+Reference: OBT and GPS Construction Rules.docx, OBT GPS Definitions.docx
+
+Does this help clarify the What/How classification for vendor relationship outcomes? I can provide more examples if needed.",0,0.4889,0,2,2,0.3889,4892,,"Precision: Length: 130 vs 10 words (diff: 120), Concept overlap: 40.00% | Adherence: Word count: 130 > 10 | Explanation: Adequate explanation"
+13,acceptance_criteria,OBT Methodology,Write a KPI (goal + measure) for 'Operations visibility is comprehensive',Goal: Real-time asset visibility across plants; Measure: % assets with live telemetry (Target: 95%),"Let me define a KPI for this outcome with high confidence based on GPD KPI - Outcomes Based - Summary.xlsx.
+
+Goal: Achieve 95% real-time visibility across key operational metrics
+
+Measure: Percentage of critical operational data points available in real-time dashboards, calculated as:
+(Number of operational metrics with real-time data / Total number of defined critical operational metrics) x 100
+
+Key operational metrics should include:
+- Production line status
+- Resource utilization
+- WIP inventory levels
+- Quality metrics
+- Equipment effectiveness
+- Cycle time actuals
+
+Success criteria:
+- Data refresh rate ≤ 5 minutes
+- Metric availability ≥ 99.5% uptime
+- All metrics accessible from centralized dashboard
+- Automated alerts for out-of-range conditions
+
+Domain alignment:
+- Primary: Data & AI capabilities
+- Supporting: Design Management collaboration dashboards
+- Integration: Change Control status visibility
+
+Source verification:
+- Data and AI Capability Definitions and Maturities.xlsx
+- GPD KPI - Outcomes Based - Summary.xlsx
+- Measuring-Outcome-Focused-Metrics-KPIs June 23.docx",0,0.539,0,3,2,0.4847,6089,,"Precision: Length: 155 vs 14 words (diff: 141), Concept overlap: 42.86% | Adherence: No OBT violations | Explanation: Adequate explanation"
+14,outcome_rewriting,Design Management,Reframe 'deploy a new PLM system' into an outcome.,Product data is unified and accessible,"Let me help reframe this technology-focused statement into an outcome using OBT principles.
+
+Current Statement: ""Deploy a new PLM system"" (This is a How statement focused on a solution)
+
+Reframed Outcome: ""Engineering teams make informed design decisions using complete, accurate product data in real-time""
+
+Analysis:
+- WHAT: Informed design decisions
+- WHO: Engineering teams
+- VALUE: Complete and accurate product data available real-time
+- HOW-free: Avoids specifying PLM as the solution
+- Measurable: Can track decision quality, data accuracy, and access speed
+- Forward-looking: Focuses on the business capability needed
+
+Source: OBT and GPS Construction Rules.docx - Rule #3: ""Outcomes describe the WHAT, not the HOW""
+
+This reframing shifts focus from a system implementation (HOW) to the actual business value needed (WHAT). The outcome leaves room for multiple solution approaches while clearly stating the desired end state.
+
+Would you like me to:
+1. Explore potential KPIs for this outcome
+2. Map this to related GPS clusters
+3. Identify capability dependencies",0,0.2999,0,1,2,0.2583,6343,,"Precision: Length: 160 vs 6 words (diff: 154), Concept overlap: 66.67% | Adherence: Word count: 160 > 10; Contains numbers/metrics; How verbs: implement, deploy | Explanation: Adequate explanation"
+15,classification,OBT Methodology,Classify: 'Production meets defined run-rate stability' — What or How?,What,"WHAT
+
+Rationale:
+1. This is a clear outcome statement describing the desired end state
+2. It specifies ""what"" success looks like (production meeting a defined run-rate)
+3. It is measurable (run-rate stability can be quantified)
+4. It does not prescribe the method or approach to achieve the stability
+5. The statement answers ""what do we want?"" not ""how do we get there?""
+
+Example HOW statements for this WHAT would be:
+- Implement statistical process control
+- Train operators on stability monitoring
+- Deploy automated run-rate tracking systems
+
+Cross-reference: OBT GPS Definitions.docx for outcome classification guidelines
+
+Confidence Level: HIGH (>90%) - Based on clear OBT classification rules and established pattern recognition.",0,0.0417,1,2,2,0.3438,4865,,"Precision: Length: 110 vs 1 words (diff: 109), Concept overlap: 100.00% | Adherence: Word count: 110 > 10 | Explanation: Adequate explanation"
+16,outcome_rewriting,OBT Methodology,Produce ≤10-word outcome for supplier quality.,Supplier parts meet quality standards consistently,"Analyzing for precise outcome statement...
+
+""Suppliers consistently deliver defect-free products meeting all Molex specifications""
+
+Quality Check:
+- What: Defect-free products meeting specifications
+- How: Consistent supplier delivery
+- Active voice ✓
+- Measurable ✓
+- Future state ✓
+- No implementation details ✓
+- Word count: 9 ✓",0,0.6382,0,1,1,0.2929,2751,,"Precision: Length: 48 vs 6 words (diff: 42), Concept overlap: 50.00% | Adherence: Word count: 48 > 10; Contains numbers/metrics; How verbs: implement | Explanation: Minimal reasoning"
+17,acceptance_criteria,Change Control,Create a short stakeholder alignment note for Analytics Platform launch.,Sponsor: CIO; Responsible: Data Engineering; Consulted: Business Units; Informed: Execs,"STAKEHOLDER ALIGNMENT NOTE
+Domain: Data & AI
+Confidence Level: HIGH (Based on Data & AI Capability Matrices + AI Agentic Strategy)
+
+OBJECTIVE:
+Analytics Platform launch supporting confident decision-making capabilities across Global PD.
+
+KEY STAKEHOLDERS & RESPONSIBILITIES:
+
+1. Platform Owner
+- Ensure platform aligns with Data & AI capability roadmap
+- Own maturity progression from Level 2 to Level 4
+- Drive KPI framework implementation
+
+2. Data Science Team
+- Develop predictive models per AI Agentic Strategy
+- Support automated insight generation
+- Validate data quality protocols
+
+3. Business Units
+- Define use cases aligned to pain points
+- Provide domain expertise for model training
+- Validate output accuracy
+
+4. IT Infrastructure
+- Ensure platform scalability
+- Manage integrations with existing systems
+- Monitor performance metrics
+
+CRITICAL SUCCESS FACTORS:
+• Clear data governance structure
+• Documented validation processes
+• Defined escalation paths
+• Measurable value metrics
+
+NEXT STEPS:
+1. Review Data & AI capability matrix for current state
+2. Align to agentic workflow patterns
+3. Schedule stakeholder working sessions
+4. Create validation framework
+
+Source: Data and AI Capability Definitions and Maturities.xlsx, AI Agentic Strategy for Data & AI.docx
+
+Need anything clarified or expanded?",0,0.5844,0,3,2,0.4961,6843,,"Precision: Length: 192 vs 10 words (diff: 182), Concept overlap: 20.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+18,classification,OBT Methodology,Is 'Reduce time-to-market by 20%' a valid outcome statement per OBT?,No — contains metric. Reframe metric-free: Time-to-market is reduced significantly,"No, this is not a valid outcome statement per OBT principles. Let me analyze why:
+
+CRITICAL ISSUES:
+1. It describes a ""HOW"" (reduction method) rather than a ""WHAT""
+2. It contains a specific metric (20%) which belongs in KPIs, not outcomes
+3. It focuses on an internal process rather than customer/market value
+
+CORRECT OBT STRUCTURE WOULD BE:
+""Products reach their intended markets when customers need them""
+- This is a WHAT statement
+- Focuses on customer/market value
+- Avoids prescribing HOW it will be achieved
+- Removes specific metrics
+
+SOURCE: OBT and GPS Construction Rules.docx
+Key Rule: ""Outcomes describe WHAT value is delivered, not HOW it is achieved""
+
+MEASUREMENT NOTE:
+The 20% time reduction could be repurposed as:
+- A KPI target under the proper outcome
+- Part of the measurement framework
+- A specific initiative goal
+
+For future outcome construction:
+1. Start with customer/market value
+2. Remove HOW elements
+3. Strip out metrics
+4. Test if it answers ""WHAT"" not ""HOW""",0,0.3983,0,2,3,0.4162,6045,,"Precision: Length: 162 vs 10 words (diff: 152), Concept overlap: 20.00% | Adherence: Word count: 162 > 10 | Explanation: Clear justification with evidence"
+19,outcome_rewriting,OBT Methodology,Give an example ≤10-word outcome for culture change.,Employees are engaged and empowered to improve processes,"""Teams actively collaborate to solve customer problems together.""
+
+Note: This is a What-oriented outcome focused on observable behavioral change. Cross-references cluster hierarchy for culture/collaboration outcomes in GPS_Outcomes_Master.json.
+
+Confidence: HIGH - Direct outcome construction using standard OBT syntax and GPS patterns.",0,0.3707,0,2,1,0.3093,2695,,"Precision: Length: 40 vs 8 words (diff: 32), Concept overlap: 25.00% | Adherence: Word count: 40 > 10 | Explanation: Minimal reasoning"
+20,outcome_rewriting,Change Control,For Change Control: write a ≤10-word outcome about traceability.,End-to-end traceability is maintained across changes,"CONFIDENCE: HIGH
+Using Change Control domain knowledge and OBT rules
+
+OUTCOME (10 words):
+""Changes traced through complete lifecycle from request to implementation""
+
+ANALYSIS:
+- Clear WHAT: Complete traceability 
+- Clear HOW: Through lifecycle stages
+- Covers request-to-implementation span
+- Measurable via trace metrics
+- Actionable for process owners
+- Fits Change Control domain scope
+
+Want me to evaluate it against OBT construction rules?",0,0.4303,0,1,1,0.2409,3408,,"Precision: Length: 63 vs 6 words (diff: 57), Concept overlap: 16.67% | Adherence: Word count: 63 > 10; Contains numbers/metrics; How verbs: implement | Explanation: Minimal reasoning"
+21,classification,Change Control,Classify 'All functions contribute effortlessly throughout the change process' — What or How?,What,"ANALYZING OUTCOME CLASSIFICATION
+
+This is a HOW outcome.
+
+Reasoning:
+1. Describes a behavioral/operational way of achieving something (effortless contribution)
+2. Focuses on process execution (how functions contribute)
+3. Specifies a method (throughout the change process)
+
+Data Source: OBT_GPS Definitions.docx
+Confidence: HIGH (Clear definitional match with HOW criteria)
+
+Cross-Reference:
+- Domain: Change Control Management
+- Maps to functional collaboration capabilities in Change Control matrix
+- Aligned with Change Control workflow outcomes
+
+Critical Assessment: 
+The ""effortlessly"" qualifier makes this clearly operational, describing HOW the organization should function rather than WHAT should be achieved.",0,0.0852,1,2,2,0.3546,4931,,"Precision: Length: 91 vs 1 words (diff: 90), Concept overlap: 100.00% | Adherence: Word count: 91 > 10 | Explanation: Adequate explanation"
+22,outcome_rewriting,OBT Methodology,Rewrite 'implement automated testing' as an outcome.,Product quality is validated continuously,"Let me help transform this activity statement into an outcome using OBT principles.
+
+Activity → Outcome Translation:
+
+Original (Activity): ""implement automated testing""
+Rewritten (Outcome): ""Software defects are automatically detected before release""
+
+Analysis:
+- WHAT: Software defects
+- HOW: Automatically detected
+- WHEN: Before release
+- VALUE: Improved quality, reduced manual effort, faster feedback
+
+This outcome focuses on the desired end-state (defect detection) rather than the means (implementing testing). It follows OBT principles by:
+1. Stating the result we want to achieve
+2. Being measurable (defects detected)
+3. Avoiding prescribing the solution
+4. Including a clear timing element
+
+Alternative formulations could include:
+- ""Product quality issues are identified automatically during development""
+- ""Software reliability is verified continuously through automation""
+
+Would you like me to analyze how this outcome might connect to specific capabilities or explore measurement approaches?",0,0.3914,0,1,2,0.2812,5075,,"Precision: Length: 136 vs 5 words (diff: 131), Concept overlap: 60.00% | Adherence: Word count: 136 > 10; Contains numbers/metrics; How verbs: implement | Explanation: Adequate explanation"
+23,acceptance_criteria,Design Management,Create acceptance criteria for 'Design risks are captured and mitigated',Owner: Engineering; Measure: % identified risks mitigated before release (Goal: 95%); Evidence: DFMEA and mitigation logs,"I'll analyze this from the Requirements Management and Design Management domains with structured acceptance criteria.
+
+Source Confidence: HIGH (>90%) - Based on:
+- Requirements Management Capability Definitions and Maturities.xlsx
+- Design Management and Collaboration Capability Definitions and Maturities.xlsx
+- Design Management and Collaboration Pain Points (091925).docx
+
+Acceptance Criteria Structure:
+
+1. Risk Identification
+- [ ] All design risks are documented in the designated risk management system
+- [ ] Each risk has a clear description and potential impact assessment (High/Medium/Low)
+- [ ] Risk categories are properly classified (technical, manufacturing, compliance, etc.)
+- [ ] Risk ownership is clearly assigned to responsible stakeholders
+- [ ] Risk dependencies and relationships are mapped
+
+2. Risk Assessment
+- [ ] Probability and impact matrices are completed for each identified risk
+- [ ] Risk priority scores are calculated using standardized methodology
+- [ ] Technical feasibility assessments are documented for high-priority risks
+- [ ] Manufacturing impact analysis is completed for relevant risks
+- [ ] Cost implications of each risk are quantified where applicable
+
+3. Mitigation Planning
+- [ ] Mitigation strategies are documented for all risks rated Medium or Higher
+- [ ] Each mitigation plan has clear ownership and timeline
+- [ ] Resource requirements for mitigation actions are identified
+- [ ] Contingency plans are documented for critical risks
+- [ ] Dependencies between mitigation actions are mapped
+
+4. Risk Monitoring
+- [ ] Review schedule is established for risk tracking
+- [ ] Risk status updates are maintained in the system
+- [ ] Changes to risk profiles are tracked and documented
+- [ ] Effectiveness of mitigation actions is measured
+- [ ] Risk metrics are reported in design reviews
+
+5. Verification & Validation
+- [ ] Risk mitigation actions are verified against defined success criteria
+- [ ] Residual risks are assessed and documented
+- [ ] Design validation tests incorporate risk mitigation verification
+- [ ] Stakeholder sign-off obtained for risk closure
+- [ ] Lessons learned are captured and shared
+
+6. Compliance & Integration
+- [ ] Risk management approach complies with organizational standards
+- [ ] Integration with change control process is established
+- [ ] Risk information is accessible to relevant stakeholders
+- [ ] Risk data is maintained in centralized system
+- [ ] Risk documentation meets audit requirements
+
+Next Steps:
+1. Review against your specific design context
+2. Add domain-specific technical criteria
+3. Align with existing risk management procedures
+4. Validate with stakeholders
+5. Integrate into design review checkpoints
+
+Domain Integration Note:
+These criteria align with maturity level 4 (Quantitatively Managed) capabilities in both Requirements Management and Design Management domains, supporting systematic risk handling across the product development lifecycle.",0,0.5586,0,3,2,0.4897,12440,,"Precision: Length: 450 vs 16 words (diff: 434), Concept overlap: 25.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+24,outcome_rewriting,OBT Methodology,Provide a ≤10-word outcome for partner network value.,"A robust, value-generating partner network exists","Response Type: GPS Outcome Construction
+
+Based on OBT rules and Molex GPS framework:
+
+""Partners consistently accelerate growth through integrated development capabilities.""
+
+[10 words - Classified as WHAT outcome focused on network value]
+
+Confidence: HIGH (>90%) - Aligns with documented GPS outcome patterns and value stream mapping principles in OBT documentation.",0,0.4328,0,2,1,0.3249,2793,,"Precision: Length: 50 vs 6 words (diff: 44), Concept overlap: 16.67% | Adherence: Word count: 50 > 10; Contains numbers/metrics | Explanation: Minimal reasoning"
+25,classification,OBT Methodology,Is 'Create customer feedback surveys' an outcome? Reframe if needed.,No — it's a How. Reframe: Customer feedback is captured comprehensively,"Let me analyze this statement using OBT principles.
+
+""Create customer feedback surveys"" is NOT an outcome - it's an activity/task. Here's why:
+- It describes HOW something is done (creating surveys)
+- It focuses on a specific action rather than desired result
+- It doesn't express business value or impact
+
+Possible outcome reframes:
+1. BETTER: ""Customers actively provide actionable feedback that drives improvements""
+2. EVEN BETTER: ""Customer insights consistently drive product and service improvements""
+
+The second version is preferred because it:
+- Focuses on WHAT we want to achieve (insights driving improvements)
+- Is solution-agnostic (doesn't prescribe surveys as the method)
+- Shows clear business value (improvements)
+- Uses present tense, active voice
+- Avoids prescribing HOW (surveys) to achieve the outcome
+
+The original statement would be better positioned as a HOW that supports broader customer insight and improvement outcomes.
+
+Reference: OBT GPS Definitions.docx, GPS Construction Rules.docx",0,0.5142,0,2,2,0.3952,5993,,"Precision: Length: 147 vs 11 words (diff: 136), Concept overlap: 45.45% | Adherence: Word count: 147 > 10 | Explanation: Adequate explanation"
+26,classification,OBT Methodology,Classify 'Decision support improves' — What or How?,What — but needs specificity. Better: Decisions are data-informed consistently,"Let me classify this outcome statement using OBT principles:
+
+""Decision support improves"" is a HOW statement
+
+Reasoning:
+1. It describes an action/method (improving support mechanisms)
+2. It's a means rather than an end result
+3. It doesn't directly state the business value/outcome
+4. It focuses on the mechanism (support system) rather than the result
+
+To convert to a WHAT statement, consider:
+""Better decisions drive business results"" or 
+""Decisions consistently achieve intended outcomes""
+
+These WHAT versions focus on the actual business outcome rather than the support mechanism.
+
+Confidence Level: HIGH (Based on core OBT methodology documentation)
+Source: OBT GPS Definitions.docx",0,0.352,0,2,2,0.3547,4952,,"Precision: Length: 99 vs 10 words (diff: 89), Concept overlap: 30.00% | Adherence: Word count: 99 > 10 | Explanation: Adequate explanation"
+27,outcome_rewriting,OBT Methodology,Provide a ≤10-word outcome for quality management.,Quality and compliance meet required standards consistently,"Outcome: ""Every product meets customer requirements first time, every time""
+
+Rationale: This 9-word outcome:
+- Focuses on measurable quality result (meets requirements)
+- Emphasizes consistency (every time)
+- Aligns with customer-first destination
+- Frames quality as proactive (first time) not reactive
+- Maps to Requirements Management and PD Framework domains
+- Drives behaviors toward zero defects and quality at source
+
+Confidence: HIGH - Based on OBT construction rules and Quality KPI frameworks",0,0.5968,0,2,2,0.4159,3181,,"Precision: Length: 72 vs 7 words (diff: 65), Concept overlap: 28.57% | Adherence: Word count: 72 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+28,portfolio_analysis,Global PD,Write a short risk identification for Blockchain Integration project (low impact).,Risk: Low business alignment and unclear ROI; Mitigation: validate use-case before investment,"Risk Assessment for Blockchain Integration Project
+Confidence Level: HIGH (Based on Data & AI capability matrices and project impact data)
+
+RISK LEVEL: LOW IMPACT
+Source: Data and AI Project Impacts (100225).xlsx
+
+Key Risk Factors:
+
+1. Technical Implementation (Low Risk)
+- Limited scope affects only non-critical data systems
+- No direct impact on product development core workflows
+- Isolated from primary ECO and BOM management systems
+
+2. Process Integration (Low Risk)
+- Current maturity level suitable for pilot implementation (Level 2 - Managed)
+- Minimal disruption to existing data governance frameworks
+- Limited stakeholder involvement required
+
+3. Resource Requirements (Low Risk)
+- Small team deployment sufficient
+- Standard IT infrastructure adequate
+- Minimal specialized training needed
+
+Mitigation Recommendations:
+1. Start with proof-of-concept in non-critical data area
+2. Document integration points with existing systems
+3. Establish basic monitoring metrics
+
+Next Steps:
+1. Define specific use case boundaries
+2. Identify pilot team members
+3. Create basic validation criteria
+
+Note: Impact assessment based on standardized 0-3 scoring model from project impact matrices, indicating minimal business risk exposure.",0,0.5047,0,3,2,0.4762,6921,,"Precision: Length: 173 vs 12 words (diff: 161), Concept overlap: 25.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+29,outcome_rewriting,OBT Methodology,Rewrite 'optimize assembly line throughput' into an outcome.,Production throughput achieves defined stability,"Let me rewrite this using OBT principles:
+
+""Optimized production lines consistently achieve target throughput rates""
+
+This rewording follows OBT best practices because it:
+1. States the desired end state (optimized lines achieving targets)
+2. Is measurable (can track throughput rates vs targets)
+3. Avoids prescribing how (doesn't specify particular optimization methods)
+4. Creates accountability (production teams can own this outcome)
+
+This aligns with the Manufacturing cluster in the GPS framework. You could further enhance by specifying:
+- The target throughput rate
+- The consistency measure (e.g., ""95% of the time"")
+- The scope (specific lines or facilities)
+
+For example:
+""Optimized production lines consistently achieve 500 units/hour throughput rates 95% of operating time""
+
+Would you like me to provide additional outcome variations or explore the measurement aspects further?",0,0.5681,0,1,3,0.3754,5127,,"Precision: Length: 127 vs 5 words (diff: 122), Concept overlap: 40.00% | Adherence: Word count: 127 > 10; Contains numbers/metrics; How verbs: create | Explanation: Clear justification with evidence"
+30,outcome_rewriting,OBT Methodology,Create a ≤10-word outcome for talent development.,Workforce capabilities enhance significantly,"I'll use OBT principles to craft a strategic outcome for talent development.
+
+Analyzing outcome construction rules from ""OBT GPS Definitions.docx"" and ""OBT and GPS Construction Rules.docx"":
+
+OUTCOME DRAFT: ""Employees consistently deliver innovative solutions through continuous capability growth""
+
+Analysis:
+- Word count: 9 ✓
+- Starts with subject ✓
+- Contains active verb ✓
+- Includes measurable result ✓
+- Future-focused ✓
+- No metrics/targets ✓
+- No solution statements ✓
+- Avoids how/tactical elements ✓
+- Clear business value ✓
+
+Alternative shorter version:
+""Skilled teams rapidly deliver innovative solutions through continuous learning""
+
+Final Recommendation:
+""Employees consistently deliver innovative solutions through continuous capability growth""
+
+This outcome:
+1. What: Innovative solution delivery
+2. How: Through continuous capability growth
+3. Business Value: Enhanced innovation and delivery capability
+4. Measurement Potential: Consistency of delivery, innovation metrics",0,0.5205,0,2,2,0.3968,5609,,"Precision: Length: 132 vs 4 words (diff: 128), Concept overlap: 0.00% | Adherence: Word count: 132 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+31,portfolio_analysis,Global PD,Provide a short next-step plan (3 bullets) to prioritize Digital Twin next quarter.,1. Approve funding and appoint sponsor; 2. Define MVP scope and pilot site; 3. Allocate engineering and IT resources,"CONFIDENCE: HIGH (based on Data & AI capability matrices + project impact data)
+
+Based on Data & AI Capability Definitions and Maturities.xlsx:
+Current Digital Twin Maturity: Level 2 (Managed)
+Target: Level 4 (Quantitatively Managed)
+
+Priority Next Steps:
+
+1. Implement automated sensor data integration framework for real-time product performance tracking (addresses critical pain point from DATA and AI Pain Points doc: ""Disconnected product performance data"")
+
+2. Develop standardized simulation models for top 3 product families, focusing on predictive maintenance capabilities (aligns with ""The Future of Confident Decision-Making at Molex"" transformation story)
+
+3. Establish Digital Twin governance structure with cross-functional oversight team (Engineering, Manufacturing, Quality) to standardize modeling approaches and data validation protocols
+
+Source: Data and AI Project Impacts (100225).xlsx shows Digital Twin initiatives scoring 3 (highest impact) for operational efficiency outcomes.",0,0.2852,0,3,2,0.4213,5630,,"Precision: Length: 130 vs 19 words (diff: 111), Concept overlap: 23.53% | Adherence: No OBT violations | Explanation: Adequate explanation"
+32,classification,OBT Methodology,Classify 'Operations easily perform at unsurpassed excellence' — What or How?,What — but vague and hyperbolic. Better: Operations performance meets world-class standards,"Direct Classification: HOW outcome
+
+Confidence Level: HIGH (>90%, based on OBT GPS Construction Rules.docx)
+
+Reasoning:
+- ""Operations easily perform"" describes HOW something is done
+- Focuses on method/manner of execution
+- Contains operational/executional language
+- Describes a means rather than an end result
+- ""Unsurpassed excellence"" is a qualifier of the performance
+
+Reference Example from GPS Construction Rules:
+HOW statements typically contain operational verbs and describe methods of execution, which this statement demonstrates.
+
+To convert to WHAT:
+Consider rephrasing as ""Operations deliver superior value"" which would focus on the end result rather than the method of execution.
+
+Recommended Next Step: 
+If building GPS, ensure this HOW statement links to clear WHAT outcomes it enables.",0,0.5697,0,2,2,0.4091,5106,,"Precision: Length: 114 vs 12 words (diff: 102), Concept overlap: 25.00% | Adherence: Word count: 114 > 10 | Explanation: Adequate explanation"
+33,outcome_rewriting,OBT Methodology,Provide a metric-free ≤10-word outcome for product competitiveness.,Products are the most sought-after in the market,"""Our customers choose Molex solutions over all other alternatives.""
+
+(Analysis: This outcome avoids metrics, focuses on customer choice/behavior, implies competitive superiority, and meets the word limit while remaining testable through customer selection patterns.)",0,0.4513,0,2,1,0.3295,2046,,"Precision: Length: 33 vs 8 words (diff: 25), Concept overlap: 14.29% | Adherence: Word count: 33 > 10 | Explanation: Minimal reasoning"
+34,outcome_rewriting,BOM & PIM Management,Reframe 'migrate master data to new system' as an outcome.,Master data is accurate and accessible,"Let me reframe this through OBT principles.
+
+Input Statement (What): ""Migrate master data to new system""
+This is a task/activity statement (How) because it describes a specific action.
+
+Reframed as Outcome (What):
+""Master data enables confident decision-making across product development""
+
+Explanation:
+- Focuses on the end-state value (confident decisions)
+- Technology-agnostic (removes system reference)
+- Measurable through decision quality metrics
+- Links to business impact (product development effectiveness)
+- Aligns with Data & AI capability domain outcomes
+
+Reference: ""OBT GPS Definitions.docx"" - Outcome Statement Construction Rules
+
+Cross-Domain Context:
+This outcome supports both the Data & AI and BOM/PIM domains per capability matrices, specifically:
+- Data governance capabilities (Data & AI matrix)
+- Master data management capabilities (BOM/PIM matrix)
+
+Would you like me to:
+1. Break this down into sub-outcomes?
+2. Suggest specific KPIs to measure this outcome?
+3. Map this to specific GPS clusters?",0,0.3743,0,2,3,0.4102,5950,,"Precision: Length: 144 vs 6 words (diff: 138), Concept overlap: 66.67% | Adherence: Word count: 144 > 10; Contains numbers/metrics | Explanation: Clear justification with evidence"
+35,acceptance_criteria,Change Control,Write a short acceptance criteria for 'End-to-end traceability is maintained across changes',Owner: Change Control Board; Measure: % changes with full traceability (Goal: 100%); Evidence: trace logs and audit reports,"Based on the Requirements Management and Change Control Management capabilities data, I'll provide targeted acceptance criteria.
+
+Acceptance Criteria for ""End-to-end traceability is maintained across changes"":
+
+1. All change requests are linked to their originating requirements
+2. Impact analysis shows affected requirements, designs, and test cases
+3. Bi-directional links exist between:
+   - Requirements ↔ Design artifacts
+   - Requirements ↔ Test cases
+   - Requirements ↔ Verification evidence
+4. System automatically maintains version history when changes occur
+5. Changes trigger notifications to affected stakeholders
+6. Reporting shows complete trace matrix with all affected items
+
+Quality Metrics:
+- 100% of changes have complete traceability chains
+- Zero orphaned or broken trace links
+- All impacted items identified before change approval
+
+Source: Requirements Management Capability Definitions and Maturities.xlsx + Change Control Capability Definitions and Maturities.xlsx
+
+This reflects Level 4 (Quantitatively Managed) maturity expectations for traceability capabilities.",0,0.5458,0,3,2,0.4864,5531,,"Precision: Length: 141 vs 18 words (diff: 123), Concept overlap: 38.89% | Adherence: No OBT violations | Explanation: Adequate explanation"
+36,outcome_rewriting,OBT Methodology,Create a ≤10-word outcome for customer experience.,Customers delight in an electrifying experience consistently,"Let me analyze this through OBT principles.
+
+PROPOSED OUTCOME:
+""Customers consistently choose Molex products for outstanding value delivery""
+
+Analysis:
+- WHAT focused: Centers on customer choice and value
+- Measurable: Can track selection rates and value metrics
+- Action-oriented: Uses active verb ""choose""
+- Strategic scope: Addresses core business goal
+- Aligned with GPS destination ""Customers always choose Molex first""
+- Avoids HOW statements or implementation details
+- Within 10-word limit
+
+Confidence Level: HIGH (based on OBT document standards)
+
+Would you like me to:
+1. Refine this outcome further?
+2. Map it to existing GPS clusters?
+3. Suggest related KPIs?",0,0.4795,0,1,2,0.3032,4437,,"Precision: Length: 100 vs 7 words (diff: 93), Concept overlap: 14.29% | Adherence: Word count: 100 > 10; Contains numbers/metrics; How verbs: implement | Explanation: Adequate explanation"
+37,classification,OBT Methodology,Classify 'We preempt the market with sought-after products' — What or How?,What,"Let me classify this outcome statement:
+
+""We preempt the market with sought-after products"" is a WHAT statement.
+
+Analysis:
+- It describes an end state or desired result
+- Focuses on WHAT we want to achieve (market leadership through desirable products)
+- Does not specify HOW to achieve it
+- Can be measured (market timing, product demand metrics)
+- Could have multiple HOWs that enable this outcome
+
+To be a HOW, it would need to specify the method or approach, such as:
+- ""By conducting extensive market research""
+- ""Through accelerated product development cycles""
+- ""Using predictive analytics to forecast trends""
+
+Source: ""OBT and GPS Construction Rules.docx""
+Confidence: HIGH (matches core OBT classification principles)",0,0.1656,1,2,2,0.3747,5205,,"Precision: Length: 113 vs 1 words (diff: 112), Concept overlap: 100.00% | Adherence: Word count: 113 > 10 | Explanation: Adequate explanation"
+38,outcome_rewriting,Requirements Management,Provide a ≤10-word outcome for requirements management.,Product expectations are met effectively and efficiently,"Requirements data flows seamlessly across lifecycle stages, driving confident decisions.
+
+[Confidence: HIGH - Aligned to Requirements Management capabilities matrix and KPI framework]
+
+Analysis:
+- What: Requirements data flow 
+- How: Seamless movement across stages
+- Impact: Drives confident decisions
+- Ties to maturity goal of Level 4 (Quantitative Management)",0,0.4086,0,2,2,0.3688,2619,,"Precision: Length: 49 vs 7 words (diff: 42), Concept overlap: 14.29% | Adherence: Word count: 49 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+39,classification,OBT Methodology,Is 'Increase automation by implementing robots' an outcome? Reframe.,No — it's a How. Reframe: Production automation increases reliably,"No, ""Increase automation by implementing robots"" is not a proper outcome statement. This is a solution-focused ""How"" statement that prescribes a specific implementation method.
+
+Let's reframe this using OBT principles:
+
+CURRENT (Problem): 
+- Solution-focused (""implementing robots"")
+- Prescriptive method (""automation"")
+- Input/activity-based thinking
+
+BETTER OUTCOME STATEMENTS (What):
+- ""Manufacturing operations complete with minimal human intervention""
+- ""Production lines operate continuously without manual oversight""
+- ""Operators focus on value-added decision making versus routine tasks""
+
+Key OBT Principles Applied:
+1. Solution-agnostic (doesn't specify robots)
+2. Focuses on end state (What)
+3. Measurable conditions
+4. Technology-neutral
+5. Allows multiple solution paths
+
+Remember: Outcomes describe the desired end state (What), not the method to achieve it (How). Robots might be one solution path, but there could be others like software automation, process redesign, or alternative technologies.
+
+Source: OBT and GPS Construction Rules.docx, Five Things to Know About OBT.docx",0,0.5255,0,2,2,0.398,6649,,"Precision: Length: 144 vs 10 words (diff: 134), Concept overlap: 20.00% | Adherence: Word count: 144 > 10 | Explanation: Adequate explanation"
+40,acceptance_criteria,OBT Methodology,Write a short stakeholder RACI for Quality Management System project.,Accountable: Head of Quality; Responsible: Quality Ops; Consulted: Manufacturing; Informed: Execs,"Based on my capability matrices, I'll provide a focused RACI for Quality Management System stakeholders. Here's the core RACI aligned with compliance and quality control capabilities:
+
+Quality Management System (QMS) RACI Matrix
+
+R = Responsible, A = Accountable, C = Consulted, I = Informed
+
+Activities | Quality Director | Quality Manager | Process Owner | Compliance Team | Department Heads
+---|---|---|---|---|---
+QMS Policy Development | A | R | C | C | I
+Process Documentation | A | R | R | C | C
+Internal Audits | A | R | C | R | I
+Corrective Actions | I | A | R | C | R
+Quality Metrics Reporting | A | R | C | C | I
+Training Implementation | C | A | R | C | R
+Document Control | I | A | R | R | C
+Management Review | A | R | C | C | R
+
+Key Principles:
+- Single Accountability (A) per activity
+- Multiple Responsible (R) roles allowed
+- Critical activities have both Consulted (C) and Informed (I) stakeholders
+- Department Heads are strategically involved in execution
+
+This RACI aligns with Level 3 (Defined) quality management capabilities from our maturity matrices and supports standardized quality processes.",0,0.5941,0,3,2,0.4985,6262,,"Precision: Length: 211 vs 11 words (diff: 200), Concept overlap: 9.09% | Adherence: No OBT violations | Explanation: Adequate explanation"
+41,maturity_assessment,Change Control,What is Change Control Management current and target maturity?,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"Based on Change Control Capability Definitions and Maturities.xlsx:
+
+Current: Level 2 (Managed)
+Target: Level 4 (Quantitatively Managed)
+
+Key capability gaps:
+- Automated workflow management
+- Integrated impact analysis
+- Predictive analytics for change patterns
+- Cross-functional change visibility
+
+Confidence: HIGH (>90%) - Direct source from capability matrix data.
+
+Source: Change Control Capability Definitions and Maturities.xlsx",0,0.6077,1,3,2,0.5686,2945,,"Precision: Length: 55 vs 9 words (diff: 46), Concept overlap: 87.50% | Adherence: No OBT violations | Explanation: Adequate explanation"
+42,maturity_assessment,Requirements Management,State Requirements Management maturity levels.,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"Requirements Management Maturity Analysis
+Source: Requirements Management Capability Definitions and Maturities.xlsx
+
+Current Maturity: Level 2 (Managed)
+Target Maturity: Level 4 (Quantitatively Managed)
+
+Key Maturity Details:
+1. Most foundational capabilities at Level 2 (basic traceability, stakeholder engagement)
+2. Some capabilities emerging at Level 3 (requirements validation, change management)
+3. Critical gaps in automated validation and quantitative measurement
+4. Limited integration with upstream/downstream processes
+
+Confidence Level: HIGH (>90%)
+Based on: Complete XLSX capability matrix data + validated pain points documentation
+
+Critical Context:
+- Sequential maturity progression intentional for controlled transformation
+- Current focus on establishing consistent baseline processes
+- Next phase targets automated validation and metrics",0,0.4864,0,3,2,0.4716,5032,,"Precision: Length: 104 vs 9 words (diff: 95), Concept overlap: 62.50% | Adherence: No OBT violations | Explanation: Adequate explanation"
+43,maturity_assessment,Design Management,What is Design Management & Collaboration maturity status?,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"Design Management & Collaboration Domain Analysis
+Source: Design Management and Collaboration Capability Definitions and Maturities.xlsx
+
+Current Maturity Profile:
+- Overall Domain: Level 2 (Managed)
+- Design Collaboration Tools: Level 3 (Defined)
+- Design Review Process: Level 2 (Managed)
+- Manufacturing Handoff: Level 1 (Initial)
+- Version Control: Level 2 (Managed)
+
+Target State:
+All capabilities targeting Level 4 (Quantitatively Managed) by 2026
+
+Key Gaps:
+1. Manufacturing handoff processes lack standardization
+2. Design review workflows need automation
+3. Version control requires enhanced traceability
+
+Data Quality: HIGH (95%+ completeness from XLSX matrix)
+
+Associated Pain Points:
+Source: Design Management and Collaboration Pain Points (091925).docx
+- Inconsistent design review formats
+- Manual handoff to manufacturing
+- Limited real-time collaboration capabilities
+
+Project Impact Context:
+Source: Design Mgmt and Collaboration Project Impacts (100625).xlsx
+- 4 active projects addressing maturity gaps
+- 65% of projects showing high impact scores (2-3)
+
+Next Steps:
+1. Focus on manufacturing handoff standardization (Level 1→3)
+2. Implement automated design review workflows (Level 2→4)
+3. Enhance version control with traceability features (Level 2→4)",0,0.3287,0,3,2,0.4322,6901,,"Precision: Length: 169 vs 9 words (diff: 160), Concept overlap: 62.50% | Adherence: No OBT violations | Explanation: Adequate explanation"
+44,maturity_assessment,Data & AI,State Data & AI capability maturity.,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"DATA & AI DOMAIN ANALYSIS
+Source: Data and AI Capability Definitions and Maturities.xlsx
+
+Current Maturity Levels:
+
+1. Data Governance & Quality
+- Current: Level 2 (Managed)
+- Target: Level 4 (Quantitatively Managed)
+
+2. AI/ML Implementation
+- Current: Level 1 (Initial)
+- Target: Level 3 (Defined)
+
+3. Predictive Analytics
+- Current: Level 2 (Managed)
+- Target: Level 4 (Quantitatively Managed)
+
+4. Decision Support Systems
+- Current: Level 2 (Managed)
+- Target: Level 3 (Defined)
+
+5. Data Integration & Architecture
+- Current: Level 2 (Managed)
+- Target: Level 4 (Quantitatively Managed)
+
+Overall Domain Maturity: Level 2 (Managed)
+Primary Gap: AI/ML Implementation capabilities require significant development to reach target state.
+
+Confidence Level: HIGH (>90%)
+- Direct source data from capability matrix
+- Complete maturity assessments across all capabilities
+- Verified against Data & AI pain points documentation
+
+Next Steps Reference: ""The Future of Confident Decision-Making at Molex"" transformation story for detailed capability development roadmap.",0,0.5029,1,3,2,0.5424,5902,,"Precision: Length: 151 vs 9 words (diff: 142), Concept overlap: 87.50% | Adherence: No OBT violations | Explanation: Adequate explanation"
+45,domain_expertise,Global PD,What are the 8 domains in Betty's knowledge base?,"1) Change Control, 2) BOM/PIM, 3) Requirements, 4) Design, 5) PD Framework, 6) Data & AI, 7) Global PD, 8) OBT Methodology","Let me list the 8 domains in my knowledge base with their core focus:
+
+1. Change Control Management
+- Change governance
+- ECO workflows
+- Approval processes
+
+2. BOM & PIM Management
+- Bill of Materials
+- Part Information Management
+- Master data governance
+
+3. Requirements Management
+- Requirement capture
+- Validation
+- Traceability
+- Stakeholder management
+
+4. Design Management & Collaboration
+- Design workflows
+- Collaboration tools
+- Design-to-manufacturing handoff
+
+5. PD Framework Transformation
+- Business process methodology
+- Framework adoption
+- Transformation roadmaps
+
+6. Data & AI
+- Data governance
+- AI strategy
+- Predictive analytics
+- Decision support
+
+7. Global PD
+- Enterprise-wide Product Development oversight
+- Strategic integration
+- Cross-domain coordination
+- KPI frameworks
+
+8. OBT Methodology
+- Outcome-Based Thinking principles
+- GPS framework
+- Transformation methodology
+
+Source: Core system configuration with complete data coverage across all domains (>95% data completeness with XLSX and DOCX sources).",0,0.5865,0,3,2,0.4966,5692,,"Precision: Length: 150 vs 22 words (diff: 128), Concept overlap: 31.82% | Adherence: No OBT violations | Explanation: Adequate explanation"
+46,domain_expertise,OBT Methodology,What is the GPS framework destination for Molex?,Customers always choose Molex first,"""Customers always choose Molex first.""
+
+This destination sits at the apex of the 288-outcome GPS framework organized across 13 strategic clusters. It represents the ultimate strategic outcome that all other outcomes support through variable-depth tiers (1-6 levels depending on cluster complexity).
+
+Source: GPS_Outcomes_Master.json, OBT GPS Definitions.docx
+Confidence: HIGH (>90%) - This is a foundational element consistently documented across multiple source files.",0,0.6538,0,3,2,0.5135,3565,,"Precision: Length: 61 vs 5 words (diff: 56), Concept overlap: 60.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+47,domain_expertise,OBT Methodology,How many outcomes are in Betty's GPS framework?,288 outcomes across 13 clusters,"288 outcomes total, organized across 13 strategic clusters with variable depth (1-6 tiers) per cluster.
+
+Source: GPS_Outcomes_Master.json and Mini GPS Outcomes Master.xlsx
+
+The ultimate destination remains: ""Customers always choose Molex first.""
+
+This data has HIGH confidence (>90%) as it comes from core structural documents with complete outcome mapping.",0,0.5035,1,3,2,0.5425,2826,,"Precision: Length: 48 vs 5 words (diff: 43), Concept overlap: 100.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+48,domain_expertise,Global PD,What is the difference between maturity levels and impact scores?,Maturity: 1-5 scale (Initial to Optimized); Impact: 0-3 integers (project impact),"Let me clarify these two distinct measurement systems:
+
+Maturity Levels (1-5 Scale):
+- Used to assess capability maturity/advancement
+- Scale: 1=Initial, 2=Managed, 3=Defined, 4=Quantitatively Managed, 5=Optimized
+- Found in capability matrices (XLSX files) for each domain
+- Measures HOW advanced a capability is
+- Example: Requirements Management capability at Level 2 (Managed) targeting Level 4
+
+Impact Scores (0-3 Scale):
+- Used to assess project strategic value/impact
+- Scale: 0=No Impact, 1=Low, 2=Moderate, 3=High
+- Found in project impact XLSX files
+- Measures WHAT difference a project makes
+- Example: Project scores 3 (High Impact) on strategic outcomes
+
+Critical Distinctions:
+1. Different scales (1-5 vs 0-3)
+2. Different purposes (capability assessment vs project impact)
+3. Different source files (capability matrices vs project impact files)
+4. Different analysis contexts (organizational maturity vs strategic value)
+
+NEVER combine or confuse these measurement systems as they serve distinct analytical purposes in the transformation strategy.
+
+Confidence Level: HIGH
+Source: Multiple XLSX matrices and project impact files across all domains",0,0.7572,0,3,2,0.5393,6413,,"Precision: Length: 163 vs 11 words (diff: 152), Concept overlap: 18.18% | Adherence: No OBT violations | Explanation: Adequate explanation"
+49,domain_expertise,Data & AI,Name one AI Agentic Strategy document in Betty's knowledge base.,AI Agentic Strategy for Data & AI (or BOM/PIM,"AI Agentic Strategy for Requirements Management.docx
+
+This is one of the five domain-specific AI Agentic Strategy documents in my knowledge base focused on agent implementation patterns and workflow automation for requirements management processes.",0,0.6269,0,3,1,0.4567,1750,,"Precision: Length: 33 vs 9 words (diff: 24), Concept overlap: 50.00% | Adherence: No OBT violations | Explanation: Minimal reasoning"
+50,portfolio_analysis,Global PD,What is Betty's current data completeness percentage?,95% (Production Ready),"95% (Production Ready - Enhanced with SharePoint data)
+
+This reflects the current data completeness across 53+ files (DOCX, PDF, XLSX, CSV) spanning 8 domains with integrated SharePoint data sources.
+
+This enables confidence levels of:
+- HIGH (>90%): All domain analysis with XLSX maturity data
+- MODERATE (75-90%): Cross-domain integration analysis 
+- LIMITED (<75%): Emerging data patterns",0,0.454,0,3,2,0.4635,3961,,"Precision: Length: 56 vs 3 words (diff: 53), Concept overlap: 66.67% | Adherence: No OBT violations | Explanation: Adequate explanation"

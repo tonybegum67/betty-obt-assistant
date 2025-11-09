@@ -1,0 +1,37 @@
+[
+  {
+    "id": "Requirements Management-PP-001",
+    "domain": "Requirements Management",
+    "pain_point": "Limited visibility into process status",
+    "severity": "High",
+    "frequency": "Weekly"
+  },
+  {
+    "id": "Requirements Management-PP-002",
+    "domain": "Requirements Management",
+    "pain_point": "Stakeholders struggle to access timely information",
+    "severity": "Critical",
+    "frequency": "Weekly"
+  },
+  {
+    "id": "Requirements Management-PP-003",
+    "domain": "Requirements Management",
+    "pain_point": "Limited visibility into process status",
+    "severity": "Low",
+    "frequency": "Daily"
+  },
+  {
+    "id": "Requirements Management-PP-004",
+    "domain": "Requirements Management",
+    "pain_point": "Resource constraints limit capacity",
+    "severity": "Critical",
+    "frequency": "Weekly"
+  },
+  {
+    "id": "Requirements Management-PP-005",
+    "domain": "Requirements Management",
+    "pain_point": "Inconsistent standards across teams",
+    "severity": "High",
+    "frequency": "Quarterly"
+  }
+]

@@ -1,0 +1,22 @@
+streamlit
+openai
+chromadb>=0.5.0
+sentence-transformers
+PyPDF2
+python-docx
+openpyxl
+tiktoken
+anthropic
+pysqlite3-binary
+# Enhanced RAG dependencies
+nltk
+spacy
+# Visualization dependencies
+plotly
+pandas
+streamlit-mermaid
+# Additional ChromaDB dependencies for Streamlit Cloud
+sqlite-utils
+# Evaluation dependencies
+scikit-learn
+numpy

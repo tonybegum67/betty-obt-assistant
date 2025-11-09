@@ -1,0 +1,257 @@
+# AWS AgentCore Evaluation Configuration for Betty v4.3
+# Strategic Transformation Assistant - MODE System Implementation
+# Created: October 2025
+# Developer: Tony Begum, AI Architect, BoldARC Advisors
+
+evaluation:
+  name: "Betty_OBT_Methodology_Assessment"
+  version: "4.3"
+  description: "Comprehensive evaluation of Betty's MODE system for strategic transformation across OBT methodology and 8 product development domains"
+
+  # Agent Configuration
+  agent:
+    name: "Betty for Molex"
+    model: "claude-sonnet-4-20250514"
+    system_prompt_version: "4.3"
+    knowledge_base_size: "53+ documents"
+    data_completeness: "95%"
+    domains: 8
+    mode_system: true
+
+  # Test Dimensions (weighted scoring)
+  metrics:
+    exact_match:
+      weight: 0.15
+      description: "Binary match to expected response"
+
+    semantic_similarity:
+      weight: 0.25
+      description: "Vector similarity between agent response and expected response"
+      threshold: 0.75
+
+    rubric_precision:
+      weight: 0.20
+      description: "Length accuracy and concept precision"
+      scale: "0-3"
+      criteria:
+        - "3: Excellent - Concise, matches expected length and concept coverage"
+        - "2: Good - Minor verbosity or concept gaps"
+        - "1: Fair - Moderate verbosity or significant concept gaps"
+        - "0: Poor - Excessive verbosity or missing key concepts"
+
+    rubric_adherence:
+      weight: 0.25
+      description: "OBT methodology compliance with MODE-aware expectations"
+      scale: "0-3"
+      mode_rules:
+        mode_1:
+          name: "CONCISE ANSWER MODE"
+          target: "Outcome rewriting ≤15 words total for ≤10-word requests"
+          criteria:
+            - "3: Excellent - ≤15 words, metric-free, no How verbs, present tense"
+            - "2: Good - ≤20 words with minor OBT violations"
+            - "1: Fair - ≤30 words but maintains core outcome structure"
+            - "0: Poor - >30 words or fundamental OBT violations"
+        mode_2:
+          name: "CLASSIFICATION MODE"
+          target: "What/How classification ≤5 words"
+          criteria:
+            - "3: Excellent - ≤5 words, correct classification"
+            - "2: Good - ≤10 words with minor verbosity"
+            - "1: Fair - Correct classification but excessive explanation"
+            - "0: Poor - Incorrect classification or >20 words"
+        mode_3:
+          name: "STANDARD MODE"
+          target: "Comprehensive responses with context and evidence"
+          criteria:
+            - "3: Excellent - Follows all OBT rules with full justification"
+            - "2: Good - Minor OBT violations or format issues"
+            - "1: Fair - Multiple violations but core understanding present"
+            - "0: Poor - Fundamental misunderstanding of OBT principles"
+
+    rubric_explanation:
+      weight: 0.15
+      description: "Response quality with MODE-optimized expectations"
+      scale: "0-3"
+      mode_rules:
+        mode_1_and_2:
+          name: "Concise MODE responses"
+          criteria:
+            - "3: Excellent - Concise answer (≤15 words) provides direct value"
+            - "2: Good - Brief answer with adequate context"
+            - "1: Fair - Verbose but includes justification"
+            - "0: Poor - No justification or incorrect reasoning"
+        mode_3:
+          name: "Comprehensive responses"
+          criteria:
+            - "3: Excellent - Clear justification with evidence and reasoning"
+            - "2: Good - Adequate explanation with minor gaps"
+            - "1: Fair - Minimal explanation or unclear reasoning"
+            - "0: Poor - No justification or incorrect reasoning"
+
+  # Test Coverage Areas
+  test_categories:
+    outcome_rewriting:
+      weight: 0.25
+      description: "Converting activity statements to outcome statements (MODE 1)"
+      question_count: 18
+      mode: "MODE_1"
+      target_words: 15
+
+    classification:
+      weight: 0.20
+      description: "Distinguishing What from How statements (MODE 2)"
+      question_count: 9
+      mode: "MODE_2"
+      target_words: 5
+
+    acceptance_criteria:
+      weight: 0.15
+      description: "Defining owner, measure, and evidence for outcomes (MODE 3)"
+      question_count: 5
+      mode: "MODE_3"
+
+    domain_expertise:
+      weight: 0.15
+      description: "Multi-domain knowledge across 8 product development areas (MODE 3)"
+      question_count: 6
+      mode: "MODE_3"
+
+    maturity_assessment:
+      weight: 0.10
+      description: "Capability maturity evaluation (1-5 scale) (MODE 3)"
+      question_count: 5
+      mode: "MODE_3"
+
+    portfolio_analysis:
+      weight: 0.15
+      description: "Project prioritization and impact scoring (MODE 3)"
+      question_count: 7
+      mode: "MODE_3"
+
+  # Performance Benchmarks (v4.3)
+  performance:
+    response_time:
+      target_ms: 4000
+      threshold_ms: 10000
+      v4_3_average: 3863
+
+    token_efficiency:
+      max_input_tokens: 8000
+      max_output_tokens: 500  # MODE system reduces output significantly
+
+    success_thresholds:
+      excellent: 0.85
+      good: 0.75
+      acceptable: 0.65
+      needs_improvement: 0.50
+
+    verbosity_reduction:
+      mode_1: "89% reduction (69 → 7.8 words avg)"
+      mode_2: "98% reduction (145 → 3.2 words avg)"
+
+  # Domain Coverage
+  domains_tested:
+    - name: "Change Control Management"
+      question_count: 3
+      focus: "ECO workflows, approval processes, governance"
+
+    - name: "BOM & PIM Management"
+      question_count: 3
+      focus: "Part information, master data, product structure"
+
+    - name: "Requirements Management"
+      question_count: 2
+      focus: "Requirement capture, validation, traceability"
+
+    - name: "Design Management & Collaboration"
+      question_count: 3
+      focus: "Design workflows, collaboration tools, handoff processes"
+
+    - name: "Data & AI"
+      question_count: 2
+      focus: "Data governance, AI strategy, predictive analytics"
+
+    - name: "Global PD"
+      question_count: 4
+      focus: "Enterprise PD strategy, cross-domain integration, KPIs"
+
+    - name: "OBT Methodology"
+      question_count: 8
+      focus: "GPS framework, What/How mapping, outcome statements, MODE system"
+
+    - name: "Cross-Domain Integration"
+      question_count: 5
+      focus: "Multi-domain scenarios, capability alignment, strategic transformation"
+
+  # Output Configuration
+  output:
+    format: "csv"
+    fields:
+      - "test_id"
+      - "category"
+      - "domain"
+      - "prompt"
+      - "expected_response"
+      - "agent_response"
+      - "exact_match"
+      - "semantic_similarity"
+      - "rubric_precision"
+      - "rubric_adherence"
+      - "rubric_explanation"
+      - "overall_score"
+      - "execution_time_ms"
+      - "error"
+      - "analysis_notes"
+
+    summary_report: true
+    detailed_feedback: true
+
+  # Validation Rules (v4.3 MODE System)
+  validation:
+    obt_compliance:
+      - "Outcome statements must be ≤10 words (user request)"
+      - "MODE 1 responses: ≤15 words total"
+      - "MODE 2 responses: ≤5 words total"
+      - "Must use present tense for achieved states"
+      - "Must be metric-free (numbers in acceptance criteria only)"
+      - "Must distinguish What (outcomes) from How (methods)"
+      - "Must avoid implementation verbs (deploy, implement, build, create)"
+
+    mode_detection:
+      - "Auto-detect MODE 1: Outcome rewriting requests with ≤10-word limit"
+      - "Auto-detect MODE 2: Classification questions (What/How, valid outcome checks)"
+      - "Auto-detect MODE 3: Complex queries requiring context and evidence"
+
+    domain_accuracy:
+      - "Must cite specific data sources when available"
+      - "Must distinguish maturity levels (1-5) from impact scores (0-3)"
+      - "Must provide confidence levels for data-based answers (HIGH/MODERATE/LIMITED)"
+      - "Must route queries to appropriate domain expertise"
+
+    response_quality:
+      - "MODE 1/2: Must be concise and direct without preambles"
+      - "MODE 3: Must provide evidence-based reasoning with source citations"
+      - "Must offer appropriate next steps when relevant"
+      - "Must maintain professional boundaries"
+
+  # v4.3 Performance Targets
+  v4_3_targets:
+    overall_score: 0.60
+    semantic_similarity: 0.65
+    rubric_precision: 1.00
+    rubric_adherence: 2.90
+    rubric_explanation: 2.50
+    response_time_ms: 4000
+
+  # v4.3 Validation Results
+  v4_3_results:
+    overall_score: 0.595
+    semantic_similarity: 0.614
+    rubric_precision: 0.940
+    rubric_adherence: 2.940
+    rubric_explanation: 2.440
+    response_time_ms: 3863
+    success_rate: 1.00  # 50/50 questions
+    perfect_scores: 4   # Classification questions
+    improvement_vs_v4_2: 0.388  # +38.8%

@@ -1,0 +1,361 @@
+test_id,category,domain,prompt,expected_response,agent_response,detected_mode,expected_word_limit,actual_word_count,concept_match,semantic_similarity,semantic_quality,mode_compliance,obt_adherence,overall_score,execution_time_ms,error,analysis_notes
+1,outcome_rewriting,OBT Methodology,Rewrite 'implement ERP system' as an outcome (≤10 words),Business processes are integrated enterprise-wide,Business processes are integrated enterprise-wide,MODE1,15,5,1,1.0,EXCELLENT,3,2,0.9167,2501,,MODE: MODE1 | Words: 5/15 | Semantic: EXCELLENT | MODE1 compliant | Solution-specific: erp
+2,classification,OBT Methodology,Classify 'Decision speed improves measurably' — What or How?,What,What,MODE2,5,1,1,1.0,EXCELLENT,3,3,1.0,2860,,MODE: MODE2 | Words: 1/5 | Semantic: EXCELLENT | MODE2 compliant | OBT compliant
+3,outcome_rewriting,Global PD,Provide a ≤10-word outcome for product design quality.,Design quality meets customer expectations consistently,Quality excellence is achieved consistently across product design,MODE1,15,8,1,0.8411,EXCELLENT,3,3,0.9603,2928,,MODE: MODE1 | Words: 8/15 | Semantic: EXCELLENT | MODE1 compliant | OBT compliant
+4,portfolio_analysis,Global PD,"Prioritize: Digital Twin, Advanced Analytics, Predictive Maintenance for capability impact.",1) Advanced Analytics; 2) Digital Twin; 3) Predictive Maintenance,"**Priority Ranking by Capability Impact:**
+
+1. **Advanced Analytics** (Impact Score: 3)
+   - Enables data-driven decision making across all domains
+   - Foundation for both Digital Twin and Predictive Maintenance
+   - Current Maturity: Level 2, Target: Level 4
+
+2. **Digital Twin** (Impact Score: 3) 
+   - High operational efficiency gains
+   - Requires Advanced Analytics foundation
+   - Strategic differentiator for product development
+
+3. **Predictive Maintenance** (Impact Score: 2)
+   - Focused operational benefit
+   - Dependent on Advanced Analytics maturity
+   - Lower cross-domain impact
+
+**Rationale:** Advanced Analytics serves as the foundational capability enabling the other two. Digital Twin provides broader strategic value across product development, while Predictive Maintenance delivers focused operational benefits.
+
+**Source:** Data and AI Project Impacts (100225).xlsx, Data and AI Capability Definitions and Maturities.xlsx",MODE3,150,120,1,0.7454,GOOD,3,3,0.9363,5874,,MODE: MODE3 | Words: 120/150 | Semantic: GOOD | MODE3 compliant | OBT compliant
+5,acceptance_criteria,OBT Methodology,Write acceptance criteria for 'Workforce capabilities enhanced significantly' including owner and measurement.,Owner: HR/L&D; Measure: competency assessment pass rate; Goal: 90% within 12 months; Evidence: assessment reports,"**ACCEPTANCE CRITERIA: Workforce Capabilities Enhanced Significantly**
+
+**Definition & Scope**
+Workforce demonstrates measurably improved skills, knowledge, and performance across core competencies critical to strategic outcomes. Enhancement spans technical expertise, leadership capabilities, and cross-functional collaboration.
+
+**Success Criteria**
+- Skill assessments show quantifiable improvement in core competencies
+- Performance metrics demonstrate enhanced productivity and quality
+- Employee confidence levels increase in assigned responsibilities  
+- Knowledge retention rates improve post-training initiatives
+- Cross-functional collaboration effectiveness increases measurably
+- Leadership pipeline strength shows clear advancement
+
+**Measurement Framework**
+- Primary KPI: Workforce capability maturity score (baseline vs. target)
+- Performance metrics: Productivity indices, quality scores, project success rates
+- Employee surveys: Confidence levels, skill self-assessments
+- Learning metrics: Training completion rates, certification achievements
+- 360-degree feedback improvements across competency areas
+
+**RACI Assignment**
+- **Responsible**: HR Learning & Development, Functional Managers
+- **Accountable**: Chief Human Resources Officer
+- **Consulted**: Business Unit Leaders, Subject Matter Experts  
+- **Informed**: Executive Leadership Team, Employee Representatives
+
+**Verification Methods**
+- Quarterly capability assessments with standardized rubrics
+- Performance dashboard tracking with trend analysis
+- Employee feedback collection and analysis
+- Skills gap analysis with progress tracking
+- External benchmarking against industry standards
+
+Source: Multi-domain capability enhancement principles",MODE1,30,195,1,0.6145,EXCELLENT,2,1,0.6203,10935,,"MODE: MODE1 | Words: 195/30 | Semantic: EXCELLENT | Exceeds MODE1 limit: 195 > 15 words | Contains metrics/numbers; Present tense verbs: perform, improve"
+6,classification,OBT Methodology,"Is 'Deploy analytics dashboards' an acceptable outcome? If not, reframe.",No — it's a How. Reframe: Decision speed improves measurably,No — How. Reframe: Business insights are easily accessible,MODE2_REFRAME,5,9,0,0.2932,FAIR,3,3,0.6733,2753,,MODE: MODE2_REFRAME | Words: 9/5 | Semantic: FAIR | MODE2_REFRAME compliant | OBT compliant
+7,maturity_assessment,BOM & PIM Management,State Part Information Management maturity (current and target).,"Part Information Management — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)","**Part Information Management**
+- Current: Level 2 (Managed) 
+- Target: Level 4 (Quantitatively Managed)
+
+Source: BOM PIM Capability Definitions and Maturities.xlsx
+
+Current state shows basic part information workflows exist with some standardization, but lacks integrated data governance and automated validation. Target level enables data-driven decision making with quantitative performance controls and predictive analytics for part lifecycle management.",MODE1,30,57,1,0.841,EXCELLENT,2,1,0.6769,5637,,MODE: MODE1 | Words: 57/30 | Semantic: EXCELLENT | Exceeds MODE1 limit: 57 > 15 words | Contains metrics/numbers; Present tense verbs: perform
+8,outcome_rewriting,OBT Methodology,Create a metric-free ≤10-word outcome for customer onboarding.,Customers onboard seamlessly and confidently,Customer relationships are established quickly and effortlessly.,MODE1,15,7,0,0.5925,GOOD,3,3,0.7481,2355,,MODE: MODE1 | Words: 7/15 | Semantic: GOOD | MODE1 compliant | OBT compliant
+9,portfolio_analysis,Global PD,Top-level RACI for Digital Twin — Accountable and Responsible?,Accountable: Head of Operations; Responsible: Plant Engineering & Operations,"**Digital Twin RACI - Top Level**
+
+**Accountable:** Chief Technology Officer (CTO) or VP of Engineering
+**Responsible:** Digital Engineering Manager / IoT Program Manager
+
+**Key Context:**
+- Accountable ensures strategic alignment and resource allocation
+- Responsible owns day-to-day execution and cross-functional coordination
+- Digital Twin spans Data & AI domain (current maturity: Level 2, target: Level 4)
+
+**Source:** Data and AI Capability Definitions and Maturities.xlsx, organizational structure analysis",MODE3,150,67,0,0.5062,FAIR,3,3,0.7266,5344,,MODE: MODE3 | Words: 67/150 | Semantic: FAIR | MODE3 compliant | OBT compliant
+10,portfolio_analysis,Global PD,"Given target weights Pain 30%, Capabilities 55%, Infra 15% and current Pain29%, Cap13%, Infra21% — which area is underrepresented?",Capabilities underrepresented (13% vs 55%). Action: prioritize capability projects and reallocate budget.,"Capabilities
+
+Current gap: -42 percentage points (13% actual vs 55% target)",MODE2,5,11,1,0.6912,EXCELLENT,1,3,0.6895,3107,,"MODE: MODE2 | Words: 11/5 | Semantic: EXCELLENT | Exceeds MODE2 limit: 11 > 5 words; Expected 1 word, got 11 | OBT compliant"
+11,outcome_rewriting,OBT Methodology,Rewrite 'train staff on new process' as an outcome (≤10 words),Staff competency in new process is established,Staff competently execute new processes consistently,MODE1,15,6,1,0.713,EXCELLENT,3,2,0.8449,3308,,MODE: MODE1 | Words: 6/15 | Semantic: EXCELLENT | MODE1 compliant | Present tense verbs: execute
+12,classification,OBT Methodology,Is 'Improve vendor relationships' a What or How?,How — describes method. Reframe: Vendor delivery reliability increases consistently,How,MODE2,5,1,0,0.2623,FAIR,3,3,0.6656,2493,,MODE: MODE2 | Words: 1/5 | Semantic: FAIR | MODE2 compliant | OBT compliant
+13,acceptance_criteria,OBT Methodology,Write a KPI (goal + measure) for 'Operations visibility is comprehensive',Goal: Real-time asset visibility across plants; Measure: % assets with live telemetry (Target: 95%),"**Goal:** Operations visibility is comprehensive
+
+**Measure:** Cross-functional teams access real-time operational data within 5 seconds across all production lines",MODE1,30,19,1,0.6694,EXCELLENT,2,2,0.7173,5096,,MODE: MODE1 | Words: 19/30 | Semantic: EXCELLENT | Exceeds MODE1 limit: 19 > 15 words | Contains metrics/numbers
+14,outcome_rewriting,Design Management,Reframe 'deploy a new PLM system' into an outcome.,Product data is unified and accessible,Product lifecycle data is centrally accessible and consistently reliable,MODE1,30,9,1,0.6384,EXCELLENT,3,3,0.9096,3468,,MODE: MODE1 | Words: 9/30 | Semantic: EXCELLENT | MODE1 compliant | OBT compliant
+15,classification,OBT Methodology,Classify: 'Production meets defined run-rate stability' — What or How?,What,What,MODE2,5,1,1,1.0,EXCELLENT,3,3,1.0,2411,,MODE: MODE2 | Words: 1/5 | Semantic: EXCELLENT | MODE2 compliant | OBT compliant
+16,outcome_rewriting,OBT Methodology,Produce ≤10-word outcome for supplier quality.,Supplier parts meet quality standards consistently,Supplier quality consistently meets world-class performance standards,MODE1,15,7,1,0.8657,EXCELLENT,3,2,0.8831,3425,,MODE: MODE1 | Words: 7/15 | Semantic: EXCELLENT | MODE1 compliant | Present tense verbs: perform
+17,acceptance_criteria,Change Control,Create a short stakeholder alignment note for Analytics Platform launch.,Sponsor: CIO; Responsible: Data Engineering; Consulted: Business Units; Informed: Execs,"**Analytics Platform Launch - Stakeholder Alignment**
+
+**Decision Authority:** IT Leadership (final platform selection)
+**Accountable:** Data & AI Program Manager (launch success)
+**Consulted:** Business Unit Leaders (requirements validation), Finance (budget approval)
+**Informed:** End Users (training schedule), Executive Team (progress updates)
+
+**Key Alignment Points:**
+- Launch timeline: Q1 2025
+- Success criteria: User adoption >75% within 90 days
+- Budget approved: Platform + training costs
+- Risk mitigation: Phased rollout by business unit
+
+**Next Actions:**
+- IT: Finalize technical readiness (Week 1)
+- Training: Schedule user sessions (Week 2-3)
+- Communication: Launch announcement (Week 4)",MODE1,50,93,0,0.5756,GOOD,2,2,0.5439,7763,,MODE: MODE1 | Words: 93/50 | Semantic: GOOD | Exceeds MODE1 limit: 93 > 15 words | Contains metrics/numbers
+18,classification,OBT Methodology,Is 'Reduce time-to-market by 20%' a valid outcome statement per OBT?,No — contains metric. Reframe metric-free: Time-to-market is reduced significantly,No,MODE1,30,1,0,0.2109,POOR,3,3,0.6527,2380,,MODE: MODE1 | Words: 1/30 | Semantic: POOR | MODE1 compliant | OBT compliant
+19,outcome_rewriting,OBT Methodology,Give an example ≤10-word outcome for culture change.,Employees are engaged and empowered to improve processes,Culture enables continuous strategic innovation,MODE1,15,5,0,0.3998,FAIR,3,3,0.7,2781,,MODE: MODE1 | Words: 5/15 | Semantic: FAIR | MODE1 compliant | OBT compliant
+20,outcome_rewriting,Change Control,For Change Control: write a ≤10-word outcome about traceability.,End-to-end traceability is maintained across changes,Change control decisions are fully traceable throughout lifecycle,MODE1,15,8,1,0.6393,EXCELLENT,3,3,0.9098,2597,,MODE: MODE1 | Words: 8/15 | Semantic: EXCELLENT | MODE1 compliant | OBT compliant
+21,classification,Change Control,Classify 'All functions contribute effortlessly throughout the change process' — What or How?,What,What,MODE2,5,1,1,1.0,EXCELLENT,3,3,1.0,2515,,MODE: MODE2 | Words: 1/5 | Semantic: EXCELLENT | MODE2 compliant | OBT compliant
+22,outcome_rewriting,OBT Methodology,Rewrite 'implement automated testing' as an outcome.,Product quality is validated continuously,Quality assurance is achieved consistently through automated processes,MODE1,30,8,0,0.5544,GOOD,3,3,0.7386,2708,,MODE: MODE1 | Words: 8/30 | Semantic: GOOD | MODE1 compliant | OBT compliant
+23,acceptance_criteria,Design Management,Create acceptance criteria for 'Design risks are captured and mitigated',Owner: Engineering; Measure: % identified risks mitigated before release (Goal: 95%); Evidence: DFMEA and mitigation logs,"## Acceptance Criteria for ""Design risks are captured and mitigated""
+
+### Capture Requirements
+- **Risk Identification**: All design risks systematically identified during each design phase (concept, detailed design, validation)
+- **Risk Documentation**: Each risk recorded with clear description, probability assessment, and potential impact
+- **Stakeholder Input**: Cross-functional teams (engineering, manufacturing, quality, supply chain) contribute to risk identification
+- **Risk Categorization**: Risks classified by type (technical, schedule, cost, regulatory, manufacturing)
+
+### Assessment & Prioritization
+- **Risk Scoring**: Each risk assigned quantitative scores for probability and impact using standardized scales
+- **Risk Matrix**: Risks plotted on probability-impact matrix to determine priority levels
+- **Threshold Definition**: Clear criteria established for acceptable vs. unacceptable risk levels
+- **Review Cadence**: Regular risk assessments conducted at defined design milestones
+
+### Mitigation Planning
+- **Response Strategy**: Each significant risk assigned appropriate response (avoid, mitigate, transfer, accept)
+- **Action Plans**: Specific mitigation actions defined with clear owners and timelines
+- **Contingency Planning**: Backup plans developed for high-priority risks
+- **Resource Allocation**: Adequate resources allocated to execute mitigation strategies
+
+### Tracking & Monitoring
+- **Status Updates**: Risk status tracked and updated regularly throughout design lifecycle
+- **Effectiveness Measurement**: Mitigation actions monitored for effectiveness
+- **Escalation Triggers**: Clear criteria defined for escalating risks to senior management
+- **Lessons Learned**: Risk outcomes documented for future design projects
+
+### Validation Criteria
+- **Residual Risk**: Final risk levels reduced to acceptable thresholds before design approval
+- **Documentation Complete**: All risks and mitigation actions fully documented in design records
+- **Sign-off Process**: Appropriate stakeholders approve final risk assessment and mitigation status
+
+Source: Design Management and Collaboration Capability Definitions and Maturities.xlsx",MODE1,30,266,0,0.5692,GOOD,2,1,0.459,12692,,MODE: MODE1 | Words: 266/30 | Semantic: GOOD | Exceeds MODE1 limit: 266 > 15 words | Solution-specific: system; Present tense verbs: execute
+24,outcome_rewriting,OBT Methodology,Provide a ≤10-word outcome for partner network value.,"A robust, value-generating partner network exists",Partners consistently deliver exceptional value across all touchpoints,MODE1,15,8,1,0.6028,EXCELLENT,3,2,0.8174,2965,,MODE: MODE1 | Words: 8/15 | Semantic: EXCELLENT | MODE1 compliant | Present tense verbs: deliver
+25,classification,OBT Methodology,Is 'Create customer feedback surveys' an outcome? Reframe if needed.,No — it's a How. Reframe: Customer feedback is captured comprehensively,No — How. Reframe: Customer insights are captured continuously,MODE1,30,9,0,0.5865,GOOD,3,3,0.7466,3376,,MODE: MODE1 | Words: 9/30 | Semantic: GOOD | MODE1 compliant | OBT compliant
+26,classification,OBT Methodology,Classify 'Decision support improves' — What or How?,What — but needs specificity. Better: Decisions are data-informed consistently,What,MODE2,5,1,0,0.2547,FAIR,3,3,0.6637,1983,,MODE: MODE2 | Words: 1/5 | Semantic: FAIR | MODE2 compliant | OBT compliant
+27,outcome_rewriting,OBT Methodology,Provide a ≤10-word outcome for quality management.,Quality and compliance meet required standards consistently,Quality excellence is achieved consistently across all operations.,MODE1,15,8,1,0.6591,EXCELLENT,3,3,0.9148,2690,,MODE: MODE1 | Words: 8/15 | Semantic: EXCELLENT | MODE1 compliant | OBT compliant
+28,portfolio_analysis,Global PD,Write a short risk identification for Blockchain Integration project (low impact).,Risk: Low business alignment and unclear ROI; Mitigation: validate use-case before investment,"**Risk Identification: Blockchain Integration Project**
+
+**Technical Risks:**
+- Integration complexity with legacy systems may exceed initial estimates
+- Blockchain scalability limitations could impact transaction volumes
+- Data migration challenges from existing databases
+
+**Operational Risks:**
+- Staff knowledge gaps requiring extensive blockchain training
+- Regulatory uncertainty around blockchain implementations
+- Vendor dependency for specialized blockchain expertise
+
+**Business Risks:**
+- Limited ROI justification given low impact classification
+- User adoption resistance to new blockchain workflows
+- Potential security vulnerabilities during transition period
+
+**Mitigation Priority:** Focus on proof-of-concept approach with contained scope given low impact designation.",MODE1,50,93,0,0.4876,GOOD,2,2,0.5219,5509,,"MODE: MODE1 | Words: 93/50 | Semantic: GOOD | Exceeds MODE1 limit: 93 > 15 words | Solution-specific: implement, system"
+29,outcome_rewriting,OBT Methodology,Rewrite 'optimize assembly line throughput' into an outcome.,Production throughput achieves defined stability,Assembly line throughput is maximized consistently,MODE1,30,6,0,0.5284,GOOD,3,3,0.7321,2182,,MODE: MODE1 | Words: 6/30 | Semantic: GOOD | MODE1 compliant | OBT compliant
+30,outcome_rewriting,OBT Methodology,Create a ≤10-word outcome for talent development.,Workforce capabilities enhance significantly,Talent capabilities continuously exceed business strategy requirements,MODE1,15,7,0,0.5573,GOOD,3,3,0.7393,2367,,MODE: MODE1 | Words: 7/15 | Semantic: GOOD | MODE1 compliant | OBT compliant
+31,portfolio_analysis,Global PD,Provide a short next-step plan (3 bullets) to prioritize Digital Twin next quarter.,1. Approve funding and appoint sponsor; 2. Define MVP scope and pilot site; 3. Allocate engineering and IT resources,"Based on Data & AI Capability Definitions and Maturities.xlsx:
+Current Digital Twin Maturity: Level 2, Target: Level 4
+
+**Priority Next Steps:**
+• **Data Integration Foundation**: Establish automated sensor data feeds from manufacturing equipment to enable real-time product performance tracking
+• **Pilot Implementation**: Deploy Digital Twin models for top 3 high-volume product families with standardized simulation frameworks
+• **Governance Structure**: Create cross-functional Digital Twin steering committee with engineering, manufacturing, and IT representation
+
+**Rationale**: Digital Twin capabilities score 3 (highest impact) in Data and AI Project Impacts for operational efficiency improvements. Current state shows basic modeling exists but lacks enterprise integration and standardization needed for predictive insights.
+
+**Source**: Data and AI Capability Definitions and Maturities.xlsx, Data and AI Project Impacts (100225).xlsx",MODE1,50,119,0,0.2239,POOR,1,0,0.1726,5127,,"MODE: MODE1 | Words: 119/50 | Semantic: POOR | Exceeds MODE1 limit: 119 > 15 words; First-person phrases: based on | Contains metrics/numbers; Solution-specific: implement, deploy, create; Present tense verbs: perform, improve"
+32,classification,OBT Methodology,Classify 'Operations easily perform at unsurpassed excellence' — What or How?,What — but vague and hyperbolic. Better: Operations performance meets world-class standards,What,MODE2,5,1,0,0.2309,POOR,3,3,0.6577,11948,,MODE: MODE2 | Words: 1/5 | Semantic: POOR | MODE2 compliant | OBT compliant
+33,outcome_rewriting,OBT Methodology,Provide a metric-free ≤10-word outcome for product competitiveness.,Products are the most sought-after in the market,Products consistently outperform competitors in customer preference,MODE1,15,7,1,0.6515,EXCELLENT,3,2,0.8295,2997,,MODE: MODE1 | Words: 7/15 | Semantic: EXCELLENT | MODE1 compliant | Present tense verbs: perform
+34,outcome_rewriting,BOM & PIM Management,Reframe 'migrate master data to new system' as an outcome.,Master data is accurate and accessible,Master data is accessible across all systems seamlessly,MODE1,30,8,1,0.673,EXCELLENT,3,2,0.8349,3267,,MODE: MODE1 | Words: 8/30 | Semantic: EXCELLENT | MODE1 compliant | Solution-specific: system
+35,acceptance_criteria,Change Control,Write a short acceptance criteria for 'End-to-end traceability is maintained across changes',Owner: Change Control Board; Measure: % changes with full traceability (Goal: 100%); Evidence: trace logs and audit reports,"**Acceptance Criteria: End-to-end traceability is maintained across changes**
+
+**Functional Requirements:**
+- Change impact analysis traces from requirements through design, manufacturing, and testing
+- Bidirectional linkages preserved when changes occur across any artifact
+- Automated notifications sent to affected stakeholders when upstream changes cascade
+- Change history maintains complete audit trail with timestamps and approvers
+
+**Quality Gates:**
+- 100% traceability coverage verified before change approval
+- Impact assessment completed within 24 hours of change initiation
+- All affected artifacts updated within change freeze windows
+- Traceability reports generate automatically for compliance reviews
+
+**Technical Specifications:**
+- Integration with existing PLM, ERP, and quality management systems
+- Real-time synchronization across engineering and manufacturing databases
+- Role-based access controls for traceability data modification
+- Backup and recovery procedures for traceability relationships
+
+**Source:** Change Control Management Capability Definitions and Maturities.xlsx",MODE1,50,135,1,0.6708,EXCELLENT,2,1,0.6344,7962,,"MODE: MODE1 | Words: 135/50 | Semantic: EXCELLENT | Exceeds MODE1 limit: 135 > 15 words | Contains metrics/numbers; Solution-specific: erp, system"
+36,outcome_rewriting,OBT Methodology,Create a ≤10-word outcome for customer experience.,Customers delight in an electrifying experience consistently,Customer delight is achieved consistently across all touchpoints,MODE1,15,8,1,0.6901,EXCELLENT,3,3,0.9225,2687,,MODE: MODE1 | Words: 8/15 | Semantic: EXCELLENT | MODE1 compliant | OBT compliant
+37,classification,OBT Methodology,Classify 'We preempt the market with sought-after products' — What or How?,What,What,MODE2,5,1,1,1.0,EXCELLENT,3,3,1.0,2392,,MODE: MODE2 | Words: 1/5 | Semantic: EXCELLENT | MODE2 compliant | OBT compliant
+38,outcome_rewriting,Requirements Management,Provide a ≤10-word outcome for requirements management.,Product expectations are met effectively and efficiently,"Requirements are captured, validated, and traced comprehensively",MODE1,15,7,0,0.3878,FAIR,3,3,0.6969,2647,,MODE: MODE1 | Words: 7/15 | Semantic: FAIR | MODE1 compliant | OBT compliant
+39,classification,OBT Methodology,Is 'Increase automation by implementing robots' an outcome? Reframe.,No — it's a How. Reframe: Production automation increases reliably,No — How. Reframe: Manual processes are automated effectively,MODE2_REFRAME,5,9,1,0.6349,EXCELLENT,3,3,0.9087,3036,,MODE: MODE2_REFRAME | Words: 9/5 | Semantic: EXCELLENT | MODE2_REFRAME compliant | OBT compliant
+40,acceptance_criteria,OBT Methodology,Write a short stakeholder RACI for Quality Management System project.,Accountable: Head of Quality; Responsible: Quality Ops; Consulted: Manufacturing; Informed: Execs,"**Quality Management System Project - RACI Matrix**
+
+**Key Activities:**
+
+**QMS Strategy & Requirements**
+- R: Quality Director, Compliance Manager
+- A: VP Operations  
+- C: Engineering Manager, Manufacturing Manager
+- I: IT Director, Legal
+
+**System Design & Configuration**
+- R: IT Director, Quality Systems Analyst
+- A: Quality Director
+- C: Process Engineers, Audit Manager
+- I: Manufacturing Manager
+
+**Implementation & Testing**
+- R: Quality Systems Analyst, IT Specialist
+- A: Quality Director
+- C: Quality Engineers, Training Manager
+- I: Plant Managers
+
+**Training & Change Management**
+- R: Training Manager, Change Management Lead
+- A: Quality Director
+- C: Department Supervisors, HR Manager
+- I: All End Users
+
+**Go-Live & Support**
+- R: IT Director, Quality Director
+- A: VP Operations
+- C: Plant Managers, Quality Engineers
+- I: Executive Team
+
+**Key Stakeholders:**
+- **Executive Sponsor:** VP Operations
+- **Project Owner:** Quality Director  
+- **Technical Lead:** IT Director
+- **Change Champion:** Training Manager
+
+Source: Quality management best practices and organizational alignment principles.",MODE1,50,163,0,0.5798,GOOD,2,2,0.5449,8140,,"MODE: MODE1 | Words: 163/50 | Semantic: GOOD | Exceeds MODE1 limit: 163 > 15 words | Solution-specific: implement, system"
+41,maturity_assessment,Change Control,What is Change Control Management current and target maturity?,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"Change Control Management — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+
+**Current State Analysis:**
+- Basic change processes exist but lack standardization across product lines
+- Manual approval workflows create bottlenecks
+- Limited visibility into change impact and dependencies
+- ECO cycle times vary significantly by complexity
+
+**Target State Benefits:**
+- Quantitative process control with predictable cycle times
+- Automated impact analysis and routing
+- Real-time change status visibility across stakeholders
+- Data-driven decision making for change prioritization
+
+**Key Gap:** Moving from ad-hoc change handling to systematic, measurement-driven change governance with integrated cross-functional workflows.
+
+Source: Change Control Capability Definitions and Maturities.xlsx",MODE2,5,103,0,0.462,GOOD,1,3,0.4822,6910,,"MODE: MODE2 | Words: 103/5 | Semantic: GOOD | Exceeds MODE2 limit: 103 > 5 words; Expected 1 word, got 103 | OBT compliant"
+42,maturity_assessment,Requirements Management,State Requirements Management maturity levels.,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"Requirements Management — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)
+
+**Current State (Level 2):**
+- Basic requirements capture processes exist
+- Some standardization across projects
+- Manual tracking and validation methods
+- Inconsistent stakeholder engagement
+
+**Target State (Level 4):**
+- Quantitative requirements metrics and controls
+- Data-driven validation processes
+- Automated traceability management
+- Predictive requirements quality assessment
+
+**Key Gap:** Transition from manual, reactive requirements management to data-driven, predictive approach with quantitative controls.
+
+Source: Requirements Management Capability Definitions and Maturities.xlsx",MODE1,30,82,0,0.4937,GOOD,2,2,0.5234,6096,,MODE: MODE1 | Words: 82/30 | Semantic: GOOD | Exceeds MODE1 limit: 82 > 15 words | Contains metrics/numbers
+43,maturity_assessment,Design Management,What is Design Management & Collaboration maturity status?,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"**Design Management & Collaboration - Current Maturity Status**
+
+**Current Level: 2 (Managed)**
+**Target Level: 4 (Quantitatively Managed)**
+
+**Key Capabilities Assessment:**
+- Design Process Management: Level 2
+- Collaboration Tools & Workflows: Level 2  
+- Design-to-Manufacturing Handoff: Level 2
+- Design Data Management: Level 2
+- Cross-functional Design Reviews: Level 2
+
+**Current State Characteristics:**
+- Basic design workflows exist but lack standardization
+- Limited real-time collaboration capabilities
+- Manual handoff processes between design and manufacturing
+- Inconsistent design review processes across teams
+
+**Target State Vision:**
+- Quantitative measurement of design performance
+- Automated collaboration workflows
+- Seamless design-to-manufacturing integration
+- Data-driven design decision making
+
+**Source:** Design Management and Collaboration Capability Definitions and Maturities.xlsx
+
+**Priority Gap:** Moving from ad-hoc processes to quantitatively managed design excellence with integrated collaboration platforms.",MODE2,5,127,0,0.3132,FAIR,1,3,0.445,7067,,"MODE: MODE2 | Words: 127/5 | Semantic: FAIR | Exceeds MODE2 limit: 127 > 5 words; Expected 1 word, got 127 | OBT compliant"
+44,maturity_assessment,Data & AI,State Data & AI capability maturity.,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"**Data & AI Capability Maturity Assessment**
+
+**Current Maturity: Level 2 (Managed)**
+**Target Maturity: Level 4 (Quantitatively Managed)**
+
+**Source:** Data and AI Capability Definitions and Maturities.xlsx
+
+**Key Capability Status:**
+- Data Governance: Level 2 → Target 4
+- Predictive Analytics: Level 2 → Target 4  
+- Decision Support Systems: Level 2 → Target 4
+- AI Strategy Implementation: Level 1 → Target 3
+
+**Critical Gap:** Current state has basic data workflows and initial AI pilots, but lacks quantitative performance management and enterprise-scale AI integration needed for confident decision-making across Global PD.
+
+**Next Priority:** Establish data quality metrics and AI performance measurement frameworks to advance toward Level 3 (Defined) processes.",MODE1,30,108,0,0.4929,GOOD,2,0,0.3566,7184,,"MODE: MODE1 | Words: 108/30 | Semantic: GOOD | Exceeds MODE1 limit: 108 > 15 words | Contains metrics/numbers; Solution-specific: implement, erp, system; Present tense verbs: perform"
+45,domain_expertise,Global PD,What are the 8 domains in Betty's knowledge base?,"1) Change Control, 2) BOM/PIM, 3) Requirements, 4) Design, 5) PD Framework, 6) Data & AI, 7) Global PD, 8) OBT Methodology","**Domain 1: Change Control Management**
+**Domain 2: BOM & PIM Management** 
+**Domain 3: Requirements Management**
+**Domain 4: Design Management & Collaboration**
+**Domain 5: PD Framework Transformation**
+**Domain 6: Data & AI**
+**Domain 7: Global PD**
+**Domain 8: OBT Methodology**",MODE1,30,39,1,0.7816,EXCELLENT,2,2,0.7454,3324,,MODE: MODE1 | Words: 39/30 | Semantic: EXCELLENT | Exceeds MODE1 limit: 39 > 30 words | Contains metrics/numbers
+46,domain_expertise,OBT Methodology,What is the GPS framework destination for Molex?,Customers always choose Molex first,Customers always choose Molex first.,MODE2,5,5,1,0.9305,EXCELLENT,2,3,0.866,2182,,"MODE: MODE2 | Words: 5/5 | Semantic: EXCELLENT | Expected 1 word, got 5 | OBT compliant"
+47,domain_expertise,OBT Methodology,How many outcomes are in Betty's GPS framework?,288 outcomes across 13 clusters,288 outcomes across 13 strategic clusters.,MODE1,30,6,1,0.8137,EXCELLENT,3,2,0.8701,2649,,MODE: MODE1 | Words: 6/30 | Semantic: EXCELLENT | MODE1 compliant | Contains metrics/numbers
+48,domain_expertise,Global PD,What is the difference between maturity levels and impact scores?,Maturity: 1-5 scale (Initial to Optimized); Impact: 0-3 integers (project impact),"**Maturity Levels (1-5 Scale):**
+Current state assessment of organizational capability development
+- Level 1: Initial (ad hoc, unpredictable)
+- Level 2: Managed (basic processes exist)
+- Level 3: Defined (standardized processes)
+- Level 4: Quantitatively Managed (data-driven control)
+- Level 5: Optimized (continuous improvement)
+
+**Impact Scores (0-3 Scale):**
+Project value assessment for portfolio prioritization
+- 0: No impact
+- 1: Low impact
+- 2: Medium impact  
+- 3: High impact
+
+**Key Differences:**
+- **Purpose**: Maturity measures ""how good are we now"" vs Impact measures ""how valuable is this project""
+- **Timeline**: Maturity is current state vs Impact is future potential value
+- **Usage**: Maturity identifies capability gaps vs Impact prioritizes investments
+- **Data Sources**: Maturity from capability definition XLSX files vs Impact from project impact XLSX files
+
+**Critical Distinction:**
+Never confuse a Level 3 maturity (Defined processes) with a 3-impact score (High value project). They measure completely different dimensions of organizational capability and project value.
+
+Source: Domain-specific Capability and Project Impact matrices across all 8 domains",MODE2,5,166,1,0.8168,EXCELLENT,1,3,0.7209,8163,,"MODE: MODE2 | Words: 166/5 | Semantic: EXCELLENT | Exceeds MODE2 limit: 166 > 5 words; Expected 1 word, got 166 | OBT compliant"
+49,domain_expertise,Data & AI,Name one AI Agentic Strategy document in Betty's knowledge base.,AI Agentic Strategy for Data & AI (or BOM/PIM,AI Agentic Strategy for Data & AI.docx,MODE1,30,7,1,0.8463,EXCELLENT,3,3,0.9616,2410,,MODE: MODE1 | Words: 7/30 | Semantic: EXCELLENT | MODE1 compliant | OBT compliant
+50,portfolio_analysis,Global PD,What is Betty's current data completeness percentage?,95% (Production Ready),95%,MODE2,5,1,0,0.5565,GOOD,3,3,0.7391,3240,,MODE: MODE2 | Words: 1/5 | Semantic: GOOD | MODE2 compliant | OBT compliant

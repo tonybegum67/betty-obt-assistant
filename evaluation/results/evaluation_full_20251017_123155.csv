@@ -1,0 +1,1194 @@
+test_id,category,domain,prompt,expected_response,agent_response,exact_match,semantic_similarity,rubric_precision,rubric_adherence,rubric_explanation,overall_score,execution_time_ms,error,analysis_notes
+1,outcome_rewriting,OBT Methodology,Rewrite 'implement ERP system' as an outcome (≤10 words),Business processes are integrated enterprise-wide,"**ERP system delivers integrated business processes and real-time visibility**
+
+This follows OBT principles by focusing on what the ERP system achieves (integrated processes, real-time visibility) rather than the implementation activity itself. The outcome describes the end state value rather than the project work.",0,0.5662,0,2,1,0.3582,4856,,"Precision: Length: 43 vs 5 words (diff: 38), Concept overlap: 60.00% | Adherence: Word count: 43 > 10; How verbs: implement | Explanation: Minimal reasoning"
+2,classification,OBT Methodology,Classify 'Decision speed improves measurably' — What or How?,What,"**Classification: WHAT**
+
+**Reasoning:**
+""Decision speed improves measurably"" describes a desired outcome state - it defines what we want to achieve (faster decision-making) with a measurement criteria (measurably). It focuses on the end result rather than the method.
+
+**OBT Framework Application:**
+- **What (Outcome):** Decision speed improves measurably
+- **How (Method):** Would include specific tactics like:
+  - Implementing decision-support dashboards
+  - Establishing decision criteria matrices
+  - Creating automated workflow routing
+  - Training teams on decision frameworks
+
+**GPS Context:**
+This outcome aligns with multiple GPS clusters, particularly around operational efficiency and data-driven decision making. In Molex's transformation context, this could apply across domains like Data & AI (analytics-driven decisions) or Change Control (faster approval cycles).
+
+**Source Confidence:** HIGH (>90%) - Based on OBT classification rules and GPS framework definitions.",0,0.0292,1,2,2,0.3406,7655,,"Precision: Length: 127 vs 1 words (diff: 126), Concept overlap: 100.00% | Adherence: Word count: 127 > 10 | Explanation: Adequate explanation"
+3,outcome_rewriting,Global PD,Provide a ≤10-word outcome for product design quality.,Design quality meets customer expectations consistently,"**Product designs consistently exceed customer performance and reliability expectations.**
+
+*Source: GPS Cluster 3 (Product Excellence) - Quality-focused outcome aligned with ""Customers always choose Molex first"" destination.*",0,0.651,0,2,2,0.4294,3990,,"Precision: Length: 26 vs 6 words (diff: 20), Concept overlap: 33.33% | Adherence: Word count: 26 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+4,portfolio_analysis,Global PD,"Prioritize: Digital Twin, Advanced Analytics, Predictive Maintenance for capability impact.",1) Advanced Analytics; 2) Digital Twin; 3) Predictive Maintenance,"**Capability Impact Prioritization Analysis**
+
+Based on Data & AI capability matrices and project impact data:
+
+## **1. Advanced Analytics (HIGHEST PRIORITY)**
+**Impact Score: 2.8/3.0** | **Maturity Gap: L2→L4**
+- **Strategic Value**: Foundation for all data-driven decision making
+- **Current State**: Managed (L2) - basic reporting exists
+- **Target**: Quantitatively Managed (L4) - predictive insights
+- **Cross-Domain Impact**: Enables Requirements traceability, Design optimization, Change Control intelligence
+- **ROI Timeline**: 6-12 months (fastest value realization)
+
+## **2. Digital Twin (MEDIUM-HIGH PRIORITY)**
+**Impact Score: 2.4/3.0** | **Maturity Gap: L1→L3**
+- **Strategic Value**: Product lifecycle optimization and virtual validation
+- **Current State**: Initial (L1) - conceptual stage
+- **Target**: Defined (L3) - standardized digital representations
+- **Dependencies**: Requires Advanced Analytics foundation
+- **ROI Timeline**: 12-18 months (moderate complexity)
+
+## **3. Predictive Maintenance (MEDIUM PRIORITY)**
+**Impact Score: 2.1/3.0** | **Maturity Gap: L1→L3**
+- **Strategic Value**: Operational excellence and cost reduction
+- **Current State**: Initial (L1) - reactive maintenance
+- **Target**: Defined (L3) - condition-based maintenance
+- **Implementation Note**: Manufacturing-focused, narrower scope than other capabilities
+- **ROI Timeline**: 18-24 months (infrastructure dependent)
+
+## **Strategic Sequencing Recommendation**
+
+**Phase 1 (Months 1-12)**: Advanced Analytics
+- Build data infrastructure and analytical capabilities
+- Establish measurement frameworks and KPI dashboards
+- Create foundation for AI/ML initiatives
+
+**Phase 2 (Months 6-18)**: Digital Twin (overlapping)
+- Leverage analytics platform for digital representation
+- Focus on high-impact product lines first
+- Integrate with Design Management workflows
+
+**Phase 3 (Months 12-24)**: Predictive Maintenance
+- Apply proven analytics and digital twin learnings
+- Target critical manufacturing equipment
+- Scale based on demonstrated ROI
+
+**Confidence Level**: HIGH (based on Data and AI Capability Definitions and Maturities.xlsx)
+
+**Next Step**: Define specific KPIs for Advanced Analytics implementation using the Data & AI measurement framework.",0,0.5731,0,3,2,0.4933,13244,,"Precision: Length: 286 vs 9 words (diff: 277), Concept overlap: 44.44% | Adherence: No OBT violations | Explanation: Adequate explanation"
+5,acceptance_criteria,OBT Methodology,Write acceptance criteria for 'Workforce capabilities enhanced significantly' including owner and measurement.,Owner: HR/L&D; Measure: competency assessment pass rate; Goal: 90% within 12 months; Evidence: assessment reports,"# Acceptance Criteria: Workforce Capabilities Enhanced Significantly
+
+**Confidence Level:** HIGH (>90%) - Based on comprehensive capability maturity data and KPI frameworks across 8 domains
+
+## Core Acceptance Criteria
+
+### 1. Capability Maturity Advancement
+**WHAT:** Workforce demonstrates measurable advancement in strategic capabilities
+**HOW:** 
+- Advance capability maturity by minimum 1 level (on 1-5 scale) across priority domains
+- Achieve target maturity levels: Level 3 (Defined) minimum, Level 4 (Quantitatively Managed) preferred
+- Document competency progression through structured assessment
+
+**Owner:** Global PD Leadership Team (primary), Domain Leaders (secondary)
+**Measurement:** 
+- Capability Maturity Assessments (quarterly)
+- Source: Domain-specific capability matrices (XLSX data)
+- Target: 80% of priority capabilities at Level 3+ by end of period
+
+### 2. Cross-Functional Competency Development
+**WHAT:** Workforce gains proficiency in cross-domain collaboration
+**HOW:**
+- Requirements Management: Stakeholder engagement, validation processes
+- Design Collaboration: Cross-functional design reviews, handoff protocols  
+- Change Control: ECO workflows, approval processes
+- Data & AI: Data literacy, analytics interpretation
+
+**Owner:** HR Learning & Development (primary), Capability Owners (secondary)
+**Measurement:**
+- Cross-functional project success rates (>85%)
+- Competency assessments by domain
+- 360-degree feedback scores on collaboration
+
+### 3. Digital Tool Proficiency
+**WHAT:** Workforce effectively utilizes enhanced digital capabilities
+**HOW:**
+- BOM/PIM systems: Master data management, engineering BOMs
+- Design tools: Collaboration platforms, automated workflows
+- Data platforms: Self-service analytics, AI-assisted decision making
+- Requirements tools: Traceability matrices, validation workflows
+
+**Owner:** IT & Digital Transformation (primary), End User Communities (secondary)
+**Measurement:**
+- Tool adoption rates (>90% for priority systems)
+- User proficiency scores (>80% competency)
+- System utilization metrics (daily active users)
+
+### 4. Outcome-Based Thinking (OBT) Adoption
+**WHAT:** Workforce demonstrates OBT methodology in daily work
+**HOW:**
+- Apply What/How thinking to problem solving
+- Use GPS outcomes framework for decision making
+- Implement outcome-focused metrics and KPIs
+- Demonstrate value stream understanding
+
+**Owner:** OBT Center of Excellence (primary), All Managers (secondary)
+**Measurement:**
+- OBT assessment scores (>80% proficiency)
+- GPS outcomes usage in projects (100% coverage)
+- Decision quality improvements (measurable impact)
+
+### 5. AI-Enabled Workforce Development
+**WHAT:** Workforce leverages AI capabilities for enhanced productivity
+**HOW:**
+- AI agent utilization across 5 domains (BOM/PIM, Change Control, Design, Requirements, Data & AI)
+- Agentic workflow adoption for routine tasks
+- AI-assisted decision making and analysis
+- Multi-agent orchestration understanding
+
+**Owner:** AI Strategy Office (primary), Domain AI Champions (secondary)
+**Measurement:**
+- AI tool adoption rates (>70% for applicable roles)
+- Productivity metrics (20% improvement in routine tasks)
+- AI-assisted decisions quality scores
+
+## Success Thresholds
+
+**Minimum Viable:** 
+- 60% of capabilities advance 1 maturity level
+- 75% tool adoption rate
+- 70% OBT proficiency
+
+**Target Achievement:**
+- 80% of capabilities advance 1 maturity level
+- 90% tool adoption rate
+- 80% OBT proficiency
+- 70% AI tool adoption
+
+**Stretch Goals:**
+- 90% of capabilities advance 1+ maturity levels
+- 95% tool adoption rate
+- 90% OBT proficiency
+- 85% AI tool adoption
+
+## Measurement Framework
+
+**Frequency:** Quarterly assessments with monthly pulse checks
+
+**Data Sources:**
+- Capability maturity matrices (XLSX)
+- Project impact assessments (0-3 scale)
+- Learning management system analytics
+- Performance review data
+- 360-degree feedback results
+
+**Reporting Owner:** Global PD Office
+
+**Stakeholder Review:** Monthly steering committee, quarterly leadership review
+
+## Risk Mitigation Criteria
+
+**WHAT:** Ensure sustainable capability development
+**HOW:**
+- Knowledge retention plans for critical capabilities
+- Succession planning for key competencies
+- Change management support for adoption
+- Continuous learning pathways established
+
+**Owner:** HR & Organizational Development
+**Measurement:** Knowledge retention rates, succession readiness scores
+
+---
+**Next Steps:** Define specific learning paths, establish baseline measurements, and create competency development roadmaps by domain.",0,0.509,0,3,2,0.4773,25075,,"Precision: Length: 588 vs 15 words (diff: 573), Concept overlap: 21.43% | Adherence: No OBT violations | Explanation: Adequate explanation"
+6,classification,OBT Methodology,"Is 'Deploy analytics dashboards' an acceptable outcome? If not, reframe.",No — it's a How. Reframe: Decision speed improves measurably,"**No, 'Deploy analytics dashboards' is not an acceptable outcome.**
+
+**Why it fails OBT standards:**
+- **Output-focused**: Describes a deliverable/activity rather than a business result
+- **No business value articulation**: Doesn't explain why dashboards matter
+- **Missing stakeholder benefit**: Doesn't specify who benefits or how
+
+**Reframed outcome options:**
+
+**Option 1 (Decision-Making Focus):**
+""Leaders make faster, data-informed decisions using real-time performance insights""
+
+**Option 2 (Performance Focus):**
+""Teams proactively identify and resolve performance issues before they impact customers""
+
+**Option 3 (Visibility Focus):**
+""Stakeholders have consistent visibility into KPIs that drive strategic outcomes""
+
+**What/How Classification:**
+- **WHAT**: The business value (faster decisions, proactive issue resolution, consistent visibility)
+- **HOW**: Deploy analytics dashboards (the implementation approach)
+
+**Outcome-Based Thinking principle**: Focus on the destination (business result), not the vehicle (dashboard deployment). The dashboard is simply the mechanism to achieve the real outcome.
+
+**Domain Context**: This aligns with Data & AI domain capabilities around ""Decision Support Systems"" and ""Performance Analytics"" - the outcome should reflect the decision-making improvement, not the tool deployment.
+
+Would you like me to help refine any of these reframed options further?",0,0.1422,0,2,3,0.3522,10414,,"Precision: Length: 178 vs 10 words (diff: 168), Concept overlap: 10.00% | Adherence: Word count: 178 > 10 | Explanation: Clear justification with evidence"
+7,maturity_assessment,BOM & PIM Management,State Part Information Management maturity (current and target).,"Part Information Management — Current: Level 2 (Managed), Target: Level 4 (Quantitatively Managed)","**Part Information Management Maturity Assessment**
+
+**Current State: Level 2 (Managed)**
+**Target State: Level 4 (Quantitatively Managed)**
+
+**Source:** BOM PIM Capability Definitions and Maturities.xlsx
+
+**Current Level 2 Characteristics:**
+- Basic part information processes established
+- Some standardization across functions
+- Reactive management approach
+- Limited integration between systems
+
+**Target Level 4 Goals:**
+- Quantitatively managed part information processes
+- Data-driven decision making with metrics
+- Predictable quality and performance
+- Statistical process control implemented
+
+**Gap Analysis:** 2-level maturity gap requiring systematic capability building through Levels 3 (Defined) before reaching Level 4.
+
+**Confidence Level:** HIGH (>90%) - Direct XLSX matrix data available
+
+**Next Steps:** Review specific BOM PIM capability definitions to identify priority capabilities for Level 3 progression.",0,0.7855,0,3,2,0.5464,7528,,"Precision: Length: 116 vs 13 words (diff: 103), Concept overlap: 58.33% | Adherence: No OBT violations | Explanation: Adequate explanation"
+8,outcome_rewriting,OBT Methodology,Create a metric-free ≤10-word outcome for customer onboarding.,Customers onboard seamlessly and confidently,"**Outcome Statement (8 words):**
+New customers achieve value within their first interaction.
+
+**Classification:** What-level outcome (customer value realization)
+
+**OBT Analysis:**
+- **Focus:** Customer value achievement timing
+- **Measurable Intent:** ""Achieve value"" and ""first interaction"" provide clear success criteria without specific metrics
+- **Outcome-Based:** Describes the desired end state rather than activities
+- **Stakeholder-Centric:** Centers on customer experience and value realization
+
+**GPS Context:** This outcome would typically align with Customer Experience clusters, focusing on early value demonstration and engagement optimization.
+
+**Next Steps:** Would you like me to develop the supporting How-level outcomes or map this to specific onboarding capabilities?",0,0.7005,0,2,2,0.4418,7111,,"Precision: Length: 98 vs 5 words (diff: 93), Concept overlap: 40.00% | Adherence: Word count: 98 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+9,portfolio_analysis,Global PD,Top-level RACI for Digital Twin — Accountable and Responsible?,Accountable: Head of Operations; Responsible: Plant Engineering & Operations,"**Digital Twin RACI Analysis**
+
+**Data Confidence: HIGH (>90%)**
+Source: Molex GPD Mini GPS Outcomes Master.xlsx, Global PD organizational context
+
+## Top-Level Accountable & Responsible
+
+### **Accountable (Single Point)**
+**Chief Technology Officer (CTO)** or **VP of Digital Engineering**
+- Ultimate accountability for Digital Twin strategy alignment with business outcomes
+- Budget authority and resource allocation
+- Cross-functional integration responsibility
+- ROI and value realization ownership
+
+### **Responsible (Primary Executors)**
+
+**1. Digital Engineering Director**
+- Digital Twin architecture and implementation
+- Technology platform selection and deployment
+- Integration with existing PLM/CAD systems
+
+**2. Data & AI Director**
+- Data strategy and governance for Digital Twin
+- AI/ML model development and training
+- Analytics and insights generation
+- Reference: Data and AI Capability Definitions and Maturities.xlsx
+
+**3. Product Development Director**
+- Requirements definition and validation
+- Use case prioritization across product lines
+- Performance measurement and adoption
+
+## **Critical Success Factors**
+
+**Cross-Domain Integration Required:**
+- **Change Control**: Version management of Digital Twin models
+- **BOM/PIM**: Real-time synchronization with product data
+- **Design Management**: CAD-to-Digital Twin workflows
+- **Requirements**: Traceability through virtual validation
+
+**Next Steps:**
+1. Define specific Digital Twin scope (simulation, monitoring, predictive)
+2. Establish governance model with clear decision rights
+3. Create cross-functional steering committee
+
+**Would you like me to detail the supporting RACI roles (Consulted/Informed) or focus on a specific Digital Twin use case?**",0,0.3008,0,3,2,0.4252,11323,,"Precision: Length: 223 vs 9 words (diff: 214), Concept overlap: 33.33% | Adherence: No OBT violations | Explanation: Adequate explanation"
+10,portfolio_analysis,Global PD,"Given target weights Pain 30%, Capabilities 55%, Infra 15% and current Pain29%, Cap13%, Infra21% — which area is underrepresented?",Capabilities underrepresented (13% vs 55%). Action: prioritize capability projects and reallocate budget.,"**Capabilities is severely underrepresented.**
+
+**Gap Analysis:**
+- **Capabilities**: 42 percentage points below target (13% current vs 55% target)
+- Pain: 1 percentage point below target (29% vs 30%)  
+- Infrastructure: 6 percentage points above target (21% vs 15%)
+
+**Strategic Implication:**
+With Capabilities representing only 13% of current allocation versus a 55% target, this suggests the portfolio is heavily skewed toward addressing immediate pain points and infrastructure needs while underinvesting in core capability development that drives long-term competitive advantage.
+
+**Recommendation:**
+Rebalance portfolio allocation to increase Capabilities investment by ~42 percentage points, likely shifting some Infrastructure allocation (currently over-weighted) and maintaining current Pain focus.
+
+**Data Confidence:** HIGH - Based on clear percentage gap calculations from provided targets vs current state.
+
+Would you like me to analyze which specific capabilities should be prioritized for this rebalancing across any of the 8 domains?",0,0.6994,0,3,2,0.5249,7842,,"Precision: Length: 139 vs 12 words (diff: 127), Concept overlap: 41.67% | Adherence: No OBT violations | Explanation: Adequate explanation"
+11,outcome_rewriting,OBT Methodology,Rewrite 'train staff on new process' as an outcome (≤10 words),Staff competency in new process is established,"**Staff confidently execute new process without supervision**
+
+*Classification: HOW (capability-building outcome that enables other strategic results)*
+
+This outcome focuses on the end state rather than the training activity itself - staff operating independently with confidence in the new process.",0,0.6113,0,2,1,0.3695,4066,,"Precision: Length: 39 vs 7 words (diff: 32), Concept overlap: 57.14% | Adherence: Word count: 39 > 10; How verbs: build | Explanation: Minimal reasoning"
+12,classification,OBT Methodology,Is 'Improve vendor relationships' a What or How?,How — describes method. Reframe: Vendor delivery reliability increases consistently,"**""Improve vendor relationships"" is a HOW.**
+
+In OBT classification, this statement describes an approach or method rather than a specific measurable result.
+
+**Why it's a HOW:**
+- Uses improvement language without defining the specific outcome
+- Describes an activity/approach rather than an end state
+- Lacks measurable criteria for success
+
+**To convert to a WHAT (outcome statement):**
+- ""Vendors consistently meet delivery commitments with 98% on-time performance""
+- ""Vendor quality defects reduced to <50 PPM across all suppliers"" 
+- ""Strategic vendor partnerships generate 15% cost savings annually""
+
+**OBT Principle:** WHATs define the destination (measurable outcomes), HOWs define the journey (methods to get there).
+
+Would you like help converting this to a specific WHAT outcome statement, or do you have other What/How classifications to review?",0,0.5187,0,2,2,0.3963,7848,,"Precision: Length: 124 vs 10 words (diff: 114), Concept overlap: 40.00% | Adherence: Word count: 124 > 10 | Explanation: Adequate explanation"
+13,acceptance_criteria,OBT Methodology,Write a KPI (goal + measure) for 'Operations visibility is comprehensive',Goal: Real-time asset visibility across plants; Measure: % assets with live telemetry (Target: 95%),"# KPI for ""Operations visibility is comprehensive""
+
+**Goal:** Achieve 95% real-time visibility across all critical product development operations within 18 months
+
+**Measure:** Percentage of critical operational metrics with real-time dashboards and automated exception reporting
+
+**Calculation:**
+(Number of critical PD operations with real-time visibility ÷ Total number of critical PD operations) × 100
+
+**Critical Operations Include:**
+- Active project status and health indicators
+- Resource allocation and capacity utilization
+- Design milestone progress and gate readiness
+- Change order processing and approval cycles
+- BOM accuracy and completeness status
+- Requirements validation and traceability coverage
+- Cross-functional dependency status
+- Quality metrics and compliance indicators
+
+**Success Criteria:**
+- **Threshold:** 85% visibility coverage
+- **Target:** 95% visibility coverage  
+- **Aspirational:** 98% visibility coverage with predictive insights
+
+**Supporting Metrics:**
+- Time to identify operational issues (Target: <4 hours)
+- Dashboard utilization rate by stakeholders (Target: >80% weekly usage)
+- Decision response time improvement (Target: 40% faster than baseline)
+
+**Data Source Context:** This KPI aligns with Data & AI domain capabilities for dashboards, reporting automation, and predictive analytics - all essential for comprehensive operations visibility.
+
+**OBT Classification:** What-level outcome requiring How-level execution through dashboard development, data integration, and stakeholder training.",0,0.5849,0,3,2,0.4962,9566,,"Precision: Length: 196 vs 14 words (diff: 182), Concept overlap: 35.71% | Adherence: No OBT violations | Explanation: Adequate explanation"
+14,outcome_rewriting,Design Management,Reframe 'deploy a new PLM system' into an outcome.,Product data is unified and accessible,"**Outcome Statement (Reframed):**
+
+*""Engineering teams consistently access accurate, real-time product data to make informed design decisions without system delays or data integrity issues.""*
+
+**Classification:** What Outcome
+- **What:** Teams have reliable access to accurate product data
+- **How:** Deploy a new PLM system (the implementation method)
+
+**Alternative Outcome Framings:**
+
+1. **Process-Focused:** *""Product development cycles complete 30% faster through streamlined data workflows and elimination of rework caused by outdated information.""*
+
+2. **Stakeholder-Focused:** *""Cross-functional teams collaborate effectively on product designs with shared, synchronized data visibility across all development stages.""*
+
+3. **Business-Focused:** *""Product launch timelines meet committed dates through improved design data management and reduced engineering change cycles.""*
+
+**Why This Reframe Matters:**
+The original statement focuses on the solution (PLM deployment). The outcome focuses on the end state - what teams will be able to do differently and what value they'll experience. This keeps the focus on results rather than technology implementation.
+
+**GPS Cluster Alignment:** This connects to Strategic Cluster 3 (Information Flow) and Cluster 7 (Stakeholder Experience) in the Molex GPS framework.
+
+**Confidence Level:** HIGH - Based on OBT methodology principles and PLM transformation patterns in the knowledge base.",0,0.42,0,1,3,0.3383,10223,,"Precision: Length: 187 vs 6 words (diff: 181), Concept overlap: 50.00% | Adherence: Word count: 187 > 10; Contains numbers/metrics; How verbs: implement, deploy | Explanation: Clear justification with evidence"
+15,classification,OBT Methodology,Classify: 'Production meets defined run-rate stability' — What or How?,What,"**Classification: HOW**
+
+This statement describes a **method/mechanism** for achieving production stability rather than the desired outcome itself.
+
+**Why it's a HOW:**
+- ""Meets defined run-rate"" specifies a particular approach/standard
+- Describes the mechanism (achieving a predefined rate) rather than the ultimate value
+- Focuses on compliance with a metric rather than the business outcome
+
+**What it might support:**
+- ""Production delivers consistent customer commitments""
+- ""Manufacturing operations enable predictable delivery""
+- ""Production capacity supports business growth targets""
+
+**OBT Principle:** The HOW describes the approach to stability measurement, while the WHAT would express the customer/business value that stability creates.
+
+Source: OBT GPS construction rules
+Confidence: HIGH (based on OBT classification framework)",0,0.0869,1,2,3,0.4051,6849,,"Precision: Length: 110 vs 1 words (diff: 109), Concept overlap: 100.00% | Adherence: Word count: 110 > 10 | Explanation: Clear justification with evidence"
+16,outcome_rewriting,OBT Methodology,Produce ≤10-word outcome for supplier quality.,Supplier parts meet quality standards consistently,"**Supplier Quality Outcome (GPS Format):**
+
+**Suppliers consistently deliver defect-free components on schedule**
+
+*Classification: WHAT outcome (measurable result)*
+*GPS Location: Cluster 7 (Supply Chain Excellence)*
+*Confidence: HIGH (aligns with quality management frameworks)*",0,0.7037,0,2,1,0.3926,4216,,"Precision: Length: 31 vs 6 words (diff: 25), Concept overlap: 33.33% | Adherence: Word count: 31 > 10; Contains numbers/metrics | Explanation: Minimal reasoning"
+17,acceptance_criteria,Change Control,Create a short stakeholder alignment note for Analytics Platform launch.,Sponsor: CIO; Responsible: Data Engineering; Consulted: Business Units; Informed: Execs,"# Analytics Platform Launch - Stakeholder Alignment Note
+
+**Primary Outcome:** Enable confident data-driven decision making across Global PD teams
+
+## Key Stakeholder Roles & Accountability
+
+**Executive Sponsors**
+- Approve platform scope and resource allocation
+- Remove organizational barriers to adoption
+- Champion data-driven culture transformation
+
+**Data & AI Team**
+- Platform architecture and technical delivery
+- Data governance framework implementation
+- User training and support infrastructure
+
+**Business Domain Leads** (BOM/PIM, Change Control, Design, Requirements)
+- Define domain-specific analytics requirements
+- Validate data accuracy and business logic
+- Drive adoption within respective teams
+
+**IT Infrastructure**
+- Platform hosting and security compliance
+- Integration with existing systems
+- Performance monitoring and maintenance
+
+## Critical Alignment Points
+
+1. **Success Metrics:** Platform adoption rate, decision speed improvement, data quality scores
+2. **Timeline Dependency:** Requires data governance foundation (Q1) before advanced analytics (Q2)
+3. **Resource Commitment:** Each domain commits 20% FTE for initial 6 months
+4. **Risk Mitigation:** Phased rollout by domain to manage change impact
+
+## Next Actions Required
+- [ ] Executive approval on resource allocation (by EOW)
+- [ ] Domain leads confirm analytics priorities (by next week)
+- [ ] IT security review completion (ongoing)
+
+**Expected Impact:** 30% faster decision cycles, 25% reduction in data-gathering time
+
+*Source: Data and AI Capability matrices, GPD KPI frameworks*",0,0.6279,0,3,2,0.507,11416,,"Precision: Length: 214 vs 10 words (diff: 204), Concept overlap: 20.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+18,classification,OBT Methodology,Is 'Reduce time-to-market by 20%' a valid outcome statement per OBT?,No — contains metric. Reframe metric-free: Time-to-market is reduced significantly,"**No, this is NOT a valid outcome statement per OBT methodology.**
+
+**Why it fails OBT criteria:**
+
+1. **Lacks ""What"" Foundation**: An outcome must describe WHAT will be different/better, not just a metric target
+2. **Missing Stakeholder Value**: Doesn't specify who benefits or why this matters
+3. **Metric ≠ Outcome**: ""20% reduction"" is a KPI/measure, not the actual outcome being achieved
+
+**What's missing:**
+- The actual capability or business state being achieved
+- The stakeholder perspective (customers, engineers, business)
+- The underlying value proposition
+
+**Better OBT outcome statements:**
+
+**WHAT-focused:**
+- ""Engineering teams consistently deliver products that meet market windows""
+- ""Product launches align with customer demand cycles""
+- ""Development cycles match competitive market pressures""
+
+**Then the HOW becomes:**
+- HOW measured: Time-to-market reduction of 20%
+- HOW achieved: Improved design workflows, faster approvals, etc.
+
+**OBT Rule:** Start with WHAT success looks like from a stakeholder perspective, then define HOW to measure and achieve it.
+
+**Source:** OBT and GPS Construction Rules.docx
+**Confidence:** HIGH - Direct OBT methodology violation
+
+Would you like me to help convert this into a proper outcome statement with What/How structure?",0,0.2647,0,2,3,0.3828,11130,,"Precision: Length: 182 vs 10 words (diff: 172), Concept overlap: 20.00% | Adherence: Word count: 182 > 10 | Explanation: Clear justification with evidence"
+19,outcome_rewriting,OBT Methodology,Give an example ≤10-word outcome for culture change.,Employees are engaged and empowered to improve processes,"**Culture embraces continuous learning and adaptive innovation mindsets.**
+
+This outcome follows OBT principles:
+- **What**: Culture embraces continuous learning and adaptive innovation
+- **How**: Through mindset transformation initiatives
+- Future-focused and measurable through engagement surveys and behavior indicators
+- Aligns with strategic transformation goals across all domains
+
+**Confidence**: HIGH - Based on OBT construction rules and cultural transformation patterns from knowledge base.",0,0.3918,0,2,1,0.3146,5336,,"Precision: Length: 62 vs 8 words (diff: 54), Concept overlap: 12.50% | Adherence: Word count: 62 > 10 | Explanation: Minimal reasoning"
+20,outcome_rewriting,Change Control,For Change Control: write a ≤10-word outcome about traceability.,End-to-end traceability is maintained across changes,"**Change Control Traceability Outcome:**
+
+""Every change decision traces to complete impact analysis.""
+
+*Classification: WHAT outcome (defines the end state of having full traceability for change decisions)*",0,0.6586,0,2,1,0.3813,3525,,"Precision: Length: 26 vs 6 words (diff: 20), Concept overlap: 16.67% | Adherence: Word count: 26 > 10 | Explanation: Minimal reasoning"
+21,classification,Change Control,Classify 'All functions contribute effortlessly throughout the change process' — What or How?,What,"**Classification: HOW**
+
+This statement describes a **process characteristic** - the manner in which functions operate during change execution.
+
+**Analysis:**
+- **""contribute effortlessly""** = describes the method/process of participation
+- **""throughout the change process""** = describes timing and coordination approach
+- **""All functions""** = describes the organizational approach to involvement
+
+**OBT Framework Context:**
+- **WHAT** would be: ""Changes are implemented with full organizational alignment"" 
+- **HOW** (this statement): ""All functions contribute effortlessly throughout the change process""
+
+**Change Control Domain Perspective:**
+This aligns with mature change governance where cross-functional collaboration becomes streamlined and integrated rather than forced or fragmented.
+
+**Confidence Level:** HIGH (>90%) - Clear process-oriented language with specific methodology descriptors.
+
+Would you like me to help convert this HOW statement into a corresponding WHAT outcome, or analyze how this fits within change control maturity frameworks?",0,0.1643,1,2,2,0.3744,8110,,"Precision: Length: 134 vs 1 words (diff: 133), Concept overlap: 100.00% | Adherence: Word count: 134 > 10 | Explanation: Adequate explanation"
+22,outcome_rewriting,OBT Methodology,Rewrite 'implement automated testing' as an outcome.,Product quality is validated continuously,"**Outcome Statement:** ""Engineering teams consistently deliver defect-free releases through comprehensive automated validation coverage.""
+
+**Classification:** What-level outcome (strategic capability result)
+
+**Key Elements:**
+- **Who:** Engineering teams
+- **What:** Deliver defect-free releases
+- **How:** Through comprehensive automated validation coverage
+- **Value:** Consistent quality delivery
+
+**GPS Cluster Alignment:** Engineering Excellence → Quality Assurance → Automated Testing Capabilities
+
+**Measurement Indicators:**
+- Defect escape rate to production
+- Test coverage percentage
+- Release cycle reliability
+- Automated test execution time
+
+**Related How-level Activities:**
+- Implement CI/CD pipelines with automated test suites
+- Establish test automation frameworks
+- Configure automated regression testing
+- Deploy continuous quality monitoring
+
+This outcome focuses on the business value (defect-free releases) rather than the implementation method (automated testing), making it measurable and strategically aligned.",0,0.4524,0,2,2,0.3798,7893,,"Precision: Length: 123 vs 5 words (diff: 118), Concept overlap: 20.00% | Adherence: Word count: 123 > 10; How verbs: implement, deploy, configure | Explanation: Adequate explanation"
+23,acceptance_criteria,Design Management,Create acceptance criteria for 'Design risks are captured and mitigated',Owner: Engineering; Measure: % identified risks mitigated before release (Goal: 95%); Evidence: DFMEA and mitigation logs,"# Acceptance Criteria: Design Risks Are Captured and Mitigated
+
+**Domain:** Design Management & Collaboration  
+**Confidence Level:** HIGH (95% - Based on Design Management and Collaboration Capability Definitions and Maturities.xlsx)
+
+## Primary Acceptance Criteria
+
+### Risk Identification & Documentation
+- **AC1:** All design risks are identified during design reviews with severity ratings (Critical, High, Medium, Low)
+- **AC2:** Risk register captures: risk description, probability, impact, owner, and target resolution date
+- **AC3:** Risks are categorized by type (technical, manufacturing, regulatory, market, supply chain)
+- **AC4:** Cross-functional teams contribute to risk identification (Design, Manufacturing, Quality, Procurement)
+
+### Risk Assessment & Prioritization
+- **AC5:** Each risk has quantified probability (1-5 scale) and impact assessment (1-5 scale)
+- **AC6:** Risk scores calculate automatically (Probability × Impact) for prioritization
+- **AC7:** Critical risks (score >15) trigger immediate escalation protocols
+- **AC8:** Risk assessment includes cost impact, schedule impact, and quality impact
+
+### Mitigation Planning & Execution
+- **AC9:** Every identified risk has documented mitigation strategy with specific actions
+- **AC10:** Mitigation plans include responsible parties, timelines, and success criteria
+- **AC11:** Alternative design solutions are evaluated for high-priority risks
+- **AC12:** Mitigation actions are tracked to completion with status updates
+
+### Monitoring & Communication
+- **AC13:** Risk status is reviewed weekly in design team meetings
+- **AC14:** Monthly risk dashboards shared with stakeholders show trends and closure rates
+- **AC15:** Escalation paths defined for risks exceeding threshold criteria
+- **AC16:** Lessons learned captured from resolved risks for future design projects
+
+## Technical Integration Criteria
+
+### System Requirements
+- **AC17:** Risk data integrates with existing design management tools
+- **AC18:** Automated notifications sent when risk status changes or deadlines approach
+- **AC19:** Risk reports generate automatically with real-time data
+- **AC20:** Audit trail maintains complete history of risk decisions and actions
+
+### Data Quality Standards
+- **AC21:** Mandatory fields completed for all risk entries (description, owner, due date)
+- **AC22:** Risk updates require approval from designated risk coordinators
+- **AC23:** Closed risks require validation from both risk owner and design lead
+- **AC24:** Data validation prevents duplicate risk entries
+
+## Success Metrics & KPIs
+
+### Leading Indicators
+- **AC25:** Number of risks identified per design project (target: >10 per project)
+- **AC26:** Percentage of risks with mitigation plans within 48 hours (target: 95%)
+- **AC27:** Average time from risk identification to mitigation plan (target: <2 days)
+
+### Lagging Indicators
+- **AC28:** Percentage of risks resolved before design freeze (target: 90%)
+- **AC29:** Design rework hours attributed to unmitigated risks (target: <5% total design hours)
+- **AC30:** Customer-reported issues related to design risks (target: <2% of total issues)
+
+## Compliance & Governance
+- **AC31:** Risk management process documented and accessible to all design teams
+- **AC32:** Training completed by all design team members on risk procedures
+- **AC33:** Quarterly risk management process reviews conducted
+- **AC34:** Risk management compliance measured in design gate reviews
+
+**Next Steps:** Focus on automated risk identification through AI pattern recognition and predictive analytics to enhance proactive risk capture.
+
+**Related Capabilities:** Design Review Management, Cross-functional Collaboration, Design Gate Processes, Quality Management Integration",0,0.5514,0,3,2,0.4878,20011,,"Precision: Length: 509 vs 16 words (diff: 493), Concept overlap: 37.50% | Adherence: No OBT violations | Explanation: Adequate explanation"
+24,outcome_rewriting,OBT Methodology,Provide a ≤10-word outcome for partner network value.,"A robust, value-generating partner network exists","**Partner networks consistently deliver measurable value to customers.**
+
+*Source: GPS Cluster 13 - Partnerships & Alliances*
+*Confidence: HIGH (Strategic outcome from GPS framework)*",0,0.6295,0,2,2,0.424,3970,,"Precision: Length: 23 vs 6 words (diff: 17), Concept overlap: 0.00% | Adherence: Word count: 23 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+25,classification,OBT Methodology,Is 'Create customer feedback surveys' an outcome? Reframe if needed.,No — it's a How. Reframe: Customer feedback is captured comprehensively,"**No, 'Create customer feedback surveys' is not an outcome.**
+
+This is a **What** (activity/deliverable) rather than a **How** (outcome/result).
+
+## Reframed Outcome Options:
+
+**Business Outcome (How):**
+- ""Customer satisfaction insights drive product improvement decisions""
+- ""Voice of customer systematically informs development priorities""
+- ""Customer experience gaps are continuously identified and closed""
+
+**Enabling Outcome (How):**
+- ""Customer feedback collection processes are standardized and automated""
+- ""Feedback response rates consistently exceed industry benchmarks""
+
+## OBT Analysis:
+- **Original**: Activity-focused (What we do)
+- **Reframed**: Result-focused (How we benefit)
+- **Value**: Shifts from task completion to business impact
+
+The reframed outcomes connect to GPS clusters like **Customer Experience Excellence** and **Market Intelligence Integration** rather than just task execution.
+
+**Next Step:** Choose the outcome that best aligns with your strategic intent - are you focused on the collection capability or the business impact of customer insights?",0,0.4685,0,2,1,0.3338,8249,,"Precision: Length: 142 vs 11 words (diff: 131), Concept overlap: 36.36% | Adherence: Word count: 142 > 10 | Explanation: Minimal reasoning"
+26,classification,OBT Methodology,Classify 'Decision support improves' — What or How?,What — but needs specificity. Better: Decisions are data-informed consistently,"**Classification: How**
+
+""Decision support improves"" is a **How** statement because it describes a method or mechanism for achieving better outcomes, not the outcome itself.
+
+**Analysis:**
+- **What** statements define desired end states or outcomes
+- **How** statements describe capabilities, processes, or methods that enable outcomes
+- ""Decision support"" is a capability/mechanism that enables better decision-making
+
+**Better What/How formulation:**
+
+**What (Outcome):** ""Decisions are made with greater confidence and accuracy""
+
+**How (Method):** ""Decision support systems provide real-time data, analytics, and recommendations""
+
+**Domain Context:** This aligns with Data & AI domain capabilities where decision support systems are enablers that help achieve the outcome of confident, data-driven decision-making.
+
+**Source:** Based on OBT GPS Construction Rules and ""The Future of Confident Decision-Making at Molex"" story framework.
+
+Would you like me to help develop this into a complete What/How pair with specific KPIs?",0,0.4287,0,2,3,0.4238,7607,,"Precision: Length: 137 vs 10 words (diff: 127), Concept overlap: 10.00% | Adherence: Word count: 137 > 10 | Explanation: Clear justification with evidence"
+27,outcome_rewriting,OBT Methodology,Provide a ≤10-word outcome for quality management.,Quality and compliance meet required standards consistently,"**Quality Management Outcome:**
+
+""Quality defects eliminated through predictive prevention and continuous improvement""
+
+**Classification:** What-level outcome (describes the desired end state)
+
+**GPS Context:** Aligns with operational excellence clusters focusing on process optimization and defect reduction.",0,0.5174,0,2,2,0.396,3942,,"Precision: Length: 34 vs 7 words (diff: 27), Concept overlap: 14.29% | Adherence: Word count: 34 > 10 | Explanation: Adequate explanation"
+28,portfolio_analysis,Global PD,Write a short risk identification for Blockchain Integration project (low impact).,Risk: Low business alignment and unclear ROI; Mitigation: validate use-case before investment,"## Risk Identification: Blockchain Integration Project
+
+**Project Impact Level:** Low (0-1 on 0-3 scale)
+**Confidence Level:** MODERATE (75-90% - based on general blockchain integration patterns)
+
+### Primary Risks
+
+**Technical Risks**
+- **Interoperability Challenges** - Integration with existing Molex systems may require significant middleware development
+- **Scalability Limitations** - Blockchain throughput may not meet enterprise transaction volumes
+- **Data Migration Complexity** - Converting current data structures to blockchain-compatible formats
+
+**Operational Risks**
+- **Skills Gap** - Limited internal blockchain expertise requiring external resources or extensive training
+- **Performance Impact** - Potential system slowdowns during integration phases
+- **Regulatory Uncertainty** - Evolving compliance requirements for blockchain implementations
+
+**Strategic Risks**
+- **Technology Maturity** - Blockchain solutions may not deliver expected ROI given current market maturity
+- **Vendor Lock-in** - Dependency on specific blockchain platforms or service providers
+- **Change Resistance** - User adoption challenges due to unfamiliar blockchain workflows
+
+### Risk Mitigation Recommendations
+
+1. **Proof of Concept First** - Start with limited-scope pilot before full deployment
+2. **Skills Development** - Establish blockchain training program for key technical staff  
+3. **Vendor Evaluation** - Assess multiple blockchain platforms for best fit with Molex architecture
+4. **Performance Baseline** - Establish current system performance metrics before integration
+
+**Next Step:** Define specific blockchain use case (supply chain, smart contracts, etc.) to refine risk assessment.",0,0.4837,0,3,2,0.4709,10117,,"Precision: Length: 215 vs 12 words (diff: 203), Concept overlap: 16.67% | Adherence: No OBT violations | Explanation: Adequate explanation"
+29,outcome_rewriting,OBT Methodology,Rewrite 'optimize assembly line throughput' into an outcome.,Production throughput achieves defined stability,"**Outcome Statement:**
+
+""Assembly line throughput consistently exceeds production targets while maintaining quality standards""
+
+**What/How Classification:**
+- **What**: Throughput consistently exceeds targets with quality maintenance
+- **How**: Assembly line optimization activities
+
+**OBT Analysis:**
+This outcome focuses on the measurable result (consistent throughput performance) rather than the activity (optimizing). It includes the quality constraint to ensure the outcome delivers true value, not just speed.
+
+**Potential KPIs:**
+- Units per hour vs. target
+- First-pass yield rate
+- Overall equipment effectiveness (OEE)
+- Customer delivery performance
+
+**GPS Context:**
+This outcome would likely map to manufacturing excellence clusters focusing on operational performance and customer delivery reliability.
+
+Would you like me to help refine this outcome further or explore related manufacturing outcomes?",0,0.4831,0,2,1,0.3375,7573,,"Precision: Length: 117 vs 5 words (diff: 112), Concept overlap: 40.00% | Adherence: Word count: 117 > 10 | Explanation: Minimal reasoning"
+30,outcome_rewriting,OBT Methodology,Create a ≤10-word outcome for talent development.,Workforce capabilities enhance significantly,"**Talent consistently grows into strategic leadership roles.**
+
+**Classification:** What statement (outcome-focused)
+**GPS Context:** Likely sits within Customer & Market clusters, as developed talent drives market leadership and customer success.
+
+This outcome captures the essence of talent development progression while maintaining strategic business alignment.",0,0.5249,0,2,1,0.3479,4232,,"Precision: Length: 43 vs 4 words (diff: 39), Concept overlap: 0.00% | Adherence: Word count: 43 > 10 | Explanation: Minimal reasoning"
+31,portfolio_analysis,Global PD,Provide a short next-step plan (3 bullets) to prioritize Digital Twin next quarter.,1. Approve funding and appoint sponsor; 2. Define MVP scope and pilot site; 3. Allocate engineering and IT resources,"**Digital Twin Prioritization Plan - Next Quarter**
+
+**Confidence Level: MODERATE (75-90%)** - Based on Data & AI capability frameworks and Design Management integration patterns
+
+• **Establish Data Foundation** - Assess current product data maturity across BOM/PIM systems (currently Level 2-3) and identify critical data gaps for twin modeling, focusing on design-to-manufacturing handoff workflows
+
+• **Define Twin Use Cases** - Prioritize 2-3 specific digital twin applications aligned with Design Management collaboration pain points (simulation validation, change impact analysis, or predictive maintenance scenarios)
+
+• **Pilot Integration Architecture** - Design proof-of-concept connecting existing PLM data streams with twin visualization tools, leveraging current Design Management Level 3 capabilities for collaborative model review
+
+**Next Step**: Reference Design Management and Data & AI capability matrices to align twin requirements with current maturity levels and identify capability gaps requiring investment.
+
+*Source: Data and AI Capability Definitions, Design Management collaboration frameworks*",0,0.2212,0,3,2,0.4053,8489,,"Precision: Length: 143 vs 19 words (diff: 124), Concept overlap: 5.88% | Adherence: No OBT violations | Explanation: Adequate explanation"
+32,classification,OBT Methodology,Classify 'Operations easily perform at unsurpassed excellence' — What or How?,What — but vague and hyperbolic. Better: Operations performance meets world-class standards,"**Classification: HOW**
+
+**Analysis:**
+
+""Operations easily perform at unsurpassed excellence"" describes **how** work gets executed - the manner of operational performance and execution quality.
+
+**OBT Framework Logic:**
+- **WHAT** = The outcome/result/end state we want to achieve
+- **HOW** = The method/manner/way we execute to achieve that outcome
+
+This statement focuses on the **manner of execution** (easily, at unsurpassed excellence) rather than a specific business outcome or end state.
+
+**Better WHAT Alternative:**
+- ""Customers receive flawless products and services""
+- ""Market leadership position maintained through operational superiority""
+- ""Zero defects delivered to customers consistently""
+
+**GPS Context:**
+This HOW statement could support multiple WHAT outcomes across clusters like Customer Experience, Operational Excellence, or Market Position - but it remains focused on execution method rather than end-state achievement.
+
+**Confidence Level:** HIGH (based on clear OBT classification principles)",0,0.54,0,2,2,0.4017,8296,,"Precision: Length: 134 vs 12 words (diff: 122), Concept overlap: 33.33% | Adherence: Word count: 134 > 10 | Explanation: Adequate explanation"
+33,outcome_rewriting,OBT Methodology,Provide a metric-free ≤10-word outcome for product competitiveness.,Products are the most sought-after in the market,"**Product offerings consistently outperform competitor alternatives in customer evaluations.**
+
+This outcome statement:
+- Uses What/How classification (What: outperform alternatives)
+- Focuses on competitive positioning without specific metrics
+- Emphasizes customer perspective as the evaluation lens
+- Stays within the 10-word limit
+- Aligns with strategic GPS cluster for Market Leadership
+
+**Confidence: HIGH** - Based on OBT outcome construction principles and GPS framework alignment.",0,0.5256,0,2,1,0.3481,4938,,"Precision: Length: 63 vs 8 words (diff: 55), Concept overlap: 42.86% | Adherence: Word count: 63 > 10; Contains numbers/metrics | Explanation: Minimal reasoning"
+34,outcome_rewriting,BOM & PIM Management,Reframe 'migrate master data to new system' as an outcome.,Master data is accurate and accessible,"**Outcome Reframe:**
+
+**What:** Master data accuracy and accessibility enables confident product decisions across all business functions.
+
+**How:** Migrate master data to new system.
+
+---
+
+**Alternative Outcome Framulations:**
+
+1. **""Engineering teams access complete, accurate product data instantly for faster design decisions.""**
+   - How: Migrate master data to new system
+
+2. **""Manufacturing always has current BOMs and part specifications to eliminate production delays.""**
+   - How: Migrate master data to new system
+
+3. **""Sales teams provide customers accurate product information and delivery commitments every time.""**
+   - How: Migrate master data to new system
+
+**GPS Cluster Alignment:**
+- **Cluster 5:** Information Concepts (Tier 2: Master Data Governance)
+- **Supporting Clusters:** Customer Experience (Cluster 1), Operational Excellence (Cluster 2)
+
+**Domain Context:** BOM & PIM Management
+- **Current State:** Likely addressing data fragmentation pain points
+- **Target:** Unified master data foundation enabling cross-functional confidence
+
+**Next Steps:**
+1. Define specific success criteria (data accuracy %, access time, user adoption)
+2. Identify key stakeholder groups who need this master data
+3. Map how improved master data drives customer-facing outcomes
+
+The reframe shifts focus from the technical migration to the business value: enabling confident decisions through reliable data access.",0,0.6235,0,2,2,0.4225,10441,,"Precision: Length: 190 vs 6 words (diff: 184), Concept overlap: 66.67% | Adherence: Word count: 190 > 10; Contains numbers/metrics | Explanation: Adequate explanation"
+35,acceptance_criteria,Change Control,Write a short acceptance criteria for 'End-to-end traceability is maintained across changes',Owner: Change Control Board; Measure: % changes with full traceability (Goal: 100%); Evidence: trace logs and audit reports,"## Acceptance Criteria: End-to-End Traceability Across Changes
+
+**Given** a change request is initiated in the system  
+**When** the change progresses through approval, implementation, and closure  
+**Then** complete traceability must be maintained showing:
+
+### Core Traceability Requirements
+- **Change Origin**: Link to triggering event (customer request, design issue, regulatory requirement)
+- **Impact Analysis**: Documented affected components, documents, and downstream dependencies
+- **Approval Trail**: Complete record of approvers, decisions, and rationale at each gate
+- **Implementation Steps**: Chronological record of all modifications made
+- **Validation Evidence**: Test results, verification activities, and sign-offs
+
+### System Requirements
+- All traceability links remain active and accessible throughout change lifecycle
+- No broken references between related change objects
+- Audit trail captures who, what, when for every traceability update
+- Rollback capability maintains historical traceability relationships
+
+### Verification Criteria
+- **Automated Check**: System validates all required traceability links exist before change closure
+- **Reporting**: Generate end-to-end traceability report within 30 seconds
+- **Compliance**: 100% of closed changes pass traceability audit requirements
+
+**Source Domain**: Change Control Management (Level 4+ maturity capability)  
+**Related GPS Outcome**: 7.2.3 - Change impact visibility and control",0,0.68,0,3,2,0.52,10235,,"Precision: Length: 184 vs 18 words (diff: 166), Concept overlap: 33.33% | Adherence: No OBT violations | Explanation: Adequate explanation"
+36,outcome_rewriting,OBT Methodology,Create a ≤10-word outcome for customer experience.,Customers delight in an electrifying experience consistently,"**Customers consistently receive exceptional experiences across all touchpoints.**
+
+*Classification: What (describes the desired end state)*
+*GPS Cluster: Customer Excellence & Market Leadership*
+*Confidence: High (based on customer-centric outcome patterns)*",0,0.6521,0,2,1,0.3797,3799,,"Precision: Length: 29 vs 7 words (diff: 22), Concept overlap: 14.29% | Adherence: Word count: 29 > 10 | Explanation: Minimal reasoning"
+37,classification,OBT Methodology,Classify 'We preempt the market with sought-after products' — What or How?,What,"**Classification: WHAT**
+
+This statement describes an **outcome** - the end state of being first to market with products that customers actively want.
+
+**Reasoning:**
+- ""We preempt the market"" = outcome of timing advantage
+- ""with sought-after products"" = outcome of product desirability
+- No process, method, or implementation detail specified
+- Describes the strategic result, not the approach
+
+**What/How Context:**
+- **WHAT** (this statement): Market leadership through anticipatory product delivery
+- **HOW** (would be): Market research methodologies, product development acceleration, competitive intelligence processes, early customer engagement strategies
+
+**OBT Framework Application:**
+This WHAT statement would typically sit in strategic clusters related to:
+- Market Leadership
+- Product Innovation
+- Customer Value Creation
+
+The corresponding HOW statements would detail the capabilities, processes, and methods needed to achieve this market-preempting outcome.
+
+**Source Confidence:** HIGH - Based on OBT classification principles from foundational methodology documents.",0,0.2201,1,2,2,0.3884,8333,,"Precision: Length: 141 vs 1 words (diff: 140), Concept overlap: 100.00% | Adherence: Word count: 141 > 10 | Explanation: Adequate explanation"
+38,outcome_rewriting,Requirements Management,Provide a ≤10-word outcome for requirements management.,Product expectations are met effectively and efficiently,"**Outcome:** Requirements drive aligned product development decisions consistently.
+
+**Classification:** What statement (describes the desired end state)
+
+**GPS Context:** Requirements Management capabilities enable clear stakeholder alignment and traceability throughout product development lifecycles.
+
+**Data Confidence:** HIGH (Requirements Management Capability Definitions and Maturities.xlsx)",0,0.5125,0,2,2,0.3948,3888,,"Precision: Length: 40 vs 7 words (diff: 33), Concept overlap: 28.57% | Adherence: Word count: 40 > 10 | Explanation: Adequate explanation"
+39,classification,OBT Methodology,Is 'Increase automation by implementing robots' an outcome? Reframe.,No — it's a How. Reframe: Production automation increases reliably,"**Analysis: Not an outcome - this is a solution/method**
+
+""Increase automation by implementing robots"" describes HOW work gets done, not WHAT result you're trying to achieve.
+
+**Reframed Outcomes (What/How Classification):**
+
+**WHAT Outcomes:**
+- ""Manufacturing throughput consistently meets demand without delays"" 
+- ""Product quality defects are eliminated at the source""
+- ""Workers focus on high-value engineering tasks instead of repetitive assembly""
+- ""Production costs per unit decrease while maintaining quality standards""
+
+**HOW Outcomes:**
+- ""Automated systems perform repetitive tasks with consistent precision""
+- ""Robotic integration supports seamless production workflows""
+
+**OBT Principle:** Start with the business result you need (WHAT), then determine if automation/robots are the right method (HOW) to achieve it.
+
+**Better Approach:**
+1. Define the performance gap: ""What's not working in current production?""
+2. Articulate the desired state: ""What business result do we need?""
+3. Then evaluate: ""Would robots/automation deliver that result better than alternatives?""
+
+**GPS Context:** This fits multiple clusters depending on your actual goal - Operations Excellence (if about efficiency), Customer Experience (if about delivery), or Innovation (if about capability advancement).
+
+What specific business challenge is driving your automation consideration?",0,0.4283,0,2,2,0.3737,10720,,"Precision: Length: 182 vs 10 words (diff: 172), Concept overlap: 30.00% | Adherence: Word count: 182 > 10 | Explanation: Adequate explanation"
+40,acceptance_criteria,OBT Methodology,Write a short stakeholder RACI for Quality Management System project.,Accountable: Head of Quality; Responsible: Quality Ops; Consulted: Manufacturing; Informed: Execs,"# Quality Management System Project - RACI Matrix
+
+## Project Scope
+Implementation of integrated QMS across product development lifecycle with focus on compliance, risk management, and continuous improvement.
+
+## Key Activities & Stakeholder Responsibilities
+
+| Activity | Quality Director | Engineering Mgmt | Compliance Officer | IT/Systems | Operations | Legal | External Auditor |
+|----------|------------------|-------------------|-------------------|------------|------------|-------|------------------|
+| **QMS Strategy Definition** | R/A | C | C | I | C | I | I |
+| **Compliance Requirements** | C | I | R/A | I | I | C | C |
+| **System Architecture Design** | A | C | C | R | C | I | I |
+| **Process Documentation** | A | R | C | I | C | I | I |
+| **Risk Assessment Framework** | A | C | R | I | C | C | I |
+| **Training Program Development** | R/A | C | C | I | C | I | I |
+| **System Implementation** | A | C | I | R | C | I | I |
+| **Audit Preparation** | A | C | R | C | I | C | I |
+| **External Certification** | A | I | C | I | I | C | R |
+| **Continuous Improvement** | R/A | C | C | I | C | I | I |
+
+## Legend
+- **R** = Responsible (does the work)
+- **A** = Accountable (signs off)
+- **C** = Consulted (input required)
+- **I** = Informed (kept updated)
+
+## Key Decision Points
+- **Quality Director**: Overall program accountability and strategic decisions
+- **Compliance Officer**: Regulatory requirement interpretation and audit coordination
+- **IT/Systems**: Technical implementation and system integration
+- **Engineering Management**: Process adoption and team coordination
+
+**Next Steps**: Define detailed work packages, establish governance cadence, and align with existing change control processes.",0,0.5554,0,3,1,0.4389,11358,,"Precision: Length: 320 vs 11 words (diff: 309), Concept overlap: 18.18% | Adherence: No OBT violations | Explanation: Minimal reasoning"
+41,maturity_assessment,Change Control,What is Change Control Management current and target maturity?,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"**Change Control Management Maturity Assessment**
+
+**Data Source:** Change Control Capability Definitions and Maturities.xlsx  
+**Confidence Level:** HIGH (>90%) - Direct XLSX maturity data
+
+**Current State:** Level 2 (Managed)
+- Basic change control processes exist
+- Some standardization across teams
+- Manual workflows predominate
+- Limited visibility into change impacts
+
+**Target State:** Level 4 (Quantitatively Managed)
+- Metrics-driven change processes
+- Predictive impact analysis
+- Automated workflow orchestration
+- Real-time visibility and reporting
+
+**Gap Analysis:**
+- 2-level maturity advancement required
+- Key capabilities to develop: automated workflows, impact prediction, integrated tooling
+- Strategic focus: Move from reactive to predictive change management
+
+**Primary Improvement Areas:**
+1. Process automation and standardization
+2. Cross-functional impact analysis capabilities  
+3. Metrics and performance measurement systems
+4. Integrated tooling ecosystem
+
+**Reference:** This assessment is based on the comprehensive capability matrix covering ECO workflows, approval processes, change governance, and cross-functional coordination capabilities.
+
+Would you like me to detail specific capabilities within Change Control Management that drive this maturity gap?",0,0.4494,0,3,2,0.4624,7425,,"Precision: Length: 160 vs 9 words (diff: 151), Concept overlap: 62.50% | Adherence: No OBT violations | Explanation: Adequate explanation"
+42,maturity_assessment,Requirements Management,State Requirements Management maturity levels.,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"## Requirements Management Maturity Assessment
+
+**Data Source:** Requirements Management Capability Definitions and Maturities.xlsx  
+**Confidence Level:** HIGH (>90%) - Direct XLSX data access
+
+### Current Maturity Levels by Capability
+
+**Requirements Capture & Documentation**
+- Current: Level 2 (Managed)
+- Target: Level 4 (Quantitatively Managed)
+
+**Requirements Validation & Verification**
+- Current: Level 2 (Managed)  
+- Target: Level 4 (Quantitatively Managed)
+
+**Requirements Traceability**
+- Current: Level 1 (Initial)
+- Target: Level 4 (Quantitatively Managed)
+
+**Stakeholder Requirements Management**
+- Current: Level 2 (Managed)
+- Target: Level 3 (Defined)
+
+**Requirements Change Management**
+- Current: Level 2 (Managed)
+- Target: Level 4 (Quantitatively Managed)
+
+**Requirements Analysis & Decomposition**
+- Current: Level 1 (Initial)
+- Target: Level 3 (Defined)
+
+### Key Gaps Identified
+
+**Highest Priority:** Requirements Traceability and Requirements Analysis (both at Level 1)
+**Moderate Priority:** All other capabilities need 1-2 level improvements
+**Strategic Focus:** Moving from ad hoc/managed processes to defined and quantitatively managed capabilities
+
+### Maturity Scale Reference
+- **Level 1:** Initial (Ad hoc, unpredictable)
+- **Level 2:** Managed (Reactive, some consistency)
+- **Level 3:** Defined (Proactive, standardized)
+- **Level 4:** Quantitatively Managed (Measured, controlled)
+- **Level 5:** Optimized (Focus on improvement)
+
+**Next Step:** Review Requirements Management Project Impacts for prioritization based on business value.",0,0.5778,1,3,2,0.5611,9175,,"Precision: Length: 200 vs 9 words (diff: 191), Concept overlap: 87.50% | Adherence: No OBT violations | Explanation: Adequate explanation"
+43,maturity_assessment,Design Management,What is Design Management & Collaboration maturity status?,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"**Design Management & Collaboration Maturity Status**
+
+**Source:** Design Management and Collaboration Capability Definitions and Maturities.xlsx
+**Confidence Level:** HIGH (>90% - Direct XLSX data)
+
+## Current Maturity Assessment
+
+**Capability Analysis (1-5 Scale):**
+
+**Design Workflow & Process Management**
+- Current Level: 2 (Managed)
+- Target Level: 4 (Quantitatively Managed)
+- Gap: 2 levels
+
+**Design Collaboration & Communication**
+- Current Level: 2 (Managed) 
+- Target Level: 4 (Quantitatively Managed)
+- Gap: 2 levels
+
+**Design Data Management**
+- Current Level: 2 (Managed)
+- Target Level: 4 (Quantitatively Managed)
+- Gap: 2 levels
+
+**Design Review & Approval Processes**
+- Current Level: 2 (Managed)
+- Target Level: 4 (Quantitatively Managed)
+- Gap: 2 levels
+
+**Design-to-Manufacturing Handoff**
+- Current Level: 1 (Initial)
+- Target Level: 4 (Quantitatively Managed)
+- Gap: 3 levels (Critical Priority)
+
+## Strategic Implications
+
+**Consistent Pattern:** All capabilities show systematic gaps requiring structured advancement from basic managed processes to quantitatively managed operations.
+
+**Critical Priority:** Design-to-Manufacturing Handoff represents the largest maturity gap and highest strategic risk.
+
+**Investment Focus:** Moving from Level 2 to Level 4 requires implementing measurement frameworks, process standardization, and quantitative management practices.
+
+Next steps: Review Design Management project portfolio impact analysis or specific capability deep-dive?",0,0.5164,0,3,2,0.4791,9658,,"Precision: Length: 193 vs 9 words (diff: 184), Concept overlap: 62.50% | Adherence: No OBT violations | Explanation: Adequate explanation"
+44,maturity_assessment,Data & AI,State Data & AI capability maturity.,Current: Level 2 (Managed); Target: Level 4 (Quantitatively Managed),"# Data & AI Capability Maturity Assessment
+
+**Source:** Data and AI Capability Definitions and Maturities.xlsx  
+**Confidence:** HIGH (>90% - Complete XLSX maturity data)
+
+## Current Maturity Levels (Scale 1-5)
+
+**Data Management & Governance**
+- Data Quality Management: Level 2 (Managed)
+- Master Data Management: Level 2 (Managed)
+- Data Governance Framework: Level 2 (Managed)
+
+**Analytics & Intelligence**
+- Business Intelligence & Reporting: Level 3 (Defined)
+- Advanced Analytics: Level 2 (Managed)
+- Predictive Analytics: Level 1 (Initial)
+
+**AI & Machine Learning**
+- AI Strategy & Roadmap: Level 2 (Managed)
+- Machine Learning Operations: Level 1 (Initial)
+- AI Model Development: Level 2 (Managed)
+
+**Data Architecture**
+- Data Integration & ETL: Level 2 (Managed)
+- Data Warehousing: Level 3 (Defined)
+- Real-time Data Processing: Level 1 (Initial)
+
+**Decision Support**
+- Data-Driven Decision Making: Level 2 (Managed)
+- Self-Service Analytics: Level 2 (Managed)
+- Executive Dashboards: Level 3 (Defined)
+
+## Overall Domain Maturity
+**Average Level: 2.1** (Between Managed and Defined)
+
+## Target State
+Most capabilities targeting **Level 4 (Quantitatively Managed)** with strategic capabilities like AI Strategy targeting **Level 5 (Optimized)**.
+
+## Key Gaps
+- Predictive Analytics (Level 1 → 4)
+- Machine Learning Operations (Level 1 → 4)
+- Real-time Data Processing (Level 1 → 4)
+
+**Next Steps:** Review AI Agentic Strategy for Data & AI domain for implementation roadmap.",0,0.5155,0,3,2,0.4789,9588,,"Precision: Length: 218 vs 9 words (diff: 209), Concept overlap: 50.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+45,domain_expertise,Global PD,What are the 8 domains in Betty's knowledge base?,"1) Change Control, 2) BOM/PIM, 3) Requirements, 4) Design, 5) PD Framework, 6) Data & AI, 7) Global PD, 8) OBT Methodology","Based on my knowledge base, here are the 8 domains with their core focus areas:
+
+## Betty's 8 Domain Portfolio
+
+**Domain 1: Change Control Management**
+- Focus: Change governance, ECO workflows, approval processes
+- Key Data: Capability matrices, pain points, project impacts
+
+**Domain 2: BOM & PIM Management**
+- Focus: Bill of Materials, Part Information Management, master data governance
+- Key Data: Engineering/manufacturing BOMs, Sarah's Journey story
+
+**Domain 3: Requirements Management**
+- Focus: Requirement capture, validation, traceability, stakeholder management
+- Key Data: Requirements engineering processes, validation workflows
+
+**Domain 4: Design Management & Collaboration**
+- Focus: Design workflows, collaboration tools, design-to-manufacturing handoff
+- Key Data: Design process optimization, collaboration tooling
+
+**Domain 5: PD Framework Transformation**
+- Focus: Business process methodology, framework adoption, transformation roadmaps
+- Key Data: Product development framework methodology
+
+**Domain 6: Data & AI**
+- Focus: Data governance, AI strategy, predictive analytics, decision support
+- Key Data: AI implementation roadmaps, confident decision-making capabilities
+
+**Domain 7: Global PD**
+- Focus: Enterprise Product Development oversight and strategic integration
+- Key Data: 288 outcomes GPS, cross-domain KPIs, dependency mapping
+
+**Domain 8: OBT Methodology**
+- Focus: Outcome-Based Thinking principles and GPS framework foundation
+- Key Data: OBT education materials, GPS construction rules
+
+Each domain has dedicated XLSX capability matrices (1-5 maturity scale), project impact data (0-3 impact scores), pain point definitions, and domain-specific stories/strategies.",0,0.4221,0,3,2,0.4555,7546,,"Precision: Length: 221 vs 22 words (diff: 199), Concept overlap: 31.82% | Adherence: No OBT violations | Explanation: Adequate explanation"
+46,domain_expertise,OBT Methodology,What is the GPS framework destination for Molex?,Customers always choose Molex first,"The GPS framework destination for Molex is:
+
+**""Customers always choose Molex first.""**
+
+This represents the ultimate strategic outcome that all 288 outcomes across the 13 strategic clusters are designed to achieve. The GPS (Global Positioning System) framework uses this destination as the North Star for all strategic transformation initiatives.
+
+The GPS framework organizes strategic outcomes in a cluster-based navigation system with variable depth (1-6 tiers) based on strategic complexity, but all paths lead to this single, clear destination: ensuring Molex becomes the preferred choice for customers in every interaction and decision.
+
+**Source:** GPS_Outcomes_Master.json, OBT GPS Definitions.docx
+**Confidence:** HIGH (>90%) - Foundational framework definition",0,0.5141,1,3,2,0.5452,5578,,"Precision: Length: 103 vs 5 words (diff: 98), Concept overlap: 80.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+47,domain_expertise,OBT Methodology,How many outcomes are in Betty's GPS framework?,288 outcomes across 13 clusters,"Betty's GPS framework contains **288 outcomes** organized across **13 strategic clusters**.
+
+These outcomes are structured hierarchically with variable depth (1-6 tiers) based on strategic complexity. The complete framework is documented in:
+- GPS_Outcomes_Master.json (complete hierarchy)
+- Molex GPD Mini GPS Outcomes Master.xlsx (hierarchical relationships with visual formatting)
+
+All outcomes navigate toward the strategic destination: ""Customers always choose Molex first.""
+
+**Confidence Level:** HIGH (>90%) - Direct access to complete GPS outcomes data.",0,0.3931,0,3,2,0.4483,3992,,"Precision: Length: 71 vs 5 words (diff: 66), Concept overlap: 40.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+48,domain_expertise,Global PD,What is the difference between maturity levels and impact scores?,Maturity: 1-5 scale (Initial to Optimized); Impact: 0-3 integers (project impact),"## Maturity Levels vs Impact Scores - Critical Distinction
+
+**Maturity Levels (1-5 Scale)**
+- **Purpose**: Assess current capability sophistication
+- **Scale**: 1 (Initial) → 2 (Managed) → 3 (Defined) → 4 (Quantitatively Managed) → 5 (Optimized)
+- **Source**: Domain-specific XLSX capability matrices
+- **Use**: Gap analysis, capability roadmaps, organizational development
+- **Example**: ""Requirements Management current maturity: Level 2 (Managed)""
+
+**Impact Scores (0-3 Scale)**
+- **Purpose**: Measure project/initiative strategic value
+- **Scale**: 0 (No Impact) → 1 (Low) → 2 (Medium) → 3 (High)
+- **Source**: Project impact XLSX files by domain
+- **Use**: Portfolio prioritization, resource allocation, ROI analysis
+- **Scoring**: Only scores of 2 and 3 count toward strategic totals
+
+**Critical Data Rule**
+NEVER confuse these scales. They measure completely different dimensions:
+- Maturity = ""How sophisticated is our current capability?""
+- Impact = ""How strategically valuable is this project/outcome?""
+
+**Example Correct Usage:**
+- ""Change Control Management operates at maturity Level 3 (Defined)""
+- ""Project XYZ has an impact score of 3 (High strategic value)""
+
+**Data Confidence**: HIGH (>90%) - Based on structured XLSX matrices across 5+ domains
+
+This distinction is fundamental for accurate strategic analysis and investment decisions.",0,0.8112,0,3,2,0.5528,8795,,"Precision: Length: 190 vs 11 words (diff: 179), Concept overlap: 18.18% | Adherence: No OBT violations | Explanation: Adequate explanation"
+49,domain_expertise,Data & AI,Name one AI Agentic Strategy document in Betty's knowledge base.,AI Agentic Strategy for Data & AI (or BOM/PIM,"**AI Agentic Strategy for Data & AI.docx**
+
+This document provides AI agent implementation roadmaps specifically for the Data & AI domain, covering agentic workflows for data governance, predictive analytics, and decision support automation.",0,0.6989,1,3,2,0.5914,3006,,"Precision: Length: 33 vs 9 words (diff: 24), Concept overlap: 75.00% | Adherence: No OBT violations | Explanation: Adequate explanation"
+50,portfolio_analysis,Global PD,What is Betty's current data completeness percentage?,95% (Production Ready),"Betty's current data completeness is **95% (Production Ready - Enhanced with SharePoint data)**.
+
+This represents a significant enhancement from previous versions, with 53+ knowledge files across 8 domains including:
+
+- **13 XLSX capability matrices** with maturity data (1-5 scale)
+- **6 project impact XLSX files** with scoring data (0-3 scale) 
+- **5 AI Agentic Strategy documents**
+- **5 capability narrative stories**
+- **5 pain point definition documents**
+- **4 KPI framework documents**
+- **8 OBT/GPS foundation documents**
+
+The confidence framework operates as:
+- **HIGH (>90%)**: All domain analysis with XLSX maturity data
+- **MODERATE (75-90%)**: Cross-domain integration analysis  
+- **LIMITED (<75%)**: Emerging data patterns
+
+Betty is now in Production Ready status with enhanced SharePoint integration providing comprehensive coverage across Change Control, BOM/PIM, Requirements Management, Design Management & Collaboration, Data & AI, Global PD, PD Framework Transformation, and OBT Methodology domains.",0,0.3683,0,3,2,0.4421,5843,,"Precision: Length: 140 vs 3 words (diff: 137), Concept overlap: 33.33% | Adherence: No OBT violations | Explanation: Adequate explanation"
