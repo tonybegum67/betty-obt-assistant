@@ -7,6 +7,11 @@ gatherUsageStats = false
 
 [theme]
 base = "light"
+primaryColor = "#667eea"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f7fafc"
+textColor = "#1a202c"
+font = "sans serif"
 
 # Streamlit Cloud optimizations
 [global]

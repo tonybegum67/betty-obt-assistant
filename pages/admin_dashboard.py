@@ -22,8 +22,59 @@ from utils.feedback_manager import feedback_manager
 st.set_page_config(
     page_title="Betty Admin Dashboard",
     page_icon="📊",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
+
+# Custom CSS matching main app styling
+st.markdown("""
+<style>
+    /* Modern styling consistent with main app */
+    .stMetric {
+        background: white;
+        padding: 1.25rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.2s ease;
+    }
+
+    .stMetric:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Enhanced button styling */
+    .stButton button {
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+
+    .stButton button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Sidebar improvements */
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #f7fafc 0%, #ffffff 100%);
+    }
+
+    /* Enhanced expanders */
+    .streamlit-expanderHeader {
+        border-radius: 8px;
+        font-weight: 500;
+        background: #f7fafc;
+    }
+
+    /* Success/Info/Warning message enhancements */
+    .stSuccess, .stInfo, .stWarning {
+        border-radius: 8px;
+        padding: 1rem;
+        border-left: 4px solid;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # Enhanced Navigation Header
 col1, col2, col3 = st.columns([3, 1, 1])
@@ -32,25 +83,28 @@ with col1:
     st.markdown("""
     <div style="
         background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
-        padding: 1rem 1.5rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1.25rem 1.75rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 16px rgba(255, 107, 107, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
     ">
         <h1 style="
             color: white;
             margin: 0;
             font-size: 2.2rem;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.02em;
         ">
             📊 Admin Dashboard
         </h1>
         <p style="
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0.5rem 0 0 0;
-            font-size: 1rem;
-            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+            margin: 0.75rem 0 0 0;
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.5;
         ">
             Analytics and Performance Insights for Betty AI
         </p>

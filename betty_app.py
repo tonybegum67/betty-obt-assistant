@@ -45,8 +45,458 @@ AppConfig.init_environment()
 st.set_page_config(
     page_title=AppConfig.PAGE_TITLE,
     page_icon=AppConfig.PAGE_ICON,
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
+
+# Custom CSS for modern UI enhancements - PHASE 1 COMPLETE + DESIGN SYSTEM
+st.markdown("""
+<style>
+    /* ===== DESIGN SYSTEM: CSS Custom Properties (Tailwind-inspired) ===== */
+    :root {
+        /* Color Palette - Purple/Blue Theme */
+        --color-primary-50: #f5f3ff;
+        --color-primary-100: #ede9fe;
+        --color-primary-200: #ddd6fe;
+        --color-primary-300: #c4b5fd;
+        --color-primary-400: #a78bfa;
+        --color-primary-500: #667eea;
+        --color-primary-600: #764ba2;
+        --color-primary-700: #6d28d9;
+        --color-primary-800: #5b21b6;
+        --color-primary-900: #4c1d95;
+
+        /* Semantic Colors */
+        --color-success: #48bb78;
+        --color-success-light: #c6f6d5;
+        --color-info: #4299e1;
+        --color-info-light: #bee3f8;
+        --color-warning: #ed8936;
+        --color-warning-light: #feebc8;
+        --color-error: #f56565;
+        --color-error-light: #fed7d7;
+
+        /* Neutral Grays */
+        --color-gray-50: #f7fafc;
+        --color-gray-100: #edf2f7;
+        --color-gray-200: #e2e8f0;
+        --color-gray-300: #cbd5e0;
+        --color-gray-400: #a0aec0;
+        --color-gray-500: #718096;
+        --color-gray-600: #4a5568;
+        --color-gray-700: #2d3748;
+        --color-gray-800: #1a202c;
+        --color-gray-900: #171923;
+
+        /* Spacing Scale (Tailwind-like) */
+        --space-1: 0.25rem;   /* 4px */
+        --space-2: 0.5rem;    /* 8px */
+        --space-3: 0.75rem;   /* 12px */
+        --space-4: 1rem;      /* 16px */
+        --space-5: 1.25rem;   /* 20px */
+        --space-6: 1.5rem;    /* 24px */
+        --space-8: 2rem;      /* 32px */
+        --space-10: 2.5rem;   /* 40px */
+        --space-12: 3rem;     /* 48px */
+        --space-16: 4rem;     /* 64px */
+
+        /* Border Radius Scale */
+        --radius-sm: 0.25rem;   /* 4px */
+        --radius-md: 0.5rem;    /* 8px */
+        --radius-lg: 0.75rem;   /* 12px */
+        --radius-xl: 1rem;      /* 16px */
+        --radius-2xl: 1.5rem;   /* 24px */
+        --radius-full: 9999px;
+
+        /* Shadows (Tailwind-inspired) */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+        /* Typography Scale */
+        --text-xs: 0.75rem;     /* 12px */
+        --text-sm: 0.875rem;    /* 14px */
+        --text-base: 1rem;      /* 16px */
+        --text-lg: 1.125rem;    /* 18px */
+        --text-xl: 1.25rem;     /* 20px */
+        --text-2xl: 1.5rem;     /* 24px */
+        --text-3xl: 1.875rem;   /* 30px */
+        --text-4xl: 2.25rem;    /* 36px */
+
+        /* Font Weights */
+        --font-normal: 400;
+        --font-medium: 500;
+        --font-semibold: 600;
+        --font-bold: 700;
+
+        /* Transitions (Tailwind-inspired) */
+        --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* Z-Index Scale */
+        --z-dropdown: 1000;
+        --z-sticky: 1020;
+        --z-fixed: 1030;
+        --z-modal: 1040;
+        --z-popover: 1050;
+        --z-tooltip: 1060;
+    }
+
+    /* ===== UTILITY CLASSES (Tailwind-inspired) ===== */
+
+    /* Gradients */
+    .gradient-primary {
+        background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
+    }
+
+    .gradient-success {
+        background: linear-gradient(135deg, var(--color-success) 0%, #38a169 100%);
+    }
+
+    .gradient-soft {
+        background: linear-gradient(135deg, var(--color-gray-50) 0%, #ffffff 100%);
+    }
+
+    /* Text Utilities */
+    .text-gradient {
+        background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Shadow Utilities */
+    .shadow-hover {
+        box-shadow: var(--shadow-lg);
+    }
+
+    /* Transition Utilities */
+    .transition-all {
+        transition: all var(--transition-base);
+    }
+
+    /* ===== PHASE 1: MODERN UI ENHANCEMENTS ===== */
+
+    /* Modern chat message styling with smooth animations */
+    .stChatMessage {
+        border-radius: var(--radius-lg);
+        padding: var(--space-5);
+        margin-bottom: var(--space-4);
+        box-shadow: var(--shadow-md);
+        transition: all var(--transition-slow);
+        animation: slideIn 0.4s ease-out;
+        opacity: 1;
+    }
+
+    /* Slide-in animation for new messages */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Shimmer loading skeleton */
+    @keyframes shimmer {
+        0% {
+            background-position: -1000px 0;
+        }
+        100% {
+            background-position: 1000px 0;
+        }
+    }
+
+    .loading-skeleton {
+        background: linear-gradient(
+            90deg,
+            #f0f0f0 25%,
+            #e0e0e0 50%,
+            #f0f0f0 75%
+        );
+        background-size: 1000px 100%;
+        animation: shimmer 2s infinite;
+        border-radius: 8px;
+        height: 20px;
+        margin: 10px 0;
+    }
+
+    /* Typing indicator animation */
+    @keyframes typing {
+        0%, 60%, 100% {
+            transform: translateY(0);
+            opacity: 0.7;
+        }
+        30% {
+            transform: translateY(-10px);
+            opacity: 1;
+        }
+    }
+
+    .typing-indicator {
+        display: inline-flex;
+        gap: 4px;
+        padding: 10px 15px;
+        background: #f0f0f0;
+        border-radius: 20px;
+        margin: 10px 0;
+    }
+
+    .typing-indicator span {
+        width: 8px;
+        height: 8px;
+        background: #667eea;
+        border-radius: 50%;
+        animation: typing 1.4s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    /* Enhanced hover effect for messages */
+    .stChatMessage:hover {
+        box-shadow: var(--shadow-xl);
+        transform: translateY(-4px);
+    }
+
+    /* Enhanced button styling with ripple effect */
+    .stButton button {
+        border-radius: var(--radius-md);
+        font-weight: var(--font-medium);
+        transition: all var(--transition-slow);
+        border: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stButton button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+    }
+
+    .stButton button:active {
+        transform: translateY(0);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Modern feedback buttons */
+    .stButton button[kind="secondary"] {
+        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        border: 2px solid #e2e8f0;
+        color: #4a5568;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stButton button[kind="secondary"]:hover {
+        background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+        border-color: #667eea;
+        color: #667eea;
+        transform: translateY(-2px) scale(1.02);
+    }
+
+    /* Primary button enhancement */
+    .stButton button[kind="primary"] {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stButton button[kind="primary"]:hover {
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+        transform: translateY(-2px) scale(1.02);
+    }
+
+    /* File uploader enhancement with drag animation */
+    .stFileUploader {
+        border-radius: 12px;
+        border: 2px dashed #cbd5e0;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #f7fafc 0%, #ffffff 100%);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stFileUploader:hover {
+        border-color: #667eea;
+        background: linear-gradient(135deg, #edf2f7 0%, #f7fafc 100%);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        transform: scale(1.01);
+    }
+
+    /* Sidebar improvements with gradient */
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #f7fafc 0%, #ffffff 100%);
+        border-right: 1px solid #e2e8f0;
+    }
+
+    section[data-testid="stSidebar"] .stMarkdown {
+        padding: 0.5rem 0;
+    }
+
+    /* Enhanced metrics with animation */
+    .stMetric {
+        background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+        padding: 1.25rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stMetric:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+
+    /* Improved expander with smooth transition */
+    .streamlit-expanderHeader {
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #f7fafc 0%, #ffffff 100%);
+        border: 1px solid #e2e8f0;
+    }
+
+    .streamlit-expanderHeader:hover {
+        background: linear-gradient(135deg, #edf2f7 0%, #f7fafc 100%);
+        border-color: #667eea;
+    }
+
+    /* Better spacing for chat input with animation */
+    .stChatInputContainer {
+        border-top: 2px solid #e2e8f0;
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+        background: linear-gradient(180deg, rgba(247, 250, 252, 0.5) 0%, transparent 100%);
+    }
+
+    /* Success/Info/Warning message enhancements with icons */
+    .stSuccess, .stInfo, .stWarning {
+        border-radius: 12px;
+        padding: 1.25rem;
+        border-left: 4px solid;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        animation: slideIn 0.4s ease-out;
+    }
+
+    .stSuccess {
+        background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+        border-left-color: #48bb78;
+    }
+
+    .stInfo {
+        background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+        border-left-color: #4299e1;
+    }
+
+    .stWarning {
+        background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%);
+        border-left-color: #ed8936;
+    }
+
+    /* Toast notification animation */
+    @keyframes toast-in {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes toast-out {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    .toast-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        color: white;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
+        animation: toast-in 0.4s ease-out;
+        z-index: 9999;
+        font-weight: 600;
+    }
+
+    /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Universal smooth transitions */
+    * {
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Fade-in animation for page load */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .main {
+        animation: fadeIn 0.5s ease-in;
+    }
+
+    /* Enhanced focus states for accessibility */
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+        outline: 3px solid #667eea;
+        outline-offset: 2px;
+    }
+
+    /* Improved copy button styling */
+    .copy-button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+
+    .copy-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+    }
+
+    .copy-button:active {
+        transform: translateY(0);
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # Enhanced knowledge base initialization with better persistence handling
 def initialize_knowledge_base():
@@ -192,25 +642,28 @@ with col1:
     st.markdown(f"""
     <div style="
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 1rem 1.5rem;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1.25rem 1.75rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
     ">
         <h1 style="
             color: white;
             margin: 0;
             font-size: 2.2rem;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.02em;
         ">
             {AppConfig.PAGE_ICON} {AppConfig.PAGE_TITLE}
         </h1>
         <p style="
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0.5rem 0 0 0;
-            font-size: 1rem;
-            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+            margin: 0.75rem 0 0 0;
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.5;
         ">
             Strategic Transformation Assistant powered by AI
         </p>
@@ -241,50 +694,89 @@ with col3:
                  help="Access analytics and admin features"):
         st.switch_page("pages/admin_dashboard.py")
 
-# Betty's Introduction and Sample Prompts
+# Betty's Introduction and Sample Prompts - Only show if no messages
 if not st.session_state.messages:
-    st.markdown("---")
-    
-    # Betty's Description
-    st.markdown("""
-    ### 👋 Welcome! I'm Betty
-    
-    I'm an AI assistant designed to facilitate strategic transformation through **Outcome-Based Thinking (OBT)** and **What/How Mapping**. My role is to help organizations like Molex activate, measure, and align strategic outcomes with business structures for maximum impact.
-    
-    I assist in developing strategic ideas, creating measurable outcome statements, mapping these to the GPS tier framework, aligning them with business capabilities, and defining relevant KPIs. Additionally, I provide instructional coaching to enhance understanding and application of OBT methodology, building organizational capability while delivering strategic value.
-    """)
-    
-    # Sample Prompts
-    st.markdown("### 🚀 Try these sample prompts:")
-    
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        if st.button("📊 Transform Strategy", use_container_width=True):
-            sample_prompt = "Help me transform 'improve customer satisfaction' into a measurable outcome statement with KPIs and GPS tier mapping"
-            st.session_state.messages.append({"role": "user", "content": sample_prompt})
-            st.rerun()
-        
-        st.caption("Transform vague goals into measurable outcomes")
-    
-    with col2:
-        if st.button("🎯 Outcome Analysis", use_container_width=True):
-            sample_prompt = "Analyze this statement: 'implement agile methodologies across development teams' - is this a What or How? Help me reframe it."
-            st.session_state.messages.append({"role": "user", "content": sample_prompt})
-            st.rerun()
-        
-        st.caption("Learn What vs How classification")
-    
-    with col3:
-        if st.button("🏗️ GPS Mapping", use_container_width=True):
-            sample_prompt = "Map the outcome 'product defect rates reduced by 50%' to the appropriate GPS tier and identify supporting business capabilities"
-            st.session_state.messages.append({"role": "user", "content": sample_prompt})
-            st.rerun()
-        
-        st.caption("Align outcomes with organizational structure")
-    
-    st.markdown("---")
-    st.markdown("💬 **Or ask me anything about strategic transformation, OBT methodology, or Molex operations!**")
+    # Store welcome screen state
+    if "show_welcome" not in st.session_state:
+        st.session_state.show_welcome = True
+
+    if st.session_state.show_welcome:
+        st.markdown("---")
+
+        # Betty's Description
+        st.markdown("""
+        <div style="
+            background: linear-gradient(135deg, #f7fafc 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        ">
+            <h2 style="
+                color: #667eea;
+                font-size: 2rem;
+                font-weight: 700;
+                margin: 0 0 1rem 0;
+            ">
+                👋 Welcome! I'm Betty
+            </h2>
+            <p style="
+                color: #4a5568;
+                font-size: 1.1rem;
+                line-height: 1.8;
+                margin: 0;
+            ">
+                I'm an AI assistant designed to facilitate strategic transformation through <strong>Outcome-Based Thinking (OBT)</strong> and <strong>What/How Mapping</strong>. My role is to help organizations like Molex activate, measure, and align strategic outcomes with business structures for maximum impact.
+            </p>
+            <p style="
+                color: #4a5568;
+                font-size: 1.05rem;
+                line-height: 1.7;
+                margin: 1rem 0 0 0;
+            ">
+                I assist in developing strategic ideas, creating measurable outcome statements, mapping these to the GPS tier framework, aligning them with business capabilities, and defining relevant KPIs. Additionally, I provide instructional coaching to enhance understanding and application of OBT methodology, building organizational capability while delivering strategic value.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Sample Prompts
+        st.markdown("### 🚀 Try these sample prompts:")
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            if st.button("📊 Transform Strategy", use_container_width=True):
+                sample_prompt = "Help me transform 'improve customer satisfaction' into a measurable outcome statement with KPIs and GPS tier mapping"
+                st.session_state.messages.append({"role": "user", "content": sample_prompt})
+                st.session_state.show_welcome = False  # Hide welcome screen
+                st.rerun()
+
+            st.caption("Transform vague goals into measurable outcomes")
+
+        with col2:
+            if st.button("🎯 Outcome Analysis", use_container_width=True):
+                sample_prompt = "Analyze this statement: 'implement agile methodologies across development teams' - is this a What or How? Help me reframe it."
+                st.session_state.messages.append({"role": "user", "content": sample_prompt})
+                st.session_state.show_welcome = False  # Hide welcome screen
+                st.rerun()
+
+            st.caption("Learn What vs How classification")
+
+        with col3:
+            if st.button("🏗️ GPS Mapping", use_container_width=True):
+                sample_prompt = "Map the outcome 'product defect rates reduced by 50%' to the appropriate GPS tier and identify supporting business capabilities"
+                st.session_state.messages.append({"role": "user", "content": sample_prompt})
+                st.session_state.show_welcome = False  # Hide welcome screen
+                st.rerun()
+
+            st.caption("Align outcomes with organizational structure")
+
+        st.markdown("---")
+        st.markdown("💬 **Or ask me anything about strategic transformation, OBT methodology, or Molex operations!**")
+else:
+    # Once messages exist, hide the welcome screen
+    st.session_state.show_welcome = False
 
 # --- Configuration ---
 # Get the API key based on provider
@@ -448,16 +940,31 @@ if SYSTEM_PROMPT is None:
 def display_feedback_buttons(message_index: int, user_message: str, betty_response: str):
     """Display thumbs up/down feedback buttons for a Betty response."""
     feedback_key = f"feedback_{message_index}"
-    
+
     # Skip if feedback already given for this message
     if feedback_key in st.session_state.feedback_given:
-        st.caption("✅ Thank you for your feedback!")
+        st.markdown("""
+        <div style="
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            text-align: center;
+            margin: 0.5rem 0;
+            box-shadow: 0 2px 8px rgba(72, 187, 120, 0.2);
+        ">
+            ✅ Thank you for your feedback!
+        </div>
+        """, unsafe_allow_html=True)
         return
-    
-    col1, col2, col3 = st.columns([0.8, 0.8, 7.4])
-    
+
+    st.markdown("<p style='font-size: 0.95rem; color: #4a5568; font-weight: 500; margin: 1rem 0 0.5rem 0;'>Was this helpful?</p>", unsafe_allow_html=True)
+
+    col1, col2, col3 = st.columns([1, 1, 6])
+
     with col1:
-        if st.button("👍", key=f"thumbs_up_{message_index}", help="This response was helpful"):
+        if st.button("👍 Yes", key=f"thumbs_up_{message_index}", help="This response was helpful", use_container_width=True, type="secondary"):
             # Record positive feedback
             feedback_manager.record_feedback(
                 session_id=st.session_state.session_id,
@@ -466,11 +973,12 @@ def display_feedback_buttons(message_index: int, user_message: str, betty_respon
                 feedback_type="thumbs_up"
             )
             st.session_state.feedback_given.add(feedback_key)
+            st.balloons()
             st.success("Thank you for the positive feedback! 🎉")
             st.rerun()
-    
+
     with col2:
-        if st.button("👎", key=f"thumbs_down_{message_index}", help="This response needs improvement"):
+        if st.button("👎 No", key=f"thumbs_down_{message_index}", help="This response needs improvement", use_container_width=True, type="secondary"):
             # Record negative feedback
             feedback_manager.record_feedback(
                 session_id=st.session_state.session_id,
@@ -479,27 +987,30 @@ def display_feedback_buttons(message_index: int, user_message: str, betty_respon
                 feedback_type="thumbs_down"
             )
             st.session_state.feedback_given.add(feedback_key)
-            
+
             # Show optional feedback form
-            with st.expander("Help us improve (optional)"):
+            with st.expander("💬 Help us improve (optional)", expanded=True):
+                st.markdown("<p style='font-size: 0.9rem; color: #718096; margin-bottom: 0.5rem;'>Tell us what could be better:</p>", unsafe_allow_html=True)
                 feedback_details = st.text_area(
-                    "What could Betty do better?",
+                    "Feedback details",
                     key=f"feedback_details_{message_index}",
-                    placeholder="e.g., The outcome wasn't specific enough, missing KPI details, unclear GPS tier mapping..."
+                    placeholder="e.g., The outcome wasn't specific enough, missing KPI details, unclear GPS tier mapping...",
+                    label_visibility="collapsed",
+                    height=100
                 )
-                if st.button("Submit Details", key=f"submit_details_{message_index}"):
+                if st.button("📤 Submit Feedback", key=f"submit_details_{message_index}", type="primary", use_container_width=True):
                     if feedback_details:
                         # Update the feedback with details
                         conversation_id = feedback_manager.generate_conversation_id(user_message, betty_response)
                         with sqlite3.connect(feedback_manager.db_path) as conn:
                             conn.execute("""
-                                UPDATE feedback 
-                                SET feedback_details = ? 
+                                UPDATE feedback
+                                SET feedback_details = ?
                                 WHERE conversation_id = ? AND feedback_type = 'thumbs_down'
                             """, (feedback_details, conversation_id))
-                        st.success("Thank you for the detailed feedback! This helps us improve Betty.")
+                        st.success("✨ Thank you for the detailed feedback! This helps us improve Betty.")
             st.rerun()
-    
+
     # Copy button is now handled separately in the main chat display
 
 # --- Session State Initialization ---
@@ -507,7 +1018,7 @@ def display_feedback_buttons(message_index: int, user_message: str, betty_respon
 
 # --- Chat Interface ---
 
-# Auto-scroll chat to bottom functionality
+# Auto-scroll chat to bottom functionality - Enhanced for first message
 st.markdown("""
 <script>
 // Global scroll state management
@@ -515,17 +1026,18 @@ window.bettyScrollState = {
     isScrolling: false,
     lastMessageCount: 0,
     observer: null,
-    initialized: false
+    initialized: false,
+    firstMessageHandled: false
 };
 
-// Improved scroll function
-function scrollToBottom() {
-    if (window.bettyScrollState.isScrolling) {
+// Improved scroll function with instant scroll option
+function scrollToBottom(instant = false) {
+    if (window.bettyScrollState.isScrolling && !instant) {
         return;
     }
-    
+
     window.bettyScrollState.isScrolling = true;
-    
+
     // Use requestAnimationFrame for better performance
     requestAnimationFrame(() => {
         setTimeout(() => {
@@ -533,16 +1045,16 @@ function scrollToBottom() {
                 document.body.scrollHeight,
                 document.documentElement.scrollHeight
             );
-            
+
             window.scrollTo({
                 top: scrollHeight,
-                behavior: 'smooth'
+                behavior: instant ? 'instant' : 'smooth'
             });
-            
+
             setTimeout(() => {
                 window.bettyScrollState.isScrolling = false;
-            }, 800);
-        }, 200);
+            }, instant ? 100 : 800);
+        }, instant ? 0 : 200);
     });
 }
 
@@ -550,11 +1062,20 @@ function scrollToBottom() {
 function checkForNewMessages() {
     const chatMessages = document.querySelectorAll('[data-testid="stChatMessage"]');
     const currentCount = chatMessages.length;
-    
+
     if (currentCount > window.bettyScrollState.lastMessageCount) {
         window.bettyScrollState.lastMessageCount = currentCount;
-        if (!window.bettyScrollState.isScrolling) {
-            scrollToBottom();
+
+        // For the very first message, scroll instantly to bottom
+        const isFirstMessage = !window.bettyScrollState.firstMessageHandled && currentCount > 0;
+
+        if (isFirstMessage) {
+            window.bettyScrollState.firstMessageHandled = true;
+            // Instant scroll for first message to clear welcome screen
+            scrollToBottom(true);
+        } else if (!window.bettyScrollState.isScrolling) {
+            // Smooth scroll for subsequent messages
+            scrollToBottom(false);
         }
     }
 }
@@ -562,12 +1083,12 @@ function checkForNewMessages() {
 // Optimized MutationObserver
 function initializeScrollObserver() {
     if (window.bettyScrollState.initialized) return;
-    
+
     window.bettyScrollState.initialized = true;
-    
+
     const observer = new MutationObserver(function(mutations) {
         let hasNewContent = false;
-        
+
         for (const mutation of mutations) {
             if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
                 for (const node of mutation.addedNodes) {
@@ -575,7 +1096,7 @@ function initializeScrollObserver() {
                         // Check for chat messages specifically
                         if (node.querySelector && (
                             node.querySelector('[data-testid="stChatMessage"]') ||
-                            node.hasAttribute('data-testid') && 
+                            node.hasAttribute('data-testid') &&
                             node.getAttribute('data-testid') === 'stChatMessage'
                         )) {
                             hasNewContent = true;
@@ -586,7 +1107,7 @@ function initializeScrollObserver() {
                 if (hasNewContent) break;
             }
         }
-        
+
         if (hasNewContent) {
             // Debounce rapid changes
             clearTimeout(window.bettyScrollState.debounceTimeout);
@@ -595,18 +1116,18 @@ function initializeScrollObserver() {
             }, 100);
         }
     });
-    
+
     observer.observe(document.body, {
         childList: true,
         subtree: true
     });
-    
+
     window.bettyScrollState.observer = observer;
-    
-    // Initial check
+
+    // Initial check - if messages exist on load, scroll to bottom instantly
     setTimeout(() => {
         checkForNewMessages();
-    }, 500);
+    }, 300);
 }
 
 // Initialize
@@ -647,12 +1168,75 @@ for i, message in enumerate(st.session_state.messages):
             if user_message:
                 display_feedback_buttons(i, user_message, message["content"])
 
-# Accept user input
-uploaded_file = st.file_uploader(
-    "Upload a document for temporary context",
-    type=["pdf", "docx", "txt", "csv", "xlsx"],
-    key="file_uploader"
-)
+# Accept user input with compact file upload
+st.markdown("<div style='margin-top: 1.5rem;'></div>", unsafe_allow_html=True)
+
+# Create a compact row with file upload and chat input
+upload_col, chat_col = st.columns([1, 9])
+
+with upload_col:
+    st.markdown("""
+    <style>
+        /* Compact file uploader styling */
+        div[data-testid="stFileUploader"] {
+            border-radius: 8px !important;
+            border: 2px dashed #cbd5e0 !important;
+            padding: 0.5rem !important;
+            background: linear-gradient(135deg, #f7fafc 0%, #ffffff 100%) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            min-height: 60px !important;
+        }
+
+        div[data-testid="stFileUploader"]:hover {
+            border-color: #667eea !important;
+            background: linear-gradient(135deg, #edf2f7 0%, #f7fafc 100%) !important;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        /* Hide the default file uploader text */
+        div[data-testid="stFileUploader"] label {
+            font-size: 0.75rem !important;
+            color: #718096 !important;
+            font-weight: 500 !important;
+        }
+
+        div[data-testid="stFileUploader"] small {
+            font-size: 0.65rem !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    uploaded_file = st.file_uploader(
+        "📎",
+        type=["pdf", "docx", "txt", "csv", "xlsx"],
+        key="file_uploader",
+        help="Upload PDF, DOCX, TXT, CSV, or XLSX for context"
+    )
+
+# Show compact upload success indicator
+if uploaded_file:
+    file_size_kb = uploaded_file.size // 1024
+    st.markdown(f"""
+    <div style="
+        background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        padding: 0.5rem 0.75rem;
+        border-radius: 6px;
+        color: white;
+        margin: 0.5rem 0;
+        box-shadow: 0 2px 6px rgba(72, 187, 120, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.875rem;
+    ">
+        <span style='font-weight: 500;'>
+            ✅ {uploaded_file.name[:30]}{'...' if len(uploaded_file.name) > 30 else ''}
+        </span>
+        <span style='font-size: 0.75rem; opacity: 0.9;'>
+            {file_size_kb} KB
+        </span>
+    </div>
+    """, unsafe_allow_html=True)
 
 # Check if there's a new message to process (either from chat input or sample prompts)
 if prompt := st.chat_input("What would you like to ask Betty?"):
@@ -673,18 +1257,26 @@ if st.session_state.messages and st.session_state.messages[-1]["role"] == "user"
             needs_response = False
     
     if needs_response:
-        # Generate and display assistant response
+        # Generate and display assistant response with enhanced loading state
         with st.chat_message("assistant"):
+            # Show typing indicator while thinking
             message_placeholder = st.empty()
+            message_placeholder.markdown("""
+            <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            """, unsafe_allow_html=True)
             full_response = ""
-            
+
             # Prepare the system prompt with all context
             system_prompt = SYSTEM_PROMPT
-            
+
             # --- Handle Uploaded File for Temporary Context ---
             temp_context = ""
             if uploaded_file:
-                with st.spinner(f"Reading {uploaded_file.name}..."):
+                with st.spinner(f"📄 Reading {uploaded_file.name}..."):
                     temp_context = document_processor.process_uploaded_file(uploaded_file)
                     
                     if temp_context:
@@ -748,29 +1340,59 @@ if st.session_state.messages and st.session_state.messages[-1]["role"] == "user"
 
         # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": full_response})
-        
-        # Force a scroll after the response is complete
-        st.markdown("""
+
+        # Force a scroll after the response is complete - instant for first message
+        is_first_response = len(st.session_state.messages) <= 2
+        st.markdown(f"""
         <script>
         // Trigger scroll for new response
-        setTimeout(() => {
-            if (window.bettyScrollState && typeof scrollToBottom === 'function') {
-                scrollToBottom();
-            }
-        }, 300);
+        setTimeout(() => {{
+            if (window.bettyScrollState && typeof scrollToBottom === 'function') {{
+                scrollToBottom({str(is_first_response).lower()});
+            }}
+        }}, {100 if is_first_response else 300});
         </script>
         """, unsafe_allow_html=True)
-        
+
         # The MutationObserver will automatically handle scrolling for new messages
         # Copy button and feedback buttons will be displayed when the message history is rendered
 
 # --- Sidebar for Controls ---
 with st.sidebar:
-    st.markdown("### 🎛️ App Controls")
-    
+    # Enhanced sidebar header
+    st.markdown("""
+    <div style="
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 1rem;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+    ">
+        <h3 style="
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        ">🎛️ App Controls</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
     # Current Page Indicator
     st.markdown("#### 📍 Current Page")
-    st.success("🏠 **Betty Chat** - Main Interface")
+    st.markdown("""
+    <div style="
+        background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        padding: 0.75rem;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(72, 187, 120, 0.2);
+    ">
+        🏠 Betty Chat - Main Interface
+    </div>
+    """, unsafe_allow_html=True)
     
     st.markdown("---")
     
