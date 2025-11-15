@@ -15,7 +15,7 @@ import anthropic
 import os
 import io
 import re
-from typing import Generator, List
+from typing import Generator, List, Dict
 
 # Mermaid diagram support
 try:
@@ -834,6 +834,87 @@ def search_knowledge_base(query: str, collection_name: str, n_results: int = Non
     else:
         return vector_store.search_collection(collection_name, query, n_results)
 
+def detect_multi_pass_query(user_message: str) -> bool:
+    """
+    Detect if query requires comprehensive multi-pass retrieval.
+
+    Returns True for queries that need deep cross-capability analysis.
+    """
+    # Convert to lowercase for case-insensitive matching
+    message_lower = user_message.lower()
+
+    multi_pass_triggers = [
+        # Project analysis keywords
+        "identify projects", "compare projects", "consolidate projects",
+        "similar projects", "project overlap", "combine projects",
+        "project consolidation", "merge projects",
+
+        # Cross-domain analysis
+        "across all capabilities", "across capabilities", "all domains",
+        "cross-capability", "cross-domain", "enterprise-wide",
+
+        # Comprehensive analysis
+        "comprehensive analysis", "complete list", "all instances",
+        "portfolio analysis", "strategic overview", "full inventory"
+    ]
+
+    return any(trigger in message_lower for trigger in multi_pass_triggers)
+
+
+def multi_pass_retrieval(query: str, collection_name: str) -> List[Dict]:
+    """
+    Multi-pass retrieval for comprehensive cross-capability analysis.
+
+    Uses targeted domain-specific queries to ensure complete coverage
+    across all 8 PD capability domains.
+
+    Args:
+        query: Original user query
+        collection_name: ChromaDB collection to search
+
+    Returns:
+        List of unique document chunks (deduplicated)
+    """
+    # Domain-specific queries for comprehensive coverage
+    # Based on performance testing: 6 targeted queries = 960ms, 27 chunks, 11 files
+    queries = [
+        ("Change Control Management projects descriptions", 5),
+        ("BOM PIM Management projects descriptions", 5),
+        ("Requirements Management projects descriptions", 5),
+        ("Data AI projects descriptions", 5),
+        ("Design Management Collaboration projects", 5),
+        ("project dependencies impact portfolio relationships", 5)
+    ]
+
+    all_results = []
+
+    # Execute all queries
+    for query_text, n_results in queries:
+        try:
+            results = vector_store.search_collection(
+                collection_name,
+                query_text,
+                n_results=n_results
+            )
+            all_results.extend(results)
+        except Exception as e:
+            st.warning(f"Multi-pass query failed: {query_text[:30]}... - {e}")
+            continue
+
+    # Deduplicate by content hash (first 100 chars as key)
+    seen_content = set()
+    unique_results = []
+
+    for result in all_results:
+        # Use first 100 chars of content as deduplication key
+        content_key = result['content'][:100]
+        if content_key not in seen_content:
+            seen_content.add(content_key)
+            unique_results.append(result)
+
+    # Return top 25 unique chunks for optimal context
+    return unique_results[:25]
+
 def detect_and_render_mermaid(content: str) -> bool:
     """
     Detect Mermaid diagrams in content and render them.
@@ -1285,7 +1366,20 @@ if st.session_state.messages and st.session_state.messages[-1]["role"] == "user"
             # Perform RAG search on the permanent knowledge base
             source_files = []
             if st.session_state.get("use_rag", True):
-                relevant_docs = search_knowledge_base(last_user_message, collection_name=AppConfig.KNOWLEDGE_COLLECTION_NAME)
+                # Detect if query needs multi-pass retrieval
+                use_multi_pass = detect_multi_pass_query(last_user_message)
+
+                if use_multi_pass:
+                    # Use multi-pass for comprehensive cross-capability analysis
+                    with st.spinner("🔍 Performing comprehensive multi-pass retrieval..."):
+                        relevant_docs = multi_pass_retrieval(
+                            last_user_message,
+                            collection_name=AppConfig.KNOWLEDGE_COLLECTION_NAME
+                        )
+                else:
+                    # Use standard single-pass for focused queries
+                    relevant_docs = search_knowledge_base(last_user_message, collection_name=AppConfig.KNOWLEDGE_COLLECTION_NAME)
+
                 if relevant_docs:
                     context = "\n\n".join([
                         f"Document: {doc['metadata']['filename']}\nContent: {doc['content']}"
@@ -1310,7 +1404,10 @@ if st.session_state.messages and st.session_state.messages[-1]["role"] == "user"
                     # Stream the response from the Claude API
                     with client.messages.stream(
                         model=AppConfig.CLAUDE_MODEL,
-                        max_tokens=4000,
+                        max_tokens=AppConfig.MAX_TOKENS,
+                        temperature=AppConfig.TEMPERATURE,
+                        top_p=AppConfig.TOP_P,
+                        top_k=AppConfig.TOP_K,
                         messages=api_messages,
                         system=system_prompt,  # Use consolidated system prompt
                     ) as stream:

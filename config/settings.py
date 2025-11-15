@@ -29,7 +29,7 @@ class AppConfig:
     # Text Processing Configuration - Optimized for consistent context
     CHUNK_SIZE: int = int(os.getenv("CHUNK_SIZE", "1000"))  # Larger chunks for better context
     CHUNK_OVERLAP: int = int(os.getenv("CHUNK_OVERLAP", "200"))  # More overlap for continuity
-    MAX_SEARCH_RESULTS: int = int(os.getenv("MAX_SEARCH_RESULTS", "8"))  # More results for comprehensive context
+    MAX_SEARCH_RESULTS: int = int(os.getenv("MAX_SEARCH_RESULTS", "15"))  # Increased for comprehensive project analysis
     
     # Embedding Configuration
     EMBEDDING_MODEL: str = os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-mpnet-base-v2")
@@ -54,7 +54,13 @@ class AppConfig:
     USE_RERANKING: bool = bool(os.getenv("USE_RERANKING", "False"))  # Disabled for deterministic results
     USE_SEMANTIC_CHUNKING: bool = bool(os.getenv("USE_SEMANTIC_CHUNKING", "False"))  # Simplified chunking
     RERANKER_MODEL: str = os.getenv("RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
-    
+
+    # LLM Generation Parameters - Optimized for factual accuracy
+    TEMPERATURE: float = float(os.getenv("TEMPERATURE", "0.2"))  # Low temp for deterministic, factual responses
+    TOP_P: float = float(os.getenv("TOP_P", "0.9"))  # High nucleus sampling for natural professional language
+    TOP_K: int = int(os.getenv("TOP_K", "40"))  # Moderate vocabulary pool for domain-specific terms
+    MAX_TOKENS: int = int(os.getenv("MAX_TOKENS", "4000"))  # Maximum response length
+
     # Environment Configuration
     DISABLE_TOKENIZER_PARALLELISM: bool = True
     
