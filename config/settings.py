@@ -19,9 +19,13 @@ class AppConfig:
     # Claude API Configuration
     ANTHROPIC_API_KEY: Optional[str] = None
     CLAUDE_MODEL: str = "claude-sonnet-4-20250514"
-    
+
+    # Cassidy AI Configuration
+    CASSIDY_API_KEY: Optional[str] = os.getenv("CASSIDY_API_KEY")
+    CASSIDY_ASSISTANT_ID: str = os.getenv("CASSIDY_ASSISTANT_ID", "cmgjq8s7802e1n70frp8qad4r")
+
     # AI Provider Selection
-    AI_PROVIDER: str = os.getenv("AI_PROVIDER", "claude")  # "openai" or "claude"
+    AI_PROVIDER: str = os.getenv("AI_PROVIDER", "claude")  # "openai", "claude", "cassidy", or "compare"
     
     # Database Configuration
     CHROMA_DB_PATH: str = os.getenv("CHROMA_DB_PATH", "./data/betty_chroma_db")

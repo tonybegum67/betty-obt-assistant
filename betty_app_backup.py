@@ -9,30 +9,13 @@ try:
 except ImportError:
     import sqlite3
 
-# Load environment variables from .env file
-import os
-from pathlib import Path
-
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    # Fallback manual .env loader if python-dotenv not installed
-    env_file = Path(__file__).parent / '.env'
-    if env_file.exists():
-        with open(env_file) as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith('#') and '=' in line:
-                    key, value = line.split('=', 1)
-                    os.environ[key.strip()] = value.strip()
-
 import streamlit as st
 import openai
 import anthropic
+import os
 import io
 import re
-from typing import Generator, List, Dict
+from typing import Generator, List
 
 # Mermaid diagram support
 try:
@@ -47,7 +30,6 @@ from utils.document_processor import document_processor
 from utils.vector_store import betty_vector_store
 from utils.feedback_manager import feedback_manager
 from utils.clipboard_helper import create_inline_copy_button
-from utils.cassidy_client import get_cassidy_client
 
 # ChromaDB compatibility check
 try:
@@ -65,455 +47,6 @@ st.set_page_config(
     page_icon=AppConfig.PAGE_ICON,
     layout="wide"
 )
-
-# Custom CSS for modern UI enhancements - PHASE 1 COMPLETE + DESIGN SYSTEM
-st.markdown("""
-<style>
-    /* ===== DESIGN SYSTEM: CSS Custom Properties (Tailwind-inspired) ===== */
-    :root {
-        /* Color Palette - Purple/Blue Theme */
-        --color-primary-50: #f5f3ff;
-        --color-primary-100: #ede9fe;
-        --color-primary-200: #ddd6fe;
-        --color-primary-300: #c4b5fd;
-        --color-primary-400: #a78bfa;
-        --color-primary-500: #667eea;
-        --color-primary-600: #764ba2;
-        --color-primary-700: #6d28d9;
-        --color-primary-800: #5b21b6;
-        --color-primary-900: #4c1d95;
-
-        /* Semantic Colors */
-        --color-success: #48bb78;
-        --color-success-light: #c6f6d5;
-        --color-info: #4299e1;
-        --color-info-light: #bee3f8;
-        --color-warning: #ed8936;
-        --color-warning-light: #feebc8;
-        --color-error: #f56565;
-        --color-error-light: #fed7d7;
-
-        /* Neutral Grays */
-        --color-gray-50: #f7fafc;
-        --color-gray-100: #edf2f7;
-        --color-gray-200: #e2e8f0;
-        --color-gray-300: #cbd5e0;
-        --color-gray-400: #a0aec0;
-        --color-gray-500: #718096;
-        --color-gray-600: #4a5568;
-        --color-gray-700: #2d3748;
-        --color-gray-800: #1a202c;
-        --color-gray-900: #171923;
-
-        /* Spacing Scale (Tailwind-like) */
-        --space-1: 0.25rem;   /* 4px */
-        --space-2: 0.5rem;    /* 8px */
-        --space-3: 0.75rem;   /* 12px */
-        --space-4: 1rem;      /* 16px */
-        --space-5: 1.25rem;   /* 20px */
-        --space-6: 1.5rem;    /* 24px */
-        --space-8: 2rem;      /* 32px */
-        --space-10: 2.5rem;   /* 40px */
-        --space-12: 3rem;     /* 48px */
-        --space-16: 4rem;     /* 64px */
-
-        /* Border Radius Scale */
-        --radius-sm: 0.25rem;   /* 4px */
-        --radius-md: 0.5rem;    /* 8px */
-        --radius-lg: 0.75rem;   /* 12px */
-        --radius-xl: 1rem;      /* 16px */
-        --radius-2xl: 1.5rem;   /* 24px */
-        --radius-full: 9999px;
-
-        /* Shadows (Tailwind-inspired) */
-        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-
-        /* Typography Scale */
-        --text-xs: 0.75rem;     /* 12px */
-        --text-sm: 0.875rem;    /* 14px */
-        --text-base: 1rem;      /* 16px */
-        --text-lg: 1.125rem;    /* 18px */
-        --text-xl: 1.25rem;     /* 20px */
-        --text-2xl: 1.5rem;     /* 24px */
-        --text-3xl: 1.875rem;   /* 30px */
-        --text-4xl: 2.25rem;    /* 36px */
-
-        /* Font Weights */
-        --font-normal: 400;
-        --font-medium: 500;
-        --font-semibold: 600;
-        --font-bold: 700;
-
-        /* Transitions (Tailwind-inspired) */
-        --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
-
-        /* Z-Index Scale */
-        --z-dropdown: 1000;
-        --z-sticky: 1020;
-        --z-fixed: 1030;
-        --z-modal: 1040;
-        --z-popover: 1050;
-        --z-tooltip: 1060;
-    }
-
-    /* ===== UTILITY CLASSES (Tailwind-inspired) ===== */
-
-    /* Gradients */
-    .gradient-primary {
-        background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
-    }
-
-    .gradient-success {
-        background: linear-gradient(135deg, var(--color-success) 0%, #38a169 100%);
-    }
-
-    .gradient-soft {
-        background: linear-gradient(135deg, var(--color-gray-50) 0%, #ffffff 100%);
-    }
-
-    /* Text Utilities */
-    .text-gradient {
-        background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    /* Shadow Utilities */
-    .shadow-hover {
-        box-shadow: var(--shadow-lg);
-    }
-
-    /* Transition Utilities */
-    .transition-all {
-        transition: all var(--transition-base);
-    }
-
-    /* ===== PHASE 1: MODERN UI ENHANCEMENTS ===== */
-
-    /* Modern chat message styling with smooth animations */
-    .stChatMessage {
-        border-radius: var(--radius-lg);
-        padding: var(--space-5);
-        margin-bottom: var(--space-4);
-        box-shadow: var(--shadow-md);
-        transition: all var(--transition-slow);
-        animation: slideIn 0.4s ease-out;
-        opacity: 1;
-    }
-
-    /* Slide-in animation for new messages */
-    @keyframes slideIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Shimmer loading skeleton */
-    @keyframes shimmer {
-        0% {
-            background-position: -1000px 0;
-        }
-        100% {
-            background-position: 1000px 0;
-        }
-    }
-
-    .loading-skeleton {
-        background: linear-gradient(
-            90deg,
-            #f0f0f0 25%,
-            #e0e0e0 50%,
-            #f0f0f0 75%
-        );
-        background-size: 1000px 100%;
-        animation: shimmer 2s infinite;
-        border-radius: 8px;
-        height: 20px;
-        margin: 10px 0;
-    }
-
-    /* Typing indicator animation */
-    @keyframes typing {
-        0%, 60%, 100% {
-            transform: translateY(0);
-            opacity: 0.7;
-        }
-        30% {
-            transform: translateY(-10px);
-            opacity: 1;
-        }
-    }
-
-    .typing-indicator {
-        display: inline-flex;
-        gap: 4px;
-        padding: 10px 15px;
-        background: #f0f0f0;
-        border-radius: 20px;
-        margin: 10px 0;
-    }
-
-    .typing-indicator span {
-        width: 8px;
-        height: 8px;
-        background: #667eea;
-        border-radius: 50%;
-        animation: typing 1.4s infinite;
-    }
-
-    .typing-indicator span:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    .typing-indicator span:nth-child(3) {
-        animation-delay: 0.4s;
-    }
-
-    /* Enhanced hover effect for messages */
-    .stChatMessage:hover {
-        box-shadow: var(--shadow-xl);
-        transform: translateY(-4px);
-    }
-
-    /* Enhanced button styling with ripple effect */
-    .stButton button {
-        border-radius: var(--radius-md);
-        font-weight: var(--font-medium);
-        transition: all var(--transition-slow);
-        border: none;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .stButton button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
-    }
-
-    .stButton button:active {
-        transform: translateY(0);
-        box-shadow: var(--shadow-md);
-    }
-
-    /* Modern feedback buttons */
-    .stButton button[kind="secondary"] {
-        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-        border: 2px solid #e2e8f0;
-        color: #4a5568;
-        font-weight: 600;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .stButton button[kind="secondary"]:hover {
-        background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
-        border-color: #667eea;
-        color: #667eea;
-        transform: translateY(-2px) scale(1.02);
-    }
-
-    /* Primary button enhancement */
-    .stButton button[kind="primary"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .stButton button[kind="primary"]:hover {
-        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
-        transform: translateY(-2px) scale(1.02);
-    }
-
-    /* File uploader enhancement with drag animation */
-    .stFileUploader {
-        border-radius: 12px;
-        border: 2px dashed #cbd5e0;
-        padding: 1.5rem;
-        background: linear-gradient(135deg, #f7fafc 0%, #ffffff 100%);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .stFileUploader:hover {
-        border-color: #667eea;
-        background: linear-gradient(135deg, #edf2f7 0%, #f7fafc 100%);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
-        transform: scale(1.01);
-    }
-
-    /* Sidebar improvements with gradient */
-    section[data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #f7fafc 0%, #ffffff 100%);
-        border-right: 1px solid #e2e8f0;
-    }
-
-    section[data-testid="stSidebar"] .stMarkdown {
-        padding: 0.5rem 0;
-    }
-
-    /* Enhanced metrics with animation */
-    .stMetric {
-        background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
-        padding: 1.25rem;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        border: 1px solid #e2e8f0;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .stMetric:hover {
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        transform: translateY(-2px);
-    }
-
-    /* Improved expander with smooth transition */
-    .streamlit-expanderHeader {
-        border-radius: 8px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        background: linear-gradient(135deg, #f7fafc 0%, #ffffff 100%);
-        border: 1px solid #e2e8f0;
-    }
-
-    .streamlit-expanderHeader:hover {
-        background: linear-gradient(135deg, #edf2f7 0%, #f7fafc 100%);
-        border-color: #667eea;
-    }
-
-    /* Better spacing for chat input with animation */
-    .stChatInputContainer {
-        border-top: 2px solid #e2e8f0;
-        padding-top: 1.5rem;
-        margin-top: 1.5rem;
-        background: linear-gradient(180deg, rgba(247, 250, 252, 0.5) 0%, transparent 100%);
-    }
-
-    /* Success/Info/Warning message enhancements with icons */
-    .stSuccess, .stInfo, .stWarning {
-        border-radius: 12px;
-        padding: 1.25rem;
-        border-left: 4px solid;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        animation: slideIn 0.4s ease-out;
-    }
-
-    .stSuccess {
-        background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
-        border-left-color: #48bb78;
-    }
-
-    .stInfo {
-        background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
-        border-left-color: #4299e1;
-    }
-
-    .stWarning {
-        background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%);
-        border-left-color: #ed8936;
-    }
-
-    /* Toast notification animation */
-    @keyframes toast-in {
-        from {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    @keyframes toast-out {
-        from {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        to {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-    }
-
-    .toast-notification {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 1rem 1.5rem;
-        background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
-        color: white;
-        border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
-        animation: toast-in 0.4s ease-out;
-        z-index: 9999;
-        font-weight: 600;
-    }
-
-    /* Smooth scroll behavior */
-    html {
-        scroll-behavior: smooth;
-    }
-
-    /* Universal smooth transitions */
-    * {
-        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    }
-
-    /* Fade-in animation for page load */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-
-    .main {
-        animation: fadeIn 0.5s ease-in;
-    }
-
-    /* Enhanced focus states for accessibility */
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible {
-        outline: 3px solid #667eea;
-        outline-offset: 2px;
-    }
-
-    /* Improved copy button styling */
-    .copy-button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-    }
-
-    .copy-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
-    }
-
-    .copy-button:active {
-        transform: translateY(0);
-    }
-</style>
-""", unsafe_allow_html=True)
 
 # Enhanced knowledge base initialization with better persistence handling
 def initialize_knowledge_base():
@@ -808,89 +341,6 @@ def search_knowledge_base(query: str, collection_name: str, n_results: int = Non
         return vector_store.search_collection_with_reranking(collection_name, query, n_results)
     else:
         return vector_store.search_collection(collection_name, query, n_results)
-
-
-def detect_multi_pass_query(user_message: str) -> bool:
-    """
-    Detect if query requires comprehensive multi-pass retrieval.
-
-    Returns True for queries that need deep cross-capability analysis.
-    """
-    # Convert to lowercase for case-insensitive matching
-    message_lower = user_message.lower()
-
-    multi_pass_triggers = [
-        # Project analysis keywords
-        "identify projects", "compare projects", "consolidate projects",
-        "similar projects", "project overlap", "combine projects",
-        "project consolidation", "merge projects",
-
-        # Cross-domain analysis
-        "across all capabilities", "across capabilities", "all domains",
-        "cross-capability", "cross-domain", "enterprise-wide",
-
-        # Comprehensive analysis
-        "comprehensive analysis", "complete list", "all instances",
-        "portfolio analysis", "strategic overview", "full inventory"
-    ]
-
-    return any(trigger in message_lower for trigger in multi_pass_triggers)
-
-
-def multi_pass_retrieval(query: str, collection_name: str) -> List[Dict]:
-    """
-    Multi-pass retrieval for comprehensive cross-capability analysis.
-
-    Uses targeted domain-specific queries to ensure complete coverage
-    across all 8 PD capability domains.
-
-    Args:
-        query: Original user query
-        collection_name: ChromaDB collection to search
-
-    Returns:
-        List of unique document chunks (deduplicated)
-    """
-    # Domain-specific queries for comprehensive coverage
-    # Based on performance testing: 6 targeted queries = 960ms, 27 chunks, 11 files
-    queries = [
-        ("Change Control Management projects descriptions", 5),
-        ("BOM PIM Management projects descriptions", 5),
-        ("Requirements Management projects descriptions", 5),
-        ("Data AI projects descriptions", 5),
-        ("Design Management Collaboration projects", 5),
-        ("project dependencies impact portfolio relationships", 5)
-    ]
-
-    all_results = []
-
-    # Execute all queries
-    for query_text, n_results in queries:
-        try:
-            results = vector_store.search_collection(
-                collection_name,
-                query_text,
-                n_results=n_results
-            )
-            all_results.extend(results)
-        except Exception as e:
-            st.warning(f"Multi-pass query failed: {query_text[:30]}... - {e}")
-            continue
-
-    # Deduplicate by content hash (first 100 chars as key)
-    seen_content = set()
-    unique_results = []
-
-    for result in all_results:
-        # Use first 100 chars of content as deduplication key
-        content_key = result['content'][:100]
-        if content_key not in seen_content:
-            seen_content.add(content_key)
-            unique_results.append(result)
-
-    # Return top 25 unique chunks for optimal context
-    return unique_results[:25]
-
 
 def detect_and_render_mermaid(content: str) -> bool:
     """
@@ -1243,23 +693,7 @@ if st.session_state.messages and st.session_state.messages[-1]["role"] == "user"
             # Perform RAG search on the permanent knowledge base
             source_files = []
             if st.session_state.get("use_rag", True):
-                # Detect if query needs multi-pass retrieval
-                use_multi_pass = detect_multi_pass_query(last_user_message)
-
-                if use_multi_pass:
-                    # Use multi-pass for comprehensive cross-capability analysis
-                    with st.spinner("🔍 Performing comprehensive multi-pass retrieval..."):
-                        relevant_docs = multi_pass_retrieval(
-                            last_user_message,
-                            collection_name=AppConfig.KNOWLEDGE_COLLECTION_NAME
-                        )
-                else:
-                    # Use standard single-pass for focused queries
-                    relevant_docs = search_knowledge_base(
-                        last_user_message,
-                        collection_name=AppConfig.KNOWLEDGE_COLLECTION_NAME
-                    )
-
+                relevant_docs = search_knowledge_base(last_user_message, collection_name=AppConfig.KNOWLEDGE_COLLECTION_NAME)
                 if relevant_docs:
                     context = "\n\n".join([
                         f"Document: {doc['metadata']['filename']}\nContent: {doc['content']}"
@@ -1280,96 +714,11 @@ if st.session_state.messages and st.session_state.messages[-1]["role"] == "user"
             ]
 
             try:
-                # Get selected AI provider from session state (defaults to claude)
-                selected_provider = st.session_state.get("ai_provider", "claude")
-
-                if selected_provider == "cassidy":
-                    # Use Cassidy Assistant
-                    cassidy_client = get_cassidy_client()
-                    if cassidy_client:
-                        # Initialize thread ID if not exists
-                        if "cassidy_thread_id" not in st.session_state:
-                            st.session_state.cassidy_thread_id = None
-
-                        with st.spinner("🤖 Cassidy is thinking..."):
-                            response, thread_id = cassidy_client.chat(
-                                last_user_message,
-                                thread_id=st.session_state.cassidy_thread_id
-                            )
-
-                        if response:
-                            st.session_state.cassidy_thread_id = thread_id
-                            full_response = response
-                            message_placeholder.markdown(full_response)
-                        else:
-                            full_response = "❌ Sorry, I couldn't get a response from Cassidy. Please check your API configuration."
-                            message_placeholder.markdown(full_response)
-                    else:
-                        full_response = "❌ Cassidy API not configured. Please add CASSIDY_API_KEY to your .env file."
-                        message_placeholder.markdown(full_response)
-
-                elif selected_provider == "compare":
-                    # Show both Claude and Cassidy responses side by side
-                    col1, col2 = st.columns(2)
-
-                    # Claude response
-                    with col1:
-                        st.markdown("### 🔵 Claude (RAG Enhanced)")
-                        claude_placeholder = st.empty()
-                        claude_response = ""
-
-                        with client.messages.stream(
-                            model=AppConfig.CLAUDE_MODEL,
-                            max_tokens=AppConfig.MAX_TOKENS,
-                            temperature=AppConfig.TEMPERATURE,
-                            top_p=AppConfig.TOP_P,
-                            top_k=AppConfig.TOP_K,
-                            messages=api_messages,
-                            system=system_prompt,
-                        ) as stream:
-                            for text in stream.text_stream:
-                                claude_response += text
-                                claude_placeholder.markdown(claude_response + "▌")
-                        claude_placeholder.markdown(claude_response)
-
-                    # Cassidy response
-                    with col2:
-                        st.markdown("### 🟢 Cassidy Assistant")
-                        cassidy_placeholder = st.empty()
-                        cassidy_response = ""
-
-                        cassidy_client = get_cassidy_client()
-                        if cassidy_client:
-                            if "cassidy_thread_id" not in st.session_state:
-                                st.session_state.cassidy_thread_id = None
-
-                            with st.spinner(""):
-                                response, thread_id = cassidy_client.chat(
-                                    last_user_message,
-                                    thread_id=st.session_state.cassidy_thread_id
-                                )
-
-                            if response:
-                                st.session_state.cassidy_thread_id = thread_id
-                                cassidy_response = response
-                                cassidy_placeholder.markdown(cassidy_response)
-                            else:
-                                cassidy_placeholder.markdown("❌ Error getting Cassidy response")
-                        else:
-                            cassidy_placeholder.markdown("❌ Cassidy not configured")
-
-                    # Combine responses for storage
-                    full_response = f"**Claude Response:**\n\n{claude_response}\n\n---\n\n**Cassidy Response:**\n\n{cassidy_response}"
-                    message_placeholder.markdown(full_response)
-
-                elif AppConfig.AI_PROVIDER == "claude" or selected_provider == "claude":
+                if AppConfig.AI_PROVIDER == "claude":
                     # Stream the response from the Claude API
                     with client.messages.stream(
                         model=AppConfig.CLAUDE_MODEL,
-                        max_tokens=AppConfig.MAX_TOKENS,
-                        temperature=AppConfig.TEMPERATURE,
-                        top_p=AppConfig.TOP_P,
-                        top_k=AppConfig.TOP_K,
+                        max_tokens=4000,
                         messages=api_messages,
                         system=system_prompt,  # Use consolidated system prompt
                     ) as stream:
@@ -1433,27 +782,11 @@ with st.sidebar:
         st.rerun()
     
     st.session_state.use_rag = st.checkbox(
-        "🧠 Use Betty's Knowledge (RAG)",
+        "🧠 Use Betty's Knowledge (RAG)", 
         value=True,
         help="Enable Betty to search her knowledge base for relevant context"
     )
-
-    # AI Provider Selection
-    ai_provider_options = {
-        "Claude (RAG Enhanced)": "claude",
-        "Cassidy Assistant": "cassidy",
-        "Compare Both": "compare"
-    }
-
-    selected_provider_label = st.selectbox(
-        "🤖 AI Provider",
-        options=list(ai_provider_options.keys()),
-        index=0,
-        help="Choose which AI to use for responses"
-    )
-
-    st.session_state.ai_provider = ai_provider_options[selected_provider_label]
-
+    
     st.markdown("---")
 
     # Knowledge Base Section
@@ -1562,17 +895,9 @@ with st.sidebar:
 
     # Model information
     with st.expander("ℹ️ System Information"):
-        current_provider = st.session_state.get("ai_provider", "claude")
-        provider_info = {
-            "claude": f"Claude ({AppConfig.CLAUDE_MODEL})",
-            "cassidy": f"Cassidy Assistant ({AppConfig.CASSIDY_ASSISTANT_ID[:20]}...)",
-            "compare": "Claude + Cassidy (Comparison Mode)"
-        }
-
         st.markdown(f"""
-        **AI Provider**: {provider_info.get(current_provider, "Claude")}
-        **RAG System**: {"Multi-Pass (Smart)" if st.session_state.get("use_rag", True) else "Disabled"}
+        **AI Provider**: {AppConfig.AI_PROVIDER}
+        **Model**: {AppConfig.CLAUDE_MODEL if AppConfig.AI_PROVIDER == 'claude' else AppConfig.OPENAI_MODEL}
         **System Prompt**: {"v4.3 (file-based)" if SYSTEM_PROMPT and "v4.3" in SYSTEM_PROMPT[:200] else "v4.2 (fallback)"}
-        **Cassidy Status**: {"✅ Configured" if AppConfig.CASSIDY_API_KEY else "❌ Not Configured"}
         """)
 

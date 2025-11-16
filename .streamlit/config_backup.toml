@@ -1,0 +1,19 @@
+[server]
+maxUploadSize = 200
+maxMessageSize = 200
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "light"
+
+# Streamlit Cloud optimizations
+[global]
+# Reduce memory usage
+showWarningOnDirectExecution = false
+
+# For faster model loading
+[runner]
+fastReruns = true
+enforceSerializableSessionState = false
