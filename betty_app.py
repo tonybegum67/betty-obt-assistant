@@ -48,6 +48,7 @@ from utils.vector_store import betty_vector_store
 from utils.feedback_manager import feedback_manager
 from utils.clipboard_helper import create_inline_copy_button
 from utils.cassidy_client import get_cassidy_client
+from utils.web_search import WEB_SEARCH_TOOL_DEFINITION, execute_web_search
 
 # ChromaDB compatibility check
 try:
@@ -1363,19 +1364,101 @@ if st.session_state.messages and st.session_state.messages[-1]["role"] == "user"
                     message_placeholder.markdown(full_response)
 
                 elif AppConfig.AI_PROVIDER == "claude" or selected_provider == "claude":
-                    # Stream the response from the Claude API
-                    with client.messages.stream(
-                        model=AppConfig.CLAUDE_MODEL,
-                        max_tokens=AppConfig.MAX_TOKENS,
-                        temperature=AppConfig.TEMPERATURE,
-                        top_p=AppConfig.TOP_P,
-                        top_k=AppConfig.TOP_K,
-                        messages=api_messages,
-                        system=system_prompt,  # Use consolidated system prompt
-                    ) as stream:
-                        for text in stream.text_stream:
-                            full_response += text
-                            message_placeholder.markdown(full_response + "▌")
+                    # Enable web search tool if configured
+                    tools = []
+                    if st.session_state.get("enable_web_search", False):
+                        tools = [WEB_SEARCH_TOOL_DEFINITION]
+
+                    # Handle tool use with Claude API
+                    tool_use_loop = True
+                    max_tool_iterations = 3  # Prevent infinite loops
+                    iteration_count = 0
+
+                    while tool_use_loop and iteration_count < max_tool_iterations:
+                        iteration_count += 1
+
+                        # Make API call with or without tools
+                        if tools:
+                            response = client.messages.create(
+                                model=AppConfig.CLAUDE_MODEL,
+                                max_tokens=AppConfig.MAX_TOKENS,
+                                temperature=AppConfig.TEMPERATURE,
+                                top_p=AppConfig.TOP_P,
+                                top_k=AppConfig.TOP_K,
+                                messages=api_messages,
+                                system=system_prompt,
+                                tools=tools
+                            )
+                        else:
+                            # Stream without tools (original behavior)
+                            with client.messages.stream(
+                                model=AppConfig.CLAUDE_MODEL,
+                                max_tokens=AppConfig.MAX_TOKENS,
+                                temperature=AppConfig.TEMPERATURE,
+                                top_p=AppConfig.TOP_P,
+                                top_k=AppConfig.TOP_K,
+                                messages=api_messages,
+                                system=system_prompt,
+                            ) as stream:
+                                for text in stream.text_stream:
+                                    full_response += text
+                                    message_placeholder.markdown(full_response + "▌")
+                            break  # Exit loop after streaming
+
+                        # Check if Claude wants to use a tool
+                        if response.stop_reason == "tool_use":
+                            # Process tool calls
+                            tool_results = []
+
+                            for content_block in response.content:
+                                if content_block.type == "tool_use":
+                                    tool_name = content_block.name
+                                    tool_input = content_block.input
+
+                                    if tool_name == "web_search":
+                                        # Execute web search
+                                        with st.spinner(f"🔍 Searching the web for: {tool_input.get('query', '')}..."):
+                                            search_results = execute_web_search(
+                                                query=tool_input.get("query", ""),
+                                                max_results=tool_input.get("max_results", 5)
+                                            )
+
+                                        # Add tool result to results list
+                                        tool_results.append({
+                                            "type": "tool_result",
+                                            "tool_use_id": content_block.id,
+                                            "content": search_results
+                                        })
+                                elif content_block.type == "text":
+                                    # Accumulate any text from this response
+                                    full_response += content_block.text
+
+                            # Add assistant message with tool use to conversation
+                            api_messages.append({
+                                "role": "assistant",
+                                "content": response.content
+                            })
+
+                            # Add tool results to conversation
+                            api_messages.append({
+                                "role": "user",
+                                "content": tool_results
+                            })
+
+                            # Continue loop to get final response
+                        else:
+                            # No more tool use, extract final text response
+                            for content_block in response.content:
+                                if content_block.type == "text":
+                                    full_response += content_block.text
+
+                            # Display streaming effect for final response
+                            temp_response = ""
+                            for char in full_response:
+                                temp_response += char
+                                message_placeholder.markdown(temp_response + "▌")
+
+                            tool_use_loop = False  # Exit loop
                 else:
                     # Stream the response from the OpenAI API
                     stream = client.chat.completions.create(
@@ -1436,6 +1519,12 @@ with st.sidebar:
         "🧠 Use Betty's Knowledge (RAG)",
         value=True,
         help="Enable Betty to search her knowledge base for relevant context"
+    )
+
+    st.session_state.enable_web_search = st.checkbox(
+        "🔍 Enable Web Search",
+        value=False,
+        help="Allow Betty to search the web for current information not in her knowledge base"
     )
 
     # AI Provider Selection

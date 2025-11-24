@@ -20,3 +20,5 @@ sqlite-utils
 # Evaluation dependencies
 scikit-learn
 numpy
+# Web search dependencies (optional - requires API keys)
+requests
